@@ -28,13 +28,3 @@ test/
 
 ### VS Code ###
 .vscode/
-### Example user template template
-### Example user template
-
-# IntelliJ project files
-out
-gen
-mvnw.cmd
-mvnw
-.mvn/
-test/
