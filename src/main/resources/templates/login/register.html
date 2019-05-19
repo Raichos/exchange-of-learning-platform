@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册视拼购商</title>
+    <script src="../../static/js/jquery-3.4.0.js"></script>
+    <script src="../../static/js/bootstrap.js"></script>
+    <script src="../../static/js/mock.js"></script>
+    <script async type="text/javascript" src="../../static/js/background.js"></script>
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/font-awesome.css">
+    <style type="text/css">
+        /*.content{*/
+        /*    background-color: #0b2e13;*/
+        /*    width: 100%;*/
+        /*}*/
+        body, html {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            margin: 0;
+            padding: 0;
+        }
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            z-index: -100;
+        }
+        h3, h5, a{
+            color:#fff;
+        }
+    </style>
+</head>
+<div>
+    <canvas id="background"></canvas>
+    <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+
+        <div class="container-fluid text-center align-content-center">
+            <div class="top-content mb-5">
+
+            </div>
+            <div class="content mb-5 text-center align-content-center row">
+                <div class="col-md-2"></div>
+                <div class="card col-md-8" style="width: 60rem;background: rgba(0,0,0,0.4);border-radius: 15px;">
+                    <div class="card-body">
+                        <img style="border-radius: 8px;" src="../../static/img/icon.png"></div>
+                    <h3 class="card-title">0元入驻</h3>
+                    <h5 class="card-subtitle mb-2 text-muted">商家注册</h5>
+                    <form id="form" class="form-check-inline" action="/register" method="post">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-user"></i></div>
+                                </div>
+                                <input type="text" class="form-control was-invalid" name="userName" id="username" placeholder="用户名" required>
+                                <div class="invalid-feedback" id="username-message">
+                                    用户名不能为空！
+                                </div>
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">+86</div>
+                                </div>
+                                <input type="text" class="form-control was-invalid" id="phone" placeholder="请输入手机号" required>
+                                <div class="invalid-feedback" id="phoneid-message">
+                                    手机号不能为空！
+                                </div>
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                                </div>
+                                <input type="password" class="form-control was-invalid" name="password" id="userpassword" placeholder="请输入密码" required>
+                                <div class="invalid-feedback" id="userpassword-message">
+                                    密码不能为空！
+                                </div>
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                                </div>
+                                <input type="password" class="form-control was-invalid" id="userpassword2" placeholder="请再次输入密码" required>
+                                <div class="invalid-feedback" id="userpassword2-message">
+                                    两次密码不一致！
+                                </div>
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-envelope"></i></div>
+                                </div>
+                                <input type="text" class="form-control col-md-8 was-invalid" name="email" id="email" placeholder="请输入您的邮箱" required>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                </div>
+                                <select class="custom-select col-md-4" name="emailSuffix" id="inputGroupSelect01">
+                                    <option selected value="qq.com">qq.com</option>
+                                    <option value="163.com">163.com</option>
+                                    <option value="126.com">126.com</option>
+                                    <option value="136.com">136.com</option>
+                                    <option value="sina.com">sina.com</option>
+                                    <option value="21cn.com">21cn.com</option>
+                                    <option value="sohu.com">sohu.com</option>
+                                    <option value="yahoo.com.cn">yahoo.com.cn</option>
+                                    <option value="tom.com">tom.com</option>
+                                    <option value="etang.com">etang.com</option>
+                                    <option value="eyou.com">eyou.com</option>
+                                    <option value="56.com">56.com</option>
+                                    <option value="x.cn">x.cn</option>
+                                    <option value="chinaren.com">chinaren.com</option>
+                                    <option value="sogou.com">sogou.com</option>
+                                    <option value="citiz.com">citiz.com</option>
+                                    <option value="gmail.com">gmail.com</option>
+                                    <option value="mail.com">mail.com</option>
+                                    <option value="vip.qq.com">vip.qq.com</option>
+                                    <option value="189.cn">189.cn</option>
+                                </select>
+                                <div class="invalid-feedback" id="email-message">
+                                    邮箱不能为空！
+                                </div>
+                            </div>
+                            <div class="input-group mb-4">
+                                <input type="text" class="form-control col-md-4 was-invalid" name="emailCode" id="email-code" placeholder="请输入邮箱验证码" required>
+                                <button type="button" class="btn btn-secondary col-md-4" id="get-email-code">获取验证码</button>
+                                <div class="col-md-4"></div>
+                                <div class="invalid-feedback" id="email-code-message">
+                                    邮箱验证码不能为空！
+                                </div>
+                            </div>
+                            <div class="mb-4" style="color: #fff;">
+                                注册VShop，即表示你同意 VShop 的
+                                <a class="btn-link" href="#">使用条款</a> 和 <a class="btn-link" href="#">隐私政策</a>
+                            </div>
+                            <div class=" row mb-4" style="color: #fff;">
+                                <div class="col-md-4"></div>
+                                <!--<button type="button" class="btn btn-primary col-md-4" id="create-user">创建账号</button>-->
+                                <input type="button" class="btn btn-primary col-md-4" id="create-user" value="创建账号" />
+                                <div class="col-md-4" style="font-size: 14px;">
+                                    已有账号？去<a class="btn-link" href="/user/login">登陆</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="bottom-content mb-5">
+
+        </div>
+
+    </div>
+</div>
+</body>
+<script src="../../static/js/vue.js"></script>
+<script>
+    $('#get-email-code').click(function () {
+
+        if ($('#email').val().length == 0){
+            $('#email-message').text('邮箱不能为空!');
+            $('#email').removeClass("was-invalid");
+            $('#email').addClass('is-invalid');
+            return;
+        }  else {
+            $('#email-message').val('邮箱不能为空！');
+            $('#email').removeClass("is-invalid");
+            $('#email').addClass('was-invalid');
+            $.post('/emailcode', {email:$('#email').val()+'@'+$('#inputGroupSelect01').val()}, function(result){
+            });
+        }
+
+        $('#get-email-code').attr("disabled", true);    //使按钮失效
+        /*$.post('/emailcode', '', function(result){
+        });*/
+
+        var wait_time = 59;
+        //动态时间改变，倒计时
+        var temp = setInterval(function () {
+            if(wait_time <= -1) {
+                $('#get-email-code').attr("disabled", false);    //使按钮失效
+                $('#get-email-code').text('获取验证码');
+                clearInterval(temp);
+                return;
+            }
+            $('#get-email-code').text(wait_time--);
+
+        }, 1000);   //每秒刷新一次
+    });
+
+    function checkNull(input){
+        if(input.val() === ""){
+            input.removeClass("was-invalid");
+            input.addClass('is-invalid');
+        }else{
+            input.removeClass("is-invalid");
+            input.addClass('was-invalid');
+        }
+    }
+
+    function checkpassword(psw1, psw2){
+        if(psw1.val() === "" || psw1.val() !== psw2.val()){
+            psw2.removeClass("was-invalid");
+            psw2.addClass('is-invalid');
+            return false;
+        }else{
+            psw2.removeClass("is-invalid");
+            psw2.addClass('was-invalid');
+            return true;
+        }
+    }
+
+    //创建账号
+    $('#create-user').click(function () {
+
+        var usernamePatt = /[A-Za-z0-9_\-\u4e00-\u9fa5]+/;
+        var phonePatt = /^1[3|4|5|8][0-9]\d{8,8}$/;
+        var userpasswordPatt = /^\S{6,12}$/;
+        var emailPatt = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3})$/;
+        var emailcodePatt = /^[0-9]{6,6}$/;
+
+
+        checkNull($('#username'));
+        if($('#username').val().length < 6 || $('#username').val().length > 20 || !usernamePatt.test($('#username').val())){
+            $('#username-message').text('用户名长度为6-20位汉字、字母或数字!');
+            $('#username').removeClass("was-invalid");
+            $('#username').addClass('is-invalid');
+            return;
+        }else{
+            $('#username-message').val('用户名不能为空！');
+            $('#username').removeClass("is-invalid");
+            $('#username').addClass('was-invalid');
+        }
+
+
+        checkNull($('#phoneid'));
+        var phonevalue = document.getElementById("phone").value;
+        if(!(phonePatt.test(phonevalue))){
+            $('#phoneid-message').text('不是完整的11位手机号或者正确的手机号前七位!');
+            $('#phone').removeClass("was-invalid");
+            $('#phone').addClass('is-invalid');
+            return;
+        } else {
+            $('#phoneid-message').val('手机号不能为空！');
+            $('#phone').removeClass("is-invalid");
+            $('#phone').addClass('was-invalid');
+        }
+
+
+        checkNull($('#userpassword'));
+        if(!(userpasswordPatt.test($('#userpassword').val())) && ($('#userpassword').val().length > 0)){
+            $('#userpassword-message').text('密码有误，请输入6-12位长度的密码');
+            $('#userpassword').removeClass("was-invalid");
+            $('#userpassword').addClass('is-invalid');
+            return;
+        } else if ($('#userpassword').val().length == 0) {
+            $('#userpassword-message').text('密码不能为空!');
+            $('#userpassword').removeClass("was-invalid");
+            $('#userpassword').addClass('is-invalid');
+            return;
+        } else {
+            $('#userpassword-message').val('密码不能为空！');
+            $('#userpassword').removeClass("is-invalid");
+            $('#userpassword').addClass('was-invalid');
+        }
+
+        var isConfirmPassword = checkpassword($('#userpassword'), $('#userpassword2'));
+        if (!isConfirmPassword){
+            return;
+        }
+
+        checkNull($('#email'));
+        var emailValue = $('#email').val()+'@'+$('#inputGroupSelect01').val();
+        if(!(emailPatt.test(emailValue)) && ($('#email').val().length > 0)){
+            $('#email-message').text('邮箱格式错误');
+            $('#email').removeClass("was-invalid");
+            $('#email').addClass('is-invalid');
+            return;
+        } else if ($('#email').val().length == 0) {
+            $('#email-message').text('邮箱不能为空!');
+            $('#email').removeClass("was-invalid");
+            $('#email').addClass('is-invalid');
+            return;
+        } else {
+            $('#email-message').val('邮箱不能为空！');
+            $('#email').removeClass("is-invalid");
+            $('#email').addClass('was-invalid');
+        }
+
+        checkNull($('#email-code'));
+        if(!(emailcodePatt.test($('#email-code').val())) && ($('#email-code').val().length > 0)){
+            $('#email-code-message').text('请输入6位数字邮箱验证码');
+            $('#email-code').removeClass("was-invalid");
+            $('#email-code').addClass('is-invalid');
+            return;
+        } else if ($('#email-code').val().length == 0) {
+            $('#email-code-message').text('邮箱验证码不能为空！');
+            $('#email-code').removeClass("was-invalid");
+            $('#email-code').addClass('is-invalid');
+            return;
+        } else {
+            $('#email-code-message').val('邮箱验证码不能为空！');
+            $('#email-code').removeClass("is-invalid");
+            $('#email-code').addClass('was-invalid');
+        }
+
+        $('#form').submit();
+    });
+</script>
+</html>

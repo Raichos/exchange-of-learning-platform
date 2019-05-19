@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视拼购 商家后台</title>
+    <script src="../static/js/jquery-3.4.0.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../static/css/vshop-main-style.css">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        #vshop-nav{
+            background: rgba(0,0,0,0.3);
+            /*border-radius: 8px;*/
+        }
+        .vshop-nav-items{
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+        }
+        li{
+            float:left;
+            list-style-type:none;
+        }
+        #bg{
+            background-color:#f0f0f0;
+            padding-bottom: 10%;
+        }
+        #content-left{
+            background-color: #f4f5f9;
+            padding-bottom: 100%;
+        }
+
+        .vshop-line{
+            box-sizing: border-box;
+            height: 1px;
+            color: #f4f5f9;
+            text-align: center;
+            width: 80%;
+        }
+
+        .color-black{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg">
+        <div class="top-nav "  style="width: 100%">
+            <nav class="navbar navbar-dark bg-secondary" id="vshop-nav" >
+
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-2">
+                    <span style="color: red;font-size: 28px;font-style: normal;font-weight: bold;">视拼购</span><span style="color: white;font-size: 18px;">管理后台</span>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <ul class="navbar-nav mr-auto vshop-nav-items">
+                        <li class="nav-item" style="margin: 0 5%;">
+                            <a class="nav-link" href="#">消息<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item" style="margin: 0 5%;">
+                            <a class="nav-link" href="#">客服平台</a>
+                        </li>
+                        <li class="nav-item" style="margin: 0 5%;">
+                            <a class="nav-link" href="#">商家社区</a>
+                        </li>
+                        <li class="nav-item" style="margin: 0 5%;">
+                            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                联系视拼购
+                            </button>
+                        </li>
+                        <!--                        <li class="nav-item" style="margin: 0 5%;">-->
+                        <!--                            <a class="nav-link" href="#">About</a>-->
+                        <!--                        </li>-->
+                        <!--                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">这里是名字 <b class="caret"></b></a>-->
+                        <!--                            <ul class="dropdown-menu">-->
+                        <!--                                <li><a id="action-1" href="#">meter</a></li>-->
+                        <!--                                <li><a href="#">EJB</a></li>-->
+                        <!--                                <li><a href="#">Jasper Report</a></li>-->
+                        <!--                                <li class="dropdown-divider"></li>-->
+                        <!--                                <li><a href="#">分离的链接</a></li>-->
+                        <!--                                <li class="dropdown-divider"></li>-->
+                        <!--                                <li><a href="#">另一个分离的链接</a></li>-->
+                        <!--                            </ul>-->
+                        <!--                        </li>-->
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <!--                    //头像-->
+                    <div>
+                        <!--                        <div class="text-hide" style="background-image: url('../static/img/icon.png'); width: 50px; height: 50px;border-radius: 50%;float: right;"></div>-->
+                        <li class="nav-item dropdown mb-2">
+                            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-hide" style="background-image: url('../static/img/icon.png'); width: 50px; height: 50px;border-radius: 50%;float: right;"></div>
+                            </a>
+                            <!--                            消息气泡-->
+                            <!--                            <a class="nav-link" href="#">-->
+                            <!--                                <i class="icon-bell"></i>-->
+                            <!--                                <span class="badge badge-pill badge-danger">1</span>-->
+                            <!--                            </a>-->
+
+                        </li>
+<!--                        <div class="btn-group" role="group">-->
+<!--                            <button id="btnGroupDrop1" style="" type="button" class="btn btn-secondary dropdown-toggle mt-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                                <span class="" id="username">这里是名字</span>-->
+<!--                            </button>-->
+<!--                            <div class="dropdown-menu bg-secondary" aria-labelledby="btnGroupDrop1">-->
+<!--                                <a class="dropdown-item bg-secondary" href="#">账号管理</a>-->
+<!--                                <a class="dropdown-item bg-secondary" href="#">退出</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <div class="nav">
+                            <div class="sidebar nav-item nav-dropdown">
+                                <a class="nav-link nav-dropdown-toggle" href="#">
+                                    <i class="nav-icon icon-cursor"></i> 这里是名字</a>
+                                <ul class="nav-dropdown-items">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="buttons/buttons.html">
+                                            <i class="nav-icon icon-cursor"></i> Buttons</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="buttons/button-group.html">
+                                            <i class="nav-icon icon-cursor"></i> Buttons Group</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="buttons/dropdowns.html">
+                                            <i class="nav-icon icon-cursor"></i> Dropdowns</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="buttons/brand-buttons.html">
+                                            <i class="nav-icon icon-cursor"></i> Brand Buttons</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </nav>
+            <a href="#"><img src="../static/img/main-frame/618.png"></a>
+        </div>
+        <div class="container-fluid">
+
+            <div class="content container-fluid row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2" id="content-left">
+                    <div class="sidebar container-fluid" style="background: rgba(0, 0, 0, 0);">
+                            <ul class="nav" style="width:  100%;color: black;">
+<!--                                <li class="nav-item open">-->
+<!--                                    <a class="nav-link active" href="index.html">-->
+<!--                                        <i class="nav-icon icon-speedometer"></i> Dashboard-->
+<!--                                        <span class="badge badge-primary">NEW</span>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li class="nav-title">Theme</li>-->
+<!--                                <li class="nav-item">-->
+<!--                                    <a class="nav-link" href="colors.html">-->
+<!--                                        <i class="nav-icon icon-drop"></i> Colors</a>-->
+<!--                                </li>-->
+<!--                                <li class="nav-item">-->
+<!--                                    <a class="nav-link" href="typography.html">-->
+<!--                                        <i class="nav-icon icon-pencil"></i> Typography</a>-->
+<!--                                </li>-->
+                                <li class="nav-title"><span class="color-black" style="font-weight: bold;">后台首页</span></li>
+                                <li class="nav-item nav-dropdown">
+                                    <a class="nav-link nav-dropdown-toggle" href="#">
+                                        <i class="fa fa-envelope"></i>
+                                        <i class="nav-icon icon-puzzle"></i > <span class="color-black">发货管理</span></a>
+                                    <ul class="nav-dropdown-items">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/breadcrumb.html">
+                                                <i class="nav-icon icon-puzzle"></i> 退款/售货</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/cards.html">
+                                                <i class="nav-icon icon-puzzle"></i> Cards</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/carousel.html">
+                                                <i class="nav-icon icon-puzzle"></i> Carousel</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/collapse.html">
+                                                <i class="nav-icon icon-puzzle"></i> Collapse</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/forms.html">
+                                                <i class="nav-icon icon-puzzle"></i> Forms</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/jumbotron.html">
+                                                <i class="nav-icon icon-puzzle"></i> Jumbotron</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/list-group.html">
+                                                <i class="nav-icon icon-puzzle"></i> List group</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/navs.html">
+                                                <i class="nav-icon icon-puzzle"></i> Navs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/pagination.html">
+                                                <i class="nav-icon icon-puzzle"></i> Pagination</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/popovers.html">
+                                                <i class="nav-icon icon-puzzle"></i> Popovers</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/progress.html">
+                                                <i class="nav-icon icon-puzzle"></i> Progress</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/scrollspy.html">
+                                                <i class="nav-icon icon-puzzle"></i> Scrollspy</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/switches.html">
+                                                <i class="nav-icon icon-puzzle"></i> Switches</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/tables.html">
+                                                <i class="nav-icon icon-puzzle"></i> Tables</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/tabs.html">
+                                                <i class="nav-icon icon-puzzle"></i> Tabs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="base/tooltips.html">
+                                                <i class="nav-icon icon-puzzle"></i> Tooltips</a>
+                                        </li>
+                                    </ul>
+                                </li>
+<!--                                <div class="vshop-line"></div>-->
+                                <li class="nav-item nav-dropdown">
+                                    <a class="nav-link nav-dropdown-toggle" href="#">
+                                        <i class="nav-icon icon-cursor"></i> Buttons</a>
+                                    <ul class="nav-dropdown-items">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="buttons/buttons.html">
+                                                <i class="nav-icon icon-cursor"></i> Buttons</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="buttons/button-group.html">
+                                                <i class="nav-icon icon-cursor"></i> Buttons Group</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="buttons/dropdowns.html">
+                                                <i class="nav-icon icon-cursor"></i> Dropdowns</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="buttons/brand-buttons.html">
+                                                <i class="nav-icon icon-cursor"></i> Brand Buttons</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="charts.html">
+                                        <i class="nav-icon icon-pie-chart"></i> Charts</a>
+                                </li>
+                                <li class="nav-item nav-dropdown">
+                                    <a class="nav-link nav-dropdown-toggle" href="#">
+                                        <i class="nav-icon icon-star"></i> Icons</a>
+                                    <ul class="nav-dropdown-items">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="icons/coreui-icons.html">
+                                                <i class="nav-icon icon-star"></i> CoreUI Icons
+                                                <span class="badge badge-success">NEW</span>
+                                            </a>
+                                            <a class="nav-link" href="icons/flags.html">
+                                                <i class="nav-icon icon-star"></i> Flags</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="icons/font-awesome.html">
+                                                <i class="nav-icon icon-star"></i> Font Awesome
+                                                <span class="badge badge-secondary">4.7</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="icons/simple-line-icons.html">
+                                                <i class="nav-icon icon-star"></i> Simple Line Icons</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item nav-dropdown">
+                                    <a class="nav-link nav-dropdown-toggle" href="#">
+                                        <i class="nav-icon icon-bell"></i> Notifications</a>
+                                    <ul class="nav-dropdown-items">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="notifications/alerts.html">
+                                                <i class="nav-icon icon-bell"></i> Alerts</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="notifications/badge.html">
+                                                <i class="nav-icon icon-bell"></i> Badge</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="notifications/modals.html">
+                                                <i class="nav-icon icon-bell"></i> Modals</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item fa-black-tie">
+                                    <a class="nav-link" href="widgets.html">
+                                        <i class="nav-icon icon-calculator"></i> Widgets
+                                        <span class="badge badge-primary">NEW</span>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="nav-title">Extras</li>
+                                <li class="nav-item nav-dropdown">
+                                    <a class="nav-link nav-dropdown-toggle" href="#">
+                                        <i class="nav-icon icon-star"></i> Pages</a>
+                                    <ul class="nav-dropdown-items">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="login.html" target="_top">
+                                                <i class="nav-icon icon-star"></i> Login</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="register.html" target="_top">
+                                                <i class="nav-icon icon-star"></i> Register</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="404.html" target="_top">
+                                                <i class="nav-icon icon-star"></i> Error 404</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="500.html" target="_top">
+                                                <i class="nav-icon icon-star"></i> Error 500</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item mt-auto">
+                                    <a class="nav-link nav-link-success" href="https://coreui.io" target="_top">
+                                        <i class="nav-icon icon-cloud-download"></i> Download CoreUI</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
+                                        <i class="nav-icon icon-layers"></i> Try CoreUI
+                                        <strong>PRO</strong>
+                                    </a>
+                                </li>
+                            </ul>
+<!--                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">-->
+<!--                                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;">-->
+<!--                                    -->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="ps__rail-y" style="top: 0px; right: 0px; height: 479px;">-->
+<!--                                <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 344px;">-->
+<!--                                    -->
+<!--                                </div>-->
+<!--                            </div>-->
+                        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+                    </div>
+<!--                    <h5>后台首页</h5>-->
+<!--                    <div class="btn-group" role="group">-->
+<!--                        <button id="btnGroupDrop-left1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                            Dropdown-->
+<!--                        </button>-->
+<!--                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop-left1">-->
+<!--                            <a class="dropdown-item" href="#">Dropdown link</a>-->
+<!--                            <a class="dropdown-item" href="#">Dropdown link</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="btn-group" role="group">-->
+<!--                        <button id="btnGroupDrop-left2" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                            Dropdown-->
+<!--                        </button>-->
+<!--                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop-left2">-->
+<!--                            <a class="dropdown-item" href="#">Dropdown link</a>-->
+<!--                            <a class="dropdown-item" href="#">Dropdown link</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $('.nav-dropdown').click(function () {
+        //判断当前点击的对象
+       if($(this).hasClass('open') === true){
+           // 如果已经打开
+           $(this).removeClass('open');
+       }else
+           $(this).addClass('open');
+    });
+</script>
+</html>
