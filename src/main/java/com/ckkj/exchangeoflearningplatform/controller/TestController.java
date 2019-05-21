@@ -59,4 +59,14 @@ public class TestController {
     public String test01(){
         return "test01";
     }
+
+    @GetMapping("/page/test1/aa")
+    public String test02(){
+        return "/page/test1/aa";
+    }
+
+    @GetMapping("/page/test2/aa")
+    public String test03(){
+        return "/page/test1/bb";
+    }
 }

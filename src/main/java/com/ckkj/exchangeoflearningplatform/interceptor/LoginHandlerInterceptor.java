@@ -22,6 +22,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
         Object user = request.getSession().getAttribute("loginUser");
 
         if (user == null) {
+            String url = request.getRequestURI();
             request.getSession().setAttribute("requestUrl",request.getRequestURI());
             System.out.println("没有权限请先登陆");
             //未登陆，返回登陆界面

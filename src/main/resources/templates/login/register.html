@@ -173,7 +173,7 @@
             $('#email-message').val('邮箱不能为空！');
             $('#email').removeClass("is-invalid");
             $('#email').addClass('was-invalid');
-            $.post('/emailcode', {email:$('#email').val()+'@'+$('#inputGroupSelect01').val()}, function(result){
+            $.get('/emailcode', {email:$('#email').val()+'@'+$('#inputGroupSelect01').val()}, function(result){
             });
         }
 

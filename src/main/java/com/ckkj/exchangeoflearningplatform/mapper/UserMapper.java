@@ -18,6 +18,6 @@ public interface UserMapper {
     @Select("SELECT count(*) FROM users WHERE user_name = #{userName} and password = #{password}")
     int findUserByUserPassword(String userName, String password);
 
-    @Insert("INSERT INTO users (user_name,PASSWORD,email,registerDate) VALUES (#{userName},#{password},#{email},#{registerDate});")
+    @Insert("INSERT INTO users (user_name,PASSWORD,email,register_date) VALUES (#{userName},#{password},#{email},#{registerDate});")
     int insertUser(User user);
 }
