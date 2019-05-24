@@ -67,7 +67,21 @@
 
         /*叠加显示左栏list*/
         .list-show{
-            position:absolute;width: 30%;z-index: 9999
+            position:absolute;
+            width: 30%;
+            z-index: 2;
+            border-bottom-right-radius: 5px;
+            padding: 5px;
+        }
+        .list-item-totle1{
+            /*display: inline-block;*/
+            width: 80px;
+            height: 20px;
+            text-align: center;
+            background: #a0aeb9;
+        }
+        .list-item-title-line1{
+            border-bottom: 1px solid #a0aeb9;
         }
 
         /*ul li {border-right:1px solid #666;}*/
@@ -304,13 +318,31 @@
                 </div>
 <!--                轮播图等-->
                 <div class="" style="width: 85%;">
-                    <div id="demo1" class="collapse collapse-list" style="position:absolute;width: 30%;z-index: 9999" data-parent="#collapse-list">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    <div id="demo1" class="collapse collapse-list list-show" data-parent="#collapse-list">
+                        <span class="list-item-totle1">知识海洋</span><span class="list-item-title-line1 w-100"></span>
+                        1  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </div>
                     <div id="demo2" class="collapse collapse-list list-show" data-parent="#collapse-list">
-                        圣诞快乐诺夫斯克列夫你
+                        2  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                    <div id="demo3" class="collapse collapse-list list-show" data-parent="#collapse-list">
+                        3  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                    <div id="demo4" class="collapse collapse-list list-show" data-parent="#collapse-list">
+                        4  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                    <div id="demo5" class="collapse collapse-list list-show" data-parent="#collapse-list">
+                        5  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </div>
                     <!--轮播图-->
                     <div id="carouselExampleIndicators" class="carousel slide w-100" data-ride="carousel" style="z-index: 1;position: relative;">
@@ -362,7 +394,7 @@
                                 <p class="card-bottom">高级<span>|</span>8门课</p>
                             </div>
                         </a>
-                        <a href="#" class="card col ml-3" style="text-decoration:none;width: 24%;margin-left: 7%;">
+                        <a href="#" class="card col ml-3 mr-3" style="text-decoration:none;width: 24%;margin-left: 7%;">
                             <img class="card-img-top mt-3" src="../static/img/main-frame/card/card-min-1.jpg" style="border-radius: 5px">
                             <div class="card-body">
                                 <p class="card-text-title">架构设计专项课程之页面静态化技术</p>
@@ -384,17 +416,17 @@
     </div>
 </body>
 <script>
-    $('.nav-dropdown').click(function () {
-        //判断当前点击的对象
-        if($(this).hasClass('nav-dropdown')){
-            if($(this).hasClass('open') === true){
-                // 如果已经打开
-                $(this).removeClass('open');
-            }else
-                $(this).addClass('open');
-        }
-
-    });
+    // $('.nav-dropdown').click(function () {
+    //     //判断当前点击的对象
+    //     if($(this).hasClass('nav-dropdown')){
+    //         if($(this).hasClass('open') === true){
+    //             // 如果已经打开
+    //             $(this).removeClass('open');
+    //         }else
+    //             $(this).addClass('open');
+    //     }
+    //
+    // });
 
 
     $('.items').mouseenter(function () {
@@ -405,5 +437,68 @@
         var id = $(this).index();
         $('#demo'+(id+1)).hide();
     });
+    $('.list-show').mouseenter(function () {
+        $(this).show();
+    });
+    $('.list-show').mouseout(function () {
+        $(this).hide();
+    });
+    // $('.items').mouseout(function (e) {
+    //     var id = $(this).index();
+    //     // 滞留
+    //     // 判断鼠标是否在div里
+    //     // alert(e.pageX+"  "+e.pageY);
+    //     // alert($('#demo'+(id+1)).width()+"  "+$('#demo'+(id+1)).height());
+    //     var x = e.pageX;
+    //     var y = e.pageY;
+    //     var y1 = $('#demo'+(id+1)).offset().top;
+    //     var y2 = y1 + $('#demo'+(id+1)).height();
+    //     var x1 = $('#demo'+(id+1)).offset().left;
+    //     var x2 = x1 + $('#demo'+(id+1)).width();
+    //     // alert('位置为'+x1+"  "+y1+"  ,  "+x2+"  "+y2);
+    //     // if( x < x1 || x > x2 || y < y1 || y > y2){//鼠标不在该DIV中
+    //     //     $('#demo'+(id+1)).hide();
+    //     // }else{  //鼠标在该DIV中
+    //     //     $('#demo'+(id+1)).show();
+    //     // };
+    //     if(x >= x1 && x <= x2 && y >= y1 && y <= y2){
+    //         $('#demo'+(id+1)).show();
+    //         $('#demo'+(id+1)).mousemove(function (e) {
+    //             var x = e.pageX;
+    //             var y = e.pageY;
+    //             var y1 = $('#demo'+(id+1)).offset().top;
+    //             var y2 = y1 + $('#demo'+(id+1)).height();
+    //             var x1 = $('#demo'+(id+1)).offset().left;
+    //             var x2 = x1 + $('#demo'+(id+1)).width();
+    //             if(x >= x1 && x <= x2 && y >= y1 && y <= y2){
+    //                 $('#demo'+(id+1)).show();
+    //             }else{
+    //                 $('#demo'+(id+1)).hide();
+    //             }
+    //         })
+    //     }else{
+    //         $('#demo'+(id+1)).hide();
+    //     }
+    //
+    // });
+
+    // $('.list-show').mouseenter(function () {
+    //     $(this).show();
+    //     $(this).each(function (index, obj) {
+    //         $(obj).mouseenter(function () {
+    //             // alert(index);
+    //             $('#demo'+(index+1)).show();
+    //         });
+    //
+    //     });
+    // });
+    // $('.list-show').mouseout(function () {
+    //     $(this).hide();
+    //     // $(this).each(function (index, obj) {
+    //     //     $(obj).mouseout(function () {
+    //     //         $('#demo'+(index+1)).hide();
+    //     //     });
+    //     // });
+    // });
 </script>
 </html>
