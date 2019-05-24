@@ -14,4 +14,6 @@ public interface TestMapper {
 
     @Select("select * from tests where id = #{id}")
     Tests findTest(Integer id);
+
+
 }

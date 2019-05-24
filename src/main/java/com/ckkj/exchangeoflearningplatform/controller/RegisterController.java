@@ -58,7 +58,7 @@ public class RegisterController {
         return "/login/login";
     }
 
-    @GetMapping("/emailcode")
+    @PostMapping("/emailcode")
     @ResponseBody
     public String emailCode(@RequestParam("email") String email) {
         System.out.println("email="+email);
@@ -69,7 +69,7 @@ public class RegisterController {
         message.setTo(email);
         message.setFrom("1963342385@qq.com");
         mailSender.send(message);
-        return "success";
+        return "index";
     }
 
     @GetMapping("register")

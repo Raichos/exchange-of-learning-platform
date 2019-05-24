@@ -1,7 +1,7 @@
 package com.ckkj.exchangeoflearningplatform.controller;
 
-import com.ckkj.exchangeoflearningplatform.utils.MD5Utils;
 import com.ckkj.exchangeoflearningplatform.service.UserService;
+import com.ckkj.exchangeoflearningplatform.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,17 +21,18 @@ public class LoginController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/loginuser")
+    @PostMapping("/loginUser")
     public String userLogin(@RequestParam("userName") String userName,
                             @RequestParam("password") String password,
                             HttpSession session) {
+        System.out.println("进入登陆");
         password = MD5Utils.md5(password);
         int count = userService.login(userName, password);
         if (count > 0) {
             session.setAttribute("loginUser",userName);
             System.out.println("URL="+session.getAttribute("requestUrl"));
-            if (((String)session.getAttribute("requestUrl")).equals("") || (session.getAttribute("requestUrl") == null)){
-                return "success";
+            if ("".equals((String)session.getAttribute("requestUrl")) || (session.getAttribute("requestUrl") == null)){
+                return "index";
             } else {
                 String requestUrl = (String) session.getAttribute("requestUrl");
                 session.setAttribute("requestUrl","");
@@ -45,6 +46,11 @@ public class LoginController {
     @GetMapping("/users/sign_in")
     public String register(){
         return "login/register";
+    }
+
+    @GetMapping("/index")
+    public String success(){
+        return "/index";
     }
 
 }

@@ -132,19 +132,19 @@
                                     邮箱验证码不能为空！
                                 </div>
                             </div>
+                            <div class="mb-4" style="color: #fff;">
+                                注册VShop，即表示你同意 VShop 的
+                                <a class="btn-link" href="#">使用条款</a> 和 <a class="btn-link" href="#">隐私政策</a>
+                            </div>
                             <div class=" row mb-4" style="color: #fff;">
                                 <div class="col-md-4"></div>
                                 <!--<button type="button" class="btn btn-primary col-md-4" id="create-user">创建账号</button>-->
                                 <input type="button" class="btn btn-primary col-md-4" id="create-user" value="创建账号" />
                                 <div class="col-md-4" style="font-size: 14px;">
-                                    已有账号？去<a class="btn-link" href="/login">登陆</a>
+                                    已有账号？去<a class="btn-link" href="/user/login">登陆</a>
                                 </div>
                             </div>
 
-                            <div class="mb-4" style="color: #fff;">
-                                注册VShop，即表示你同意 VShop 的
-                                <a class="btn-link" href="#">使用条款</a> 和 <a class="btn-link" href="#">隐私政策</a>
-                            </div>
                         </div>
 
                         <div class="col-md-4"></div>
@@ -173,7 +173,7 @@
             $('#email-message').val('邮箱不能为空！');
             $('#email').removeClass("is-invalid");
             $('#email').addClass('was-invalid');
-            $.get('/emailcode', {email:$('#email').val()+'@'+$('#inputGroupSelect01').val()}, function(result){
+            $.post('/emailcode', {email:$('#email').val()+'@'+$('#inputGroupSelect01').val()}, function(result){
             });
         }
 

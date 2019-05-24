@@ -7,6 +7,7 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,8 @@ import java.util.Date;
 
 @Controller
 public class TestController {
+
+
 
     @Autowired
     TestService testService;
@@ -55,9 +58,16 @@ public class TestController {
         return export(new File("\\\\\\192.168.87.130\\Users\\test.txt"));
     }
 
-    @GetMapping("test01")
+    @GetMapping("/testone")
+    @PreAuthorize("hasRole('USER')")
     public String test01(){
-        return "test01";
+        return "testone";
+    }
+
+    @GetMapping("/testtwo")
+    @PreAuthorize("hasRole('ADMIN')")
+    public String test04(){
+        return "testtwo";
     }
 
     @GetMapping("/page/test1/aa")
