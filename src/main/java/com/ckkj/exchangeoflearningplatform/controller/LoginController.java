@@ -52,5 +52,4 @@ public class LoginController {
     public String success(){
         return "/index";
     }
-
 }
