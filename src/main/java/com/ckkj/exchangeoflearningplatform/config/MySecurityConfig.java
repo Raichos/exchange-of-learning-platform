@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
@@ -31,14 +32,16 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(new PasswordEncoder() {
             @Override
             public String encode(CharSequence charSequence) {
+                System.out.println("charSequence.toString()="+charSequence.toString());
                 return charSequence.toString();
             }
 
             @Override
             public boolean matches(CharSequence charSequence, String s) {
-                String password = MD5Utils.md5(charSequence.toString());
+                //String password = MD5Utils.md5(charSequence.toString());
                 //System.out.println("aaaaffff:::charSequence="+charSequence+",s="+s);
-                return s.equals(password);
+                //return s.equals(password);
+                return new BCryptPasswordEncoder().matches(charSequence.toString(),s);
             }
         });
     }
