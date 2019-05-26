@@ -127,6 +127,13 @@
             z-index: 1999;
         }
 
+        .angle_right {
+            display: block;
+            /*width: 12px;*/
+            height: 9px;
+            background: url('../static/img/userIndex/right.gif') top left no-repeat;
+        }
+
         /*ul li {border-right:1px solid #666;}*/
     </style>
 </head>
@@ -158,6 +165,9 @@
                             联系平台
                         </button>
                     </li>
+                    <li class="nav-item" style="margin: 0 5%;">
+                        <a class="nav-link" href="#">资源分享</a>
+                    </li>
                 </ul>
             </div>
             <div class="col-md-3">
@@ -175,6 +185,7 @@
 
                         </div>
                     </div>
+                </div>
             </div>
         </nav>
     </div>
@@ -185,47 +196,62 @@
             <div class="mt-2" id="content-left" style="width: 15%;">
 
                 <!--                    左栏另外写法-->
-                <div class="sidebar w-100 items">
+                <div class="sidebar w-100 items bg-secondary">
                     <ul class="nav w-100 font-color">
-                        <li class="nav-item nav-dropdown list-item w-100" name="demo1">
+                        <li class="list-item w-100" name="demo1">
+                            <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
+                                <div class="item-name">
+                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar w-100 items bg-secondary" style="">
+                    <ul class="nav w-100 font-color">
+                        <li class="list-item w-100" name="demo1">
+                            <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
+                                <div class="item-name">
+                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar w-100 items bg-secondary">
+                    <ul class="nav w-100 font-color">
+                        <li class="list-item w-100" name="demo1">
+                            <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
+                                <div class="item-name">
+                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar w-100 items bg-secondary">
+                    <ul class="nav w-100 font-color">
+                        <li class="list-item w-100" name="demo1">
+                            <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
+                                <div class="item-name">
+                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar w-100 items bg-secondary">
+                    <ul class="nav w-100 font-color">
+                        <li class="list-item w-100" name="demo1">
+                            <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
+                                <div class="item-name">
+                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-                            <a class="nav-link nav-dropdown-toggle w-100" href="#" data-toggle="collapse" data-target="#demo1">
-                                <i class="fa fa-envelope"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;前端开发</span></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="sidebar w-100 items">
-                    <ul class="nav w-100" style="color: black;">
-                        <li class="nav-item nav-dropdown list-item" name="demo2">
-                            <a class="nav-link nav-dropdown-toggle" href="#" data-toggle="collapse" data-target="#demo2">
-                                <i class="fa fa-envelope"></i><span class="">&nbsp;&nbsp;&nbsp;&nbsp;前端开发</span></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="sidebar w-100 items">
-                    <ul class="nav w-100" style="color: black;">
-                        <li class="nav-item nav-dropdown list-item">
-                            <a class="nav-link nav-dropdown-toggle" href="#" data-toggle="collapse" data-target="#demo3">
-                                <i class="fa fa-envelope"></i><span class="">&nbsp;&nbsp;&nbsp;&nbsp;前端开发</span></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="sidebar w-100 items">
-                    <ul class="nav w-100" style="color: black;">
-                        <li class="nav-item nav-dropdown list-item open">
-                            <a class="nav-link nav-dropdown-toggle" href="#" data-toggle="collapse" data-target="#demo4">
-                                <i class="fa fa-envelope"></i><span class="">&nbsp;&nbsp;&nbsp;&nbsp;前端开发</span></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="sidebar w-100 items">
-                    <ul class="nav w-100" style="color: black;">
-                        <li class="nav-item nav-dropdown list-item">
-                            <a class="nav-link nav-dropdown-toggle" href="#" data-toggle="collapse" data-target="#demo5">
-                                <i class="fa fa-envelope"></i><span class="">&nbsp;&nbsp;&nbsp;&nbsp;前端开发</span></a>
-                        </li>
-                    </ul>
-                </div>
             </div>
             <!--                轮播图等-->
             <div class="" style="width: 85%;">
@@ -545,10 +571,10 @@
             </div>
         </div>
         <div class="col-md-2">
-            <div class="mr-5 aside-menu-md-show" id="noScroll">
-                <a class="btn btn-light" style="width: 45px;height: 45px;"><i class="fa fa-qrcode" style="color: #8e959a"></i></a>
-                <a class="btn btn-light" style="width: 45px;height: 45px;"><i class="fa fa-qq" style="color: #8e959a"></i></a>
-                <a id="scroll-black" class="btn btn-light" style="width: 45px;height: 45px;"><i class="fa fa-upload" style="color: #8e959a"></i></a>
+            <div class="mr-5 aside-menu-md-show" id="noScroll" style="-webkit-box-shadow: 4px 4px 10px #292929;-moz-box-shadow: 4px 4px 10px #292929;box-shadow: 4px 4px 10px #292929;">
+                <a class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-bottom-right-radius: 0px"><i class="fa fa-qrcode" style="color: #8e959a"></i></a>
+                <a class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px;border-bottom-right-radius: 0px"><i class="fa fa-qq" style="color: #8e959a"></i></a>
+                <a id="scroll-black" class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px"><i class="fa fa-upload" style="color: #8e959a"></i></a>
             </div>
         </div>
     </div>
@@ -570,7 +596,8 @@
 
     $('.items').mouseover(function () {
         var id = $(this).index();
-        $('#demo'+(id+1)).fadeToggle();
+        $('#demo'+(id+1)).show();
+        $(this).find('.item-name').addClass('ml-2');
     });
     $('.items').mouseout(function () {
         var id = $(this).index();
@@ -593,7 +620,9 @@
         //     }
         // }else{  //鼠标在该DIV中
         // }
+
         $('#demo'+(id+1)).hide();
+        $(this).find('.item-name').removeClass('ml-2');
 
     });
     $('.list-show').mouseover(function () {
