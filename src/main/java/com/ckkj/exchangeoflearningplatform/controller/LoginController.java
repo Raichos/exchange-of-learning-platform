@@ -52,4 +52,9 @@ public class LoginController {
     public String success(){
         return "/index";
     }
+
+    @GetMapping("/share")
+    public String share(){
+        return "/resourceShare";
+    }
 }
