@@ -73,15 +73,34 @@
             border-bottom-right-radius: 5px;
             padding: 5px;
         }
+
         .list-item-totle1{
             /*display: inline-block;*/
             width: 80px;
             height: 20px;
             text-align: center;
             background: #a0aeb9;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            font-size: 15px;
+            color: white;
         }
         .list-item-title-line1{
             border-bottom: 1px solid #a0aeb9;
+        }
+        .list-item-totle2{
+            /*display: inline-block;*/
+            width: 80px;
+            height: 20px;
+            text-align: center;
+            background: #35b558;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            font-size: 15px;
+            color: white;
+        }
+        .list-item-title-line2{
+            border-bottom: 1px solid #35b558;
         }
 
         /*ul li {border-right:1px solid #666;}*/
@@ -98,85 +117,45 @@
                 <div class="col-md-2">
                     <span style="color: red;font-size: 28px;font-style: normal;font-weight: bold;">视拼购</span><span style="color: white;font-size: 18px;">管理后台</span>
                 </div>
-<!--                <div class="col-md-1"></div>-->
+                <!--                <div class="col-md-1"></div>-->
                 <div class="col-md-6">
                     <ul class="navbar-nav mr-auto vshop-nav-items">
                         <li class="nav-item" style="margin: 0 5%;">
-                            <a class="nav-link" href="#">消息<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#">首页<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item" style="margin: 0 5%;">
-                            <a class="nav-link" href="#">客服平台</a>
+                            <a class="nav-link" href="#">博语</a>
                         </li>
                         <li class="nav-item" style="margin: 0 5%;">
-                            <a class="nav-link" href="#">商家社区</a>
+                            <a class="nav-link" href="#">积分社区</a>
                         </li>
                         <li class="nav-item" style="margin: 0 5%;">
                             <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                                联系视拼购
+                                联系平台
                             </button>
                         </li>
-                        <!--                        <li class="nav-item" style="margin: 0 5%;">-->
-                        <!--                            <a class="nav-link" href="#">About</a>-->
-                        <!--                        </li>-->
-                        <!--                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">这里是名字 <b class="caret"></b></a>-->
-                        <!--                            <ul class="dropdown-menu">-->
-                        <!--                                <li><a id="action-1" href="#">meter</a></li>-->
-                        <!--                                <li><a href="#">EJB</a></li>-->
-                        <!--                                <li><a href="#">Jasper Report</a></li>-->
-                        <!--                                <li class="dropdown-divider"></li>-->
-                        <!--                                <li><a href="#">分离的链接</a></li>-->
-                        <!--                                <li class="dropdown-divider"></li>-->
-                        <!--                                <li><a href="#">另一个分离的链接</a></li>-->
-                        <!--                            </ul>-->
-                        <!--                        </li>-->
+                        <li class="nav-item" style="margin: 0 5%;">
+                            <a class="nav-link" href="#">资源分享</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-md-3">
-                    <!--                    //头像-->
+                    <!--//头像-->
                     <div>
-                        <!--                        <div class="text-hide" style="background-image: url('../static/img/icon.png'); width: 50px; height: 50px;border-radius: 50%;float: right;"></div>-->
-                        <li class="nav-item dropdown mb-2">
-                            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                <div class="text-hide" style="background-image: url('../static/img/icon.png'); width: 45px; height: 45px;border-radius: 50%;float: right;"></div>
-                            </a>
 
-                        </li>
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" style="" type="button" class="btn btn-secondary dropdown-toggle mt-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="" id="username">这里是名字</span>
-                            </button>
-                            <div class="dropdown-menu bg-secondary" aria-labelledby="btnGroupDrop1">
-                                <a class="dropdown-item bg-secondary" href="#">账号管理</a>
-                                <a class="dropdown-item bg-secondary" href="/logout">退出</a>
+                        <div class="btn-group" role="group" id="user-items">
+                            <!--                        <div id="btnGroupDrop1" style="" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                            <span class="" id="username" style="font-size: 16px;font-family: 微软雅黑;color: white;font-weight: bold;text-decoration: none;"><img src="../static/img/icon.png" style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;Rakers</span>
+                            <!--                        </div>-->
+                            <div id="user-items-dd" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#"><i class="fa fa-user"></i>个人中心</a>
+                                <a class="dropdown-item" href="#" style="border-top: 1px solid #dee2e6;"><i class="fa fa-stop-circle-o"></i>查看积分</a>
+                                <a class="dropdown-item" href="#" style="border-top: 1px solid #dee2e6;"><i class="fa fa-sign-out"></i>退出</a>
+
                             </div>
                         </div>
-<!--                        <div class="nav">-->
-<!--                            <div class="sidebar nav-item nav-dropdown">-->
-<!--                                <a class="nav-link nav-dropdown-toggle" href="#">-->
-<!--                                    <i class="nav-icon icon-cursor"></i> 这里是名字</a>-->
-<!--                                <ul class="nav-dropdown-items">-->
-<!--                                    <li class="nav-item">-->
-<!--                                        <a class="nav-link" href="buttons/buttons.html">-->
-<!--                                            <i class="nav-icon icon-cursor"></i> Buttons</a>-->
-<!--                                    </li>-->
-<!--                                    <li class="nav-item">-->
-<!--                                        <a class="nav-link" href="buttons/button-group.html">-->
-<!--                                            <i class="nav-icon icon-cursor"></i> Buttons Group</a>-->
-<!--                                    </li>-->
-<!--                                    <li class="nav-item">-->
-<!--                                        <a class="nav-link" href="buttons/dropdowns.html">-->
-<!--                                            <i class="nav-icon icon-cursor"></i> Dropdowns</a>-->
-<!--                                    </li>-->
-<!--                                    <li class="nav-item">-->
-<!--                                        <a class="nav-link" href="buttons/brand-buttons.html">-->
-<!--                                            <i class="nav-icon icon-cursor"></i> Brand Buttons</a>-->
-<!--                                    </li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
-<!--                        </div>-->
                     </div>
                 </div>
-<!--                <div class="col-md-1"></div>-->
             </nav>
             <a href="#"><img src="../static/img/main-frame/618.png"></a>
         </div>
@@ -186,140 +165,77 @@
 <!--                侧栏-->
                 <div class="" id="content-left" style="width: 15%;">
 
-<!--                    左栏另外写法-->
-                    <div class="sidebar w-100 items">
+                    <!--                    左栏另外写法-->
+                    <div class="sidebar w-100 items bg-secondary">
                         <ul class="nav w-100 font-color">
-                            <li class="nav-item nav-dropdown list-item w-100" name="demo1">
-                                <a class="nav-link nav-dropdown-toggle w-100" href="#" data-toggle="collapse" data-target="#demo1">
-                                    <i class="fa fa-envelope"></i><span class="">&nbsp;&nbsp;&nbsp;&nbsp;前端开发</span></a>
+                            <li class="list-item w-100" name="demo1">
+                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
+                                    <div class="item-name">
+                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                                    </div>
+                                </a>
                             </li>
-<!--                            <div id="demo1" class="collapse collapse-list" data-parent="#content-left">-->
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,-->
-<!--                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,-->
-<!--                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
-<!--                            </div>-->
                         </ul>
                     </div>
-                    <div class="sidebar w-100 items">
-                        <ul class="nav w-100" style="color: black;">
-                            <li class="nav-item nav-dropdown list-item" name="demo2">
-                                <a class="nav-link nav-dropdown-toggle" href="#" data-toggle="collapse" data-target="#demo2">
-                                    <i class="fa fa-envelope"></i><span class="">&nbsp;&nbsp;&nbsp;&nbsp;后端开发</span></a>
+                    <div class="sidebar w-100 items bg-secondary" style="">
+                        <ul class="nav w-100 font-color">
+                            <li class="list-item w-100" name="demo1">
+                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
+                                    <div class="item-name">
+                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                                    </div>
+                                </a>
                             </li>
-<!--                            <div id="demo2" class="collapse collapse-list" data-parent="#content-left">-->
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,-->
-<!--                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,-->
-<!--                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
-<!--                            </div>-->
                         </ul>
                     </div>
-                    <div class="sidebar w-100 items">
-                        <ul class="nav w-100" style="color: black;">
-                            <li class="nav-item nav-dropdown list-item">
-                                <a class="nav-link nav-dropdown-toggle" href="#" data-toggle="collapse" data-target="#demo3">
-                                    <i class="fa fa-envelope"></i><span class="">&nbsp;&nbsp;&nbsp;&nbsp;python</span></a>
+                    <div class="sidebar w-100 items bg-secondary">
+                        <ul class="nav w-100 font-color">
+                            <li class="list-item w-100" name="demo1">
+                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
+                                    <div class="item-name">
+                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                                    </div>
+                                </a>
                             </li>
-<!--                            <div id="demo3" class="collapse collapse-list" data-parent="#content-left">-->
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,-->
-<!--                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,-->
-<!--                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
-<!--                            </div>-->
                         </ul>
                     </div>
-                    <div class="sidebar w-100 items">
-                        <ul class="nav w-100" style="color: black;">
-                            <li class="nav-item nav-dropdown list-item open">
-                                <a class="nav-link nav-dropdown-toggle" href="#" data-toggle="collapse" data-target="#demo4">
-                                    <i class="fa fa-envelope"></i><span class="">&nbsp;&nbsp;&nbsp;&nbsp;c/c++</span></a>
+                    <div class="sidebar w-100 items bg-secondary">
+                        <ul class="nav w-100 font-color">
+                            <li class="list-item w-100" name="demo1">
+                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
+                                    <div class="item-name">
+                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                                    </div>
+                                </a>
                             </li>
-<!--                            <div id="demo4" class="collapse collapse-list show" data-parent="#content-left">-->
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,-->
-<!--                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,-->
-<!--                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
-<!--                            </div>-->
                         </ul>
                     </div>
-                    <div class="sidebar w-100 items">
-                        <ul class="nav w-100" style="color: black;">
-                            <li class="nav-item nav-dropdown list-item">
-                                <a class="nav-link nav-dropdown-toggle" href="#" data-toggle="collapse" data-target="#demo5">
-                                    <i class="fa fa-envelope"></i><span class="">&nbsp;&nbsp;&nbsp;&nbsp;区块链</span></a>
+                    <div class="sidebar w-100 items bg-secondary">
+                        <ul class="nav w-100 font-color">
+                            <li class="list-item w-100" name="demo1">
+                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
+                                    <div class="item-name">
+                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                                    </div>
+                                </a>
                             </li>
-<!--                            <div id="demo5" class="collapse collapse-list" data-parent="#content-left">-->
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,-->
-<!--                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,-->
-<!--                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
-<!--                            </div>-->
                         </ul>
                     </div>
 
-
-                        <!--                    <div class="sidebar w-100" style="background: rgba(0, 0, 0, 0);">-->
-<!--                            <ul class="nav w-100" style="color: black;">-->
-<!--                                <li class="nav-item nav-dropdown">-->
-<!--                                    <a class="nav-link nav-dropdown-toggle" href="#">-->
-<!--                                        <i class="fa fa-envelope"></i><span class="color-black">&nbsp;&nbsp;&nbsp;&nbsp;前端开发</span></a>-->
-<!--                                    <ul class="nav-dropdown-items">-->
-<!--                                        <li class="nav-item w-100 text-center">-->
-<!--                                            <a class="nav-link" href="#">HTML</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="nav-item w-100 text-center">-->
-<!--                                            <a class="nav-link" href="#">CSS</a>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
-<!--                                <li class="nav-item nav-dropdown">-->
-<!--                                    <a class="nav-link nav-dropdown-toggle" href="#">-->
-<!--                                        <i class="fa fa-envelope"></i><span class="color-black">&nbsp;&nbsp;&nbsp;&nbsp;移动开发</span></a>-->
-<!--                                    <ul class="nav-dropdown-items">-->
-<!--                                        <li class="nav-item w-100 text-center">-->
-<!--                                            <a class="nav-link" href="#">Buttons</a>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
-<!--                                <li class="nav-item nav-dropdown">-->
-<!--                                    <a class="nav-link nav-dropdown-toggle" href="#">-->
-<!--                                        <i class="fa fa-envelope"></i><span class="color-black">&nbsp;&nbsp;&nbsp;&nbsp;后端开发</span></a>-->
-<!--                                    <ul class="nav-dropdown-items">-->
-<!--                                        <li class="nav-item w-100 text-center">-->
-<!--                                            <a class="nav-link" href="#">Buttons</a>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
-<!--                                <li class="nav-item nav-dropdown">-->
-<!--                                    <a class="nav-link nav-dropdown-toggle" href="#">-->
-<!--                                        <i class="fa fa-envelope"></i><span class="color-black">&nbsp;&nbsp;&nbsp;&nbsp;人工智能</span></a>-->
-<!--                                    <ul class="nav-dropdown-items">-->
-<!--                                        <li class="nav-item w-100 text-center">-->
-<!--                                            <a class="nav-link" href="#">Buttons</a>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
-<!--                                <li class="nav-item nav-dropdown">-->
-<!--                                    <a class="nav-link nav-dropdown-toggle" href="#">-->
-<!--                                        <i class="fa fa-envelope"></i><span class="color-black">&nbsp;&nbsp;&nbsp;&nbsp;智能硬件/物联网</span></a>-->
-<!--                                    <ul class="nav-dropdown-items">-->
-<!--                                        <li class="nav-item w-100 text-center"><a class="nav-link" href="#">Buttons</a>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
-<!--                                <li class="nav-item nav-dropdown">-->
-<!--                                    <a class="nav-link nav-dropdown-toggle" href="#">-->
-<!--                                        <i class="fa fa-envelope"></i><span class="color-black">&nbsp;&nbsp;&nbsp;&nbsp;云计算/大数据</span></a>-->
-<!--                                    <ul class="nav-dropdown-items">-->
-<!--                                        <li class="nav-item w-100 text-center">-->
-<!--                                            <a class="nav-link" href="#">Buttons</a>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
-
-<!--                            </ul>-->
-<!--                    </div>-->
                 </div>
 <!--                轮播图等-->
                 <div class="" style="width: 85%;">
                     <div id="demo1" class="collapse collapse-list list-show" data-parent="#collapse-list">
-                        <span class="list-item-totle1">知识海洋</span><span class="list-item-title-line1 w-100"></span>
+                        <div>
+                            <div class="list-item-totle1">知识海洋</div><div class="list-item-title-line1 w-100"></div>
+                        </div>
+
+                        1  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div>
+                            <div class="list-item-totle2">新知识</div><div class="list-item-title-line2 w-100"></div>
+                        </div>
                         1  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -409,6 +325,272 @@
 <!--                            </div>-->
 <!--                        </a>-->
                     </div>
+                    <div class="ml-3 mr-3">
+                        <h5 style="color: #333;">热门推荐</h5>
+                        <table class="table table-hover">
+                            <tbody>
+                            <tr>
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="#" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">一个毕业8年了的低学历大专生，为什么一直不接受去提升学历的建议</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >CKKJ学院</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >16小时前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-2">
+                                        <p style="font-size: 14px;color: #8a8a8a;">对于互联网发展的今天，IT行业慢慢变成大多数年轻人发展的目标，不仅前景好，薪资也是越来越高的，而java是行业中一直都需要的技术之一，也促进了大多数朋友在学习java，但是没有好的方向，今天小猿圈java讲师给你讲解Java程序员能力提升在哪，在学的过程中不浪费时间少走弯路。</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="#" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">一个毕业8年了的低学历大专生，为什么一直不接受去提升学历的建议</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >CKKJ学院</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >16小时前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-2">
+                                        <p style="font-size: 14px;color: #8a8a8a;">对于互联网发展的今天，IT行业慢慢变成大多数年轻人发展的目标，不仅前景好，薪资也是越来越高的，而java是行业中一直都需要的技术之一，也促进了大多数朋友在学习java，但是没有好的方向，今天小猿圈java讲师给你讲解Java程序员能力提升在哪，在学的过程中不浪费时间少走弯路。</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="#" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">一个毕业8年了的低学历大专生，为什么一直不接受去提升学历的建议</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >CKKJ学院</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >16小时前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-2">
+                                        <p style="font-size: 14px;color: #8a8a8a;">对于互联网发展的今天，IT行业慢慢变成大多数年轻人发展的目标，不仅前景好，薪资也是越来越高的，而java是行业中一直都需要的技术之一，也促进了大多数朋友在学习java，但是没有好的方向，今天小猿圈java讲师给你讲解Java程序员能力提升在哪，在学的过程中不浪费时间少走弯路。</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="#" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">一个毕业8年了的低学历大专生，为什么一直不接受去提升学历的建议</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >CKKJ学院</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >16小时前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-2">
+                                        <p style="font-size: 14px;color: #8a8a8a;">对于互联网发展的今天，IT行业慢慢变成大多数年轻人发展的目标，不仅前景好，薪资也是越来越高的，而java是行业中一直都需要的技术之一，也促进了大多数朋友在学习java，但是没有好的方向，今天小猿圈java讲师给你讲解Java程序员能力提升在哪，在学的过程中不浪费时间少走弯路。</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="#" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">一个毕业8年了的低学历大专生，为什么一直不接受去提升学历的建议</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >CKKJ学院</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >16小时前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-2">
+                                        <p style="font-size: 14px;color: #8a8a8a;">对于互联网发展的今天，IT行业慢慢变成大多数年轻人发展的目标，不仅前景好，薪资也是越来越高的，而java是行业中一直都需要的技术之一，也促进了大多数朋友在学习java，但是没有好的方向，今天小猿圈java讲师给你讲解Java程序员能力提升在哪，在学的过程中不浪费时间少走弯路。</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="#" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">一个毕业8年了的低学历大专生，为什么一直不接受去提升学历的建议</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >CKKJ学院</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >16小时前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-2">
+                                        <p style="font-size: 14px;color: #8a8a8a;">对于互联网发展的今天，IT行业慢慢变成大多数年轻人发展的目标，不仅前景好，薪资也是越来越高的，而java是行业中一直都需要的技术之一，也促进了大多数朋友在学习java，但是没有好的方向，今天小猿圈java讲师给你讲解Java程序员能力提升在哪，在学的过程中不浪费时间少走弯路。</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="#" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">一个毕业8年了的低学历大专生，为什么一直不接受去提升学历的建议</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >CKKJ学院</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >16小时前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-4">
+                                        <p style="font-size: 14px;color: #8a8a8a;">对于互联网发展的今天，IT行业慢慢变成大多数年轻人发展的目标，不仅前景好，薪资也是越来越高的，而java是行业中一直都需要的技术之一，也促进了大多数朋友在学习java，但是没有好的方向，今天小猿圈java讲师给你讲解Java程序员能力提升在哪，在学的过程中不浪费时间少走弯路。</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="#" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">一个毕业8年了的低学历大专生，为什么一直不接受去提升学历的建议</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >CKKJ学院</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >16小时前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-4">
+                                        <p style="font-size: 14px;color: #8a8a8a;">对于互联网发展的今天，IT行业慢慢变成大多数年轻人发展的目标，不仅前景好，薪资也是越来越高的，而java是行业中一直都需要的技术之一，也促进了大多数朋友在学习java，但是没有好的方向，今天小猿圈java讲师给你讲解Java程序员能力提升在哪，在学的过程中不浪费时间少走弯路。</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="#" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">一个毕业8年了的低学历大专生，为什么一直不接受去提升学历的建议</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >CKKJ学院</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >16小时前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-4">
+                                        <p style="font-size: 14px;color: #8a8a8a;">对于互联网发展的今天，IT行业慢慢变成大多数年轻人发展的目标，不仅前景好，薪资也是越来越高的，而java是行业中一直都需要的技术之一，也促进了大多数朋友在学习java，但是没有好的方向，今天小猿圈java讲师给你讲解Java程序员能力提升在哪，在学的过程中不浪费时间少走弯路。</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="#" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">一个毕业8年了的低学历大专生，为什么一直不接受去提升学历的建议</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >CKKJ学院</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >16小时前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-4">
+                                        <p style="font-size: 14px;color: #8a8a8a;">对于互联网发展的今天，IT行业慢慢变成大多数年轻人发展的目标，不仅前景好，薪资也是越来越高的，而java是行业中一直都需要的技术之一，也促进了大多数朋友在学习java，但是没有好的方向，今天小猿圈java讲师给你讲解Java程序员能力提升在哪，在学的过程中不浪费时间少走弯路。</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="#" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">一个毕业8年了的低学历大专生，为什么一直不接受去提升学历的建议</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >CKKJ学院</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >16小时前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-4">
+                                        <p style="font-size: 14px;color: #8a8a8a;">对于互联网发展的今天，IT行业慢慢变成大多数年轻人发展的目标，不仅前景好，薪资也是越来越高的，而java是行业中一直都需要的技术之一，也促进了大多数朋友在学习java，但是没有好的方向，今天小猿圈java讲师给你讲解Java程序员能力提升在哪，在学的过程中不浪费时间少走弯路。</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="#" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">一个毕业8年了的低学历大专生，为什么一直不接受去提升学历的建议</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >CKKJ学院</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >16小时前</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-4">
+                                        <p style="font-size: 14px;color: #8a8a8a;">对于互联网发展的今天，IT行业慢慢变成大多数年轻人发展的目标，不仅前景好，薪资也是越来越高的，而java是行业中一直都需要的技术之一，也促进了大多数朋友在学习java，但是没有好的方向，今天小猿圈java讲师给你讲解Java程序员能力提升在哪，在学的过程中不浪费时间少走弯路。</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Mary</td>
+                            </tr>
+                            <tr>
+                                <td>July</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
             </div>
@@ -429,20 +611,54 @@
     // });
 
 
-    $('.items').mouseenter(function () {
+
+    $('.items').mouseover(function () {
         var id = $(this).index();
-        $('#demo'+(id+1)).show(500);
+        $('#demo'+(id+1)).show();
+        $(this).find('.item-name').addClass('ml-2');
     });
     $('.items').mouseout(function () {
         var id = $(this).index();
+
         $('#demo'+(id+1)).hide();
+        $(this).find('.item-name').removeClass('ml-2');
+
     });
-    $('.list-show').mouseenter(function () {
+    $('.list-show').mouseover(function () {
         $(this).show();
     });
     $('.list-show').mouseout(function () {
+
         $(this).hide();
     });
+
+    $('#scroll-black').click(function () {
+        // alert('回滚');
+        $('html, body').animate({scrollTop:0}, 'slow');
+    });
+    $('#scroll-black').hide();
+    $(window).scroll(function () {
+        if ($(document).scrollTop()<=100){
+            // 按钮消失
+            $('#scroll-black').hide();
+        }else{
+            $('#scroll-black').show();
+        }
+        console.log($(document).height());
+        console.log($(document).scrollTop());
+        // 滚动到底部自动增加行
+        if ($(document).scrollTop() == $(document).height()-989) {
+            // alert('已到底');
+        }
+    });
+
+    // 状态栏头像
+    $('#user-items').mouseover(function () {
+        $('#user-items #user-items-dd').show();
+    }).mouseout(function () {
+        $('#user-items #user-items-dd').hide();
+    })
+
     // $('.items').mouseout(function (e) {
     //     var id = $(this).index();
     //     // 滞留
