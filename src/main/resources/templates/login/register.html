@@ -51,7 +51,7 @@
                         <img style="border-radius: 8px;" src="../../static/img/icon.png"></div>
                     <h3 class="card-title">0元入驻</h3>
                     <h5 class="card-subtitle mb-2 text-muted">商家注册</h5>
-                    <form id="form" class="form-check-inline" action="/register" method="post">
+                    <form id="form" class="form-check-inline" action="/lose/register" method="post">
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
                             <div class="input-group mb-4">
@@ -173,7 +173,7 @@
             $('#email-message').val('邮箱不能为空！');
             $('#email').removeClass("is-invalid");
             $('#email').addClass('was-invalid');
-            $.post('/emailcode', {email:$('#email').val()+'@'+$('#inputGroupSelect01').val()}, function(result){
+            $.post('/lose/emailcode', {email:$('#email').val()+'@'+$('#inputGroupSelect01').val()}, function(result){
             });
         }
 

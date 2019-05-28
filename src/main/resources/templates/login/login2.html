@@ -107,6 +107,12 @@
                     $("#entry_btn").click();
                 }
             });
+
+            $("#login").click(function () {
+                $("#slideBar").css("display","");
+                $("#login").css("display","none");
+                //$("#signupForm").submit();
+            });
         });
     </script>
 </head>
@@ -260,7 +266,10 @@
                                                     <script type="text/javascript" src="../../static/js/style.js"></script>
                                                     <!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
 
-                                                    <div id="slideBar" class="hide"></div>
+                                                    <!--<div id="slideBar" class="hide"></div>-->
+                                                    <div id="slideBar" class="hide" style="display: none;"></div>
+                                                    <button id="login" type="button" onclick="" class="btn btn-block sign-up-main btn-success"><strong>登陆</strong></button>
+
                                                     <script type="text/javascript">
                                                         var dataList = ["0","1"];
                                                         var options = {
