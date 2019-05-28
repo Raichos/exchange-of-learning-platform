@@ -31,7 +31,7 @@ public class RegisterController {
 
     private String emailServiceCode;
 
-    @PostMapping("/register")
+    @PostMapping("/lose/register")
     @ResponseBody
     public String register(User user, @RequestParam("emailCode") String emailCode, @RequestParam("emailSuffix") String emailSuffix) {
 
@@ -58,7 +58,7 @@ public class RegisterController {
         return "/login/login";
     }
 
-    @PostMapping("/emailcode")
+    @PostMapping("/lose/emailcode")
     @ResponseBody
     public String emailCode(@RequestParam("email") String email) {
         System.out.println("email="+email);

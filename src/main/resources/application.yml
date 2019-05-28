@@ -12,7 +12,7 @@ spring:
     suffix: .html
   mail:
     username: 1963342385@qq.com
-    password: zdyxihnkuyjxfbbd
+    password: yqcbmwqobzcgfchj
     host: smtp.qq.com
 
 server:
