@@ -22,7 +22,7 @@ public class UEditorController {
         return "index";
     }*/
 
-    @RequestMapping(value="/static/config")
+    @RequestMapping(value="/static/ueditor/config")
     public void config(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("文件上传");
         response.setContentType("application/json");
@@ -30,11 +30,14 @@ public class UEditorController {
         System.out.println("rootPath"+rootPath);
         try {
             String exec = new ActionEnter(request, rootPath).exec();
+
+
             //修改json
-            JSONObject jsonObject = JSONObject.fromObject(exec);
+            /*JSONObject jsonObject = JSONObject.fromObject(exec);
+            System.out.println("url===="+jsonObject.get("url"));
             jsonObject.put("url", "/static"+jsonObject.get("url"));
             exec = jsonObject.toString();
-            System.out.println("exec"+exec);
+            System.out.println("exec"+exec);*/
 
             PrintWriter writer = response.getWriter();
             writer.write(exec);
