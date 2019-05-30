@@ -1,6 +1,7 @@
 package com.ckkj.exchangeoflearningplatform.controller;
 
 import com.ckkj.exchangeoflearningplatform.ueditor.ActionEnter;
+import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,7 +30,12 @@ public class UEditorController {
         System.out.println("rootPath"+rootPath);
         try {
             String exec = new ActionEnter(request, rootPath).exec();
+            //修改json
+            JSONObject jsonObject = JSONObject.fromObject(exec);
+            jsonObject.put("url", "/static"+jsonObject.get("url"));
+            exec = jsonObject.toString();
             System.out.println("exec"+exec);
+
             PrintWriter writer = response.getWriter();
             writer.write(exec);
             writer.flush();
