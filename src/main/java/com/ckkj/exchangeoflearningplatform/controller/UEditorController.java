@@ -33,11 +33,11 @@ public class UEditorController {
 
 
             //修改json
-            /*JSONObject jsonObject = JSONObject.fromObject(exec);
+            JSONObject jsonObject = JSONObject.fromObject(exec);
             System.out.println("url===="+jsonObject.get("url"));
             jsonObject.put("url", "/static"+jsonObject.get("url"));
             exec = jsonObject.toString();
-            System.out.println("exec"+exec);*/
+            System.out.println("exec"+exec);
 
             PrintWriter writer = response.getWriter();
             writer.write(exec);

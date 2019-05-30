@@ -11163,7 +11163,8 @@ UE.commands['insertimage'] = {
             ci = opt[0];
             if (opt.length == 1) {
                 unhtmlData(ci);
-                str = '<img src="static/'+ ci.src + '" ' + (ci._src ? ' _src="' + ci._src + '" ' : '') +
+                /*str = '<img src="static/'+ ci.src + '" ' + (ci._src ? ' _src="' + ci._src + '" ' : '') +*/
+                str = '<img src="' + ci.src + '" ' + (ci._src ? ' _src="' + ci._src + '" ' : '') +
                     (ci.width ? 'width="' + ci.width + '" ' : '') +
                     (ci.height ? ' height="' + ci.height + '" ' : '') +
                     (ci['floatStyle'] == 'left' || ci['floatStyle'] == 'right' ? ' style="float:' + ci['floatStyle'] + ';"' : '') +
