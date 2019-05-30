@@ -1,3 +1,6 @@
+web:
+  upload-path: D:/ueditorimg/
+
 spring:
   datasource:
     url: jdbc:mysql://192.168.87.124:3306/exchange_of_learning_platform?useSSL=false&&serverTimezone=GMT%2B8
@@ -14,6 +17,10 @@ spring:
     username: 1963342385@qq.com
     password: yqcbmwqobzcgfchj
     host: smtp.qq.com
+  #ueditor
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
+
 
 server:
   port: 8080

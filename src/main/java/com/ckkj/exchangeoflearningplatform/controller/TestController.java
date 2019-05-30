@@ -58,6 +58,7 @@ public class TestController {
         return export(new File("\\\\\\192.168.87.130\\Users\\test.txt"));
     }
 
+    //---------------------ROLE--------------------------------------------
     @GetMapping("/testone")
     @PreAuthorize("hasRole('USER')")
     public String test01(){
@@ -79,4 +80,19 @@ public class TestController {
     public String test03(){
         return "/page/test1/bb";
     }
+
+    //---------------------ROLE--------------------------------------------
+
+    @GetMapping("/resource")
+    public String resources(){
+        System.out.println("share");
+        return "resourceSha";
+    }
+
+    @GetMapping("/indextwos")
+    public String ueditor(){
+        System.out.println("indextwo.html");
+        return "indextwo";
+    }
+
 }
