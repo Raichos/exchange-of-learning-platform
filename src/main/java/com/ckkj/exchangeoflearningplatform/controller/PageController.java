@@ -2,6 +2,7 @@ package com.ckkj.exchangeoflearningplatform.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author lzh
@@ -13,5 +14,10 @@ public class PageController {
     @GetMapping("/resourceShare")
     public String resourceShare(){
         return "/resourceShare";
+    }
+
+    @RequestMapping("/userIndex")
+    public String userIndex(){
+        return "/userIndex";
     }
 }
