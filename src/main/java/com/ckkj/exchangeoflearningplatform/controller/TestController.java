@@ -23,26 +23,28 @@ import java.util.Date;
 public class TestController {
 
 
-
     @Autowired
     TestService testService;
 
     @GetMapping("/test/{id}")
     @ResponseBody
-    public Tests testController(@PathVariable("id") Integer id){
+    public Tests testController(@PathVariable("id") Integer id) {
         Tests test = testService.findTest(id);
-        System.out.println("test="+test);
+        System.out.println("test=" + test);
         return test;
     }
 
     @RequestMapping("/login")
-    public String login(){
+    public String login() {
 
         return "login/login.html";
     }
 
-    public ResponseEntity<FileSystemResource> export(File file) { if (file == null) { return null;
-    } HttpHeaders headers = new HttpHeaders();
+    public ResponseEntity<FileSystemResource> export(File file) {
+        if (file == null) {
+            return null;
+        }
+        HttpHeaders headers = new HttpHeaders();
         headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
         headers.add("Content-Disposition", "attachment; filename=" + System.currentTimeMillis() + ".xls");
         headers.add("Pragma", "no-cache");
@@ -50,7 +52,7 @@ public class TestController {
         headers.add("Last-Modified", new Date().toString());
         headers.add("ETag", String.valueOf(System.currentTimeMillis()));
 
-        return ResponseEntity.ok() .headers(headers) .contentLength(file.length()) .contentType(MediaType.parseMediaType("application/octet-stream")) .body(new FileSystemResource(file));
+        return ResponseEntity.ok().headers(headers).contentLength(file.length()).contentType(MediaType.parseMediaType("application/octet-stream")).body(new FileSystemResource(file));
     }
 
     @RequestMapping(value = "/dow", method = RequestMethod.GET)
@@ -61,36 +63,36 @@ public class TestController {
     //---------------------ROLE--------------------------------------------
     @GetMapping("/testone")
     @PreAuthorize("hasRole('USER')")
-    public String test01(){
+    public String test01() {
         return "testone";
     }
 
     @GetMapping("/testtwo")
     @PreAuthorize("hasRole('ADMIN')")
-    public String test04(){
+    public String test04() {
         return "testtwo";
     }
 
     @GetMapping("/page/test1/aa")
-    public String test02(){
+    public String test02() {
         return "/page/test1/aa";
     }
 
     @GetMapping("/page/test2/aa")
-    public String test03(){
+    public String test03() {
         return "/page/test1/bb";
     }
 
     //---------------------ROLE--------------------------------------------
 
     @GetMapping("/resource")
-    public String resources(){
+    public String resources() {
         System.out.println("share");
         return "resourceSha";
     }
 
     @GetMapping("/indextwos")
-    public String ueditor(){
+    public String ueditor() {
         System.out.println("indextwo.html");
         return "indextwo";
     }

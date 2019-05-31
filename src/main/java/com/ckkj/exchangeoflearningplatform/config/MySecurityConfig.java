@@ -55,7 +55,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         // 设置登陆页
         http.formLogin().loginPage("/login")
                 .loginProcessingUrl("/loginUser")
-                .defaultSuccessUrl("/index").permitAll()
+                .defaultSuccessUrl("/userIndex").permitAll()
                 .and()
                 .logout().permitAll();
 
@@ -66,6 +66,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         //对静态资源放行
-        web.ignoring().antMatchers("/css/**", "/js/**", "/static/**","/lose/**","/register","ueditor/**","/login/**");
+        web.ignoring().antMatchers("/css/**", "/js/**", "/static/**","/lose/**","/register","ueditor/**","/login/**","/","/index","/**");
     }
 }
