@@ -537,9 +537,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            params = eval('(function(){ return [].splice.call(arguments, 0 ) })(' + params + ')')
 	        } catch (error) {
 	            // 2. 如果失败，只能解析为字符串
-	            // console.error(error)
-	            // if (error instanceof ReferenceError) params = parts[2].split(/,\s*/);
-	            // else throw error
+	            // console.errorpage(errorpage)
+	            // if (errorpage instanceof ReferenceError) params = parts[2].split(/,\s*/);
+	            // else throw errorpage
 	            params = parts[2].split(/,\s*/)
 	        }
 
@@ -8129,7 +8129,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    onloadstart         loadstart
 	    onprogress          progress
 	    onabort             abort
-	    onerror             error
+	    onerror             errorpage
 	    onload              load
 	    ontimeout           timeout
 	    onloadend           loadend
@@ -8172,7 +8172,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    DONE: 4
 	}
 
-	var XHR_EVENTS = 'readystatechange loadstart progress abort error load timeout loadend'.split(' ')
+	var XHR_EVENTS = 'readystatechange loadstart progress abort errorpage load timeout loadend'.split(' ')
 	var XHR_REQUEST_PROPERTIES = 'timeout withCredentials'.split(' ')
 	var XHR_RESPONSE_PROPERTIES = 'readyState responseURL status statusText responseType response responseText responseXML'.split(' ')
 

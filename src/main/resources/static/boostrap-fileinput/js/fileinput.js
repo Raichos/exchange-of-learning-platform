@@ -60,7 +60,7 @@
         MODAL_ID: 'kvFileinputModal',
         MODAL_EVENTS: ['show', 'shown', 'hide', 'hidden', 'loaded'],
         logMessages: {
-            ajaxError: '{status}: {error}. Error Details: {text}.',
+            ajaxError: '{status}: {errorpage}. Error Details: {text}.',
             badDroppedFiles: 'Error scanning dropped files!',
             badExifParser: 'Error loading the piexif.js library. {details}',
             badInputType: 'The input "type" must be set to "file" for initializing the "bootstrap-fileinput" plugin.',
@@ -713,7 +713,7 @@
             self.$preview = $h.getElement(options, 'elPreviewImage', $cont.find('.file-preview-thumbnails'));
             self.$previewStatus = $h.getElement(options, 'elPreviewStatus', $cont.find('.file-preview-status'));
             self.$errorContainer = $h.getElement(options, 'elErrorContainer',
-                self.$previewContainer.find('.kv-fileinput-error'));
+                self.$previewContainer.find('.kv-fileinput-errorpage'));
             self._validateDisabled();
             if (!$h.isEmpty(self.msgErrorClass)) {
                 $h.addCss(self.$errorContainer, self.msgErrorClass);
@@ -1375,7 +1375,7 @@
                 '    </div>\n' +
                 '    <div class="clearfix"></div>' +
                 '    <div class="file-preview-status text-center text-success"></div>\n' +
-                '    <div class="kv-fileinput-error"></div>\n' +
+                '    <div class="kv-fileinput-errorpage"></div>\n' +
                 '    </div>\n' +
                 '</div>';
             tClose = $h.closeButton('fileinput-remove');
@@ -1920,7 +1920,7 @@
                 return true;
             }
             $err = $(document.createElement('div')).html(self.$errorContainer.html());
-            $err.find('.kv-error-close').remove();
+            $err.find('.kv-errorpage-close').remove();
             $err.find('ul').remove();
             return !!$.trim($err.text()).length;
         },
@@ -1953,7 +1953,7 @@
             var self = this, $error = self.$errorContainer;
             if (msg && $error.length) {
                 $error.html(self.errorCloseButton + msg);
-                self._handler($error.find('.kv-error-close'), 'click', function () {
+                self._handler($error.find('.kv-errorpage-close'), 'click', function () {
                     setTimeout(function () {
                         if (self.showPreview && !self.getFrames().length) {
                             self.clear();
@@ -1965,14 +1965,14 @@
         },
         _setValidationError: function (css) {
             var self = this;
-            css = (css ? css + ' ' : '') + 'has-error';
-            self.$container.removeClass(css).addClass('has-error');
+            css = (css ? css + ' ' : '') + 'has-errorpage';
+            self.$container.removeClass(css).addClass('has-errorpage');
             $h.addCss(self.$captionContainer, 'is-invalid');
         },
         _resetErrors: function (fade) {
             var self = this, $error = self.$errorContainer;
             self.isError = false;
-            self.$container.removeClass('has-error');
+            self.$container.removeClass('has-errorpage');
             self.$captionContainer.removeClass('is-invalid');
             $error.html('');
             if (fade) {
@@ -3349,7 +3349,7 @@
                                 self._setThumbStatus($thumb, 'Success');
                                 self.fileManager.remove($thumb);
                             }
-                            if (!$thumb.hasClass('file-preview-error') || self.retryErrorUploads) {
+                            if (!$thumb.hasClass('file-preview-errorpage') || self.retryErrorUploads) {
                                 key++;
                             }
                         });
@@ -3475,7 +3475,7 @@
                     if (status === false || !self._validateMinCount()) {
                         return false;
                     }
-                    hasError = $frame.hasClass('file-preview-error');
+                    hasError = $frame.hasClass('file-preview-errorpage');
                     $h.cleanMemory($frame);
                     $frame.fadeOut('slow', function () {
                         $h.cleanZoomCache($preview.find('#zoom-' + id));
@@ -3514,7 +3514,7 @@
                 self._handler($el, 'click', function () {
                     var $frame = $el.closest($h.FRAMES), id = $frame.attr('data-fileid');
                     self.$progress.hide();
-                    if ($frame.hasClass('file-preview-error') && !self.retryErrorUploads) {
+                    if ($frame.hasClass('file-preview-errorpage') && !self.retryErrorUploads) {
                         return;
                     }
                     self._uploadSingle(self.fileManager.getIndex(id), id, false);
@@ -3876,7 +3876,7 @@
                 css = 'file-preview-' + status.toLowerCase(),
                 $indicator = $thumb.find('.file-upload-indicator'),
                 config = self.fileActionSettings;
-            $thumb.removeClass('file-preview-success file-preview-error file-preview-paused file-preview-loading');
+            $thumb.removeClass('file-preview-success file-preview-errorpage file-preview-paused file-preview-loading');
             if (status === 'Success') {
                 $thumb.find('.file-drag-handle').remove();
             }
@@ -5461,7 +5461,7 @@
         validateInitialCount: false,
         msgValidationErrorClass: 'text-danger',
         msgValidationErrorIcon: '<i class="glyphicon glyphicon-exclamation-sign"></i> ',
-        msgErrorClass: 'file-error-message',
+        msgErrorClass: 'file-errorpage-message',
         progressThumbClass: 'progress-bar progress-bar-striped active',
         progressClass: 'progress-bar bg-success progress-bar-success progress-bar-striped active',
         progressInfoClass: 'progress-bar bg-info progress-bar-info progress-bar-striped active',
@@ -5476,7 +5476,7 @@
         elPreviewImage: null,
         elPreviewStatus: null,
         elErrorContainer: null,
-        errorCloseButton: $h.closeButton('kv-error-close'),
+        errorCloseButton: $h.closeButton('kv-errorpage-close'),
         slugCallback: null,
         dropZoneEnabled: true,
         dropZoneTitleClass: 'file-drop-zone-title',
@@ -5527,7 +5527,7 @@
         msgFileSecured: 'Security restrictions prevent reading the file "{name}".',
         msgFileNotReadable: 'File "{name}" is not readable.',
         msgFilePreviewAborted: 'File preview aborted for "{name}".',
-        msgFilePreviewError: 'An error occurred while reading the file "{name}".',
+        msgFilePreviewError: 'An errorpage occurred while reading the file "{name}".',
         msgInvalidFileName: 'Invalid or unsupported characters in file name "{name}".',
         msgInvalidFileType: 'Invalid type for file "{name}". Only "{types}" files are supported.',
         msgInvalidFileExtension: 'Invalid extension for file "{name}". Only "{extensions}" files are supported.',
@@ -5564,7 +5564,7 @@
         msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
         msgAjaxProgressError: '{operation} failed',
         msgDuplicateFile: 'File "{name}" of same size "{size} KB" has already been selected earlier. Skipping duplicate selection.',
-        msgResumableUploadRetriesExceeded: 'Upload aborted beyond <b>{max}</b> retries for file <b>{file}</b>! Error Details: <pre>{error}</pre>',
+        msgResumableUploadRetriesExceeded: 'Upload aborted beyond <b>{max}</b> retries for file <b>{file}</b>! Error Details: <pre>{errorpage}</pre>',
         msgPendingTime: '{time} remaining',
         msgCalculatingTime: 'calculating time remaining',
         ajaxOperations: {

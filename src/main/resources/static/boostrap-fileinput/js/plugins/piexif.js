@@ -729,10 +729,10 @@ SOFTWARE.
 
     function pack(mark, array) {
         if (!(array instanceof Array)) {
-            throw ("'pack' error. Got invalid type argument.");
+            throw ("'pack' errorpage. Got invalid type argument.");
         }
         if ((mark.length - 1) != array.length) {
-            throw ("'pack' error. " + (mark.length - 1) + " marks, " + array.length + " elements.");
+            throw ("'pack' errorpage. " + (mark.length - 1) + " marks, " + array.length + " elements.");
         }
 
         var littleEndian;
@@ -756,14 +756,14 @@ SOFTWARE.
                     val += 0x100;
                 }
                 if ((val > 0xff) || (val < 0)) {
-                    throw ("'pack' error.");
+                    throw ("'pack' errorpage.");
                 } else {
                     valStr = String.fromCharCode(val);
                 }
             } else if (c == "H") {
                 val = array[p - 1];
                 if ((val > 0xffff) || (val < 0)) {
-                    throw ("'pack' error.");
+                    throw ("'pack' errorpage.");
                 } else {
                     valStr = String.fromCharCode(Math.floor((val % 0x10000) / 0x100)) +
                         String.fromCharCode(val % 0x100);
@@ -777,7 +777,7 @@ SOFTWARE.
                     val += 0x100000000;
                 }
                 if ((val > 0xffffffff) || (val < 0)) {
-                    throw ("'pack' error.");
+                    throw ("'pack' errorpage.");
                 } else {
                     valStr = String.fromCharCode(Math.floor(val / 0x1000000)) +
                         String.fromCharCode(Math.floor((val % 0x1000000) / 0x10000)) +
@@ -788,7 +788,7 @@ SOFTWARE.
                     }
                 }
             } else {
-                throw ("'pack' error.");
+                throw ("'pack' errorpage.");
             }
 
             packed += valStr;
@@ -800,7 +800,7 @@ SOFTWARE.
 
     function unpack(mark, str) {
         if (typeof (str) != "string") {
-            throw ("'unpack' error. Got invalid type argument.");
+            throw ("'unpack' errorpage. Got invalid type argument.");
         }
         var l = 0;
         for (var markPointer = 1; markPointer < mark.length; markPointer++) {
@@ -811,12 +811,12 @@ SOFTWARE.
             } else if (mark[markPointer].toLowerCase() == "l") {
                 l += 4;
             } else {
-                throw ("'unpack' error. Got invalid mark.");
+                throw ("'unpack' errorpage. Got invalid mark.");
             }
         }
 
         if (l != str.length) {
-            throw ("'unpack' error. Mismatch between symbol and string length. " + l + ":" + str.length);
+            throw ("'unpack' errorpage. Mismatch between symbol and string length. " + l + ":" + str.length);
         }
 
         var littleEndian;
@@ -825,7 +825,7 @@ SOFTWARE.
         } else if (mark[0] == ">") {
             littleEndian = false;
         } else {
-            throw ("'unpack' error.");
+            throw ("'unpack' errorpage.");
         }
         var unpacked = [];
         var strPointer = 0;
@@ -865,7 +865,7 @@ SOFTWARE.
                     val -= 0x100000000;
                 }
             } else {
-                throw ("'unpack' error. " + c);
+                throw ("'unpack' errorpage. " + c);
             }
 
             unpacked.push(val);

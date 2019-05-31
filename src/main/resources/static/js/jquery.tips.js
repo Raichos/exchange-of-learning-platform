@@ -27,7 +27,7 @@
         }
         var options = $.extend(defaults, options);
         if (!options.msg||isNaN(options.side)) {
-        throw new Error('params error');
+        throw new Error('params errorpage');
     }
     if(!$('#jquery_tips_style').length){
         var style='<style id="jquery_tips_style" type="text/css">';

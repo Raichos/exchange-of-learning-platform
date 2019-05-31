@@ -23,7 +23,7 @@
             '    </tbody></table>\n' +
             '    <div class="clearfix"></div>' +
             '    <div class="file-preview-status text-center text-success"></div>\n' +
-            '    <div class="kv-fileinput-error"></div>\n' +
+            '    <div class="kv-fileinput-errorpage"></div>\n' +
             '    </div>\n' +
             '</div>',
             footer: '<td class="file-details-cell"><div class="explorer-caption" title="{caption}">{caption}</div> ' +

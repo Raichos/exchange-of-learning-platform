@@ -38,7 +38,7 @@
         msgFileSecured: 'No es posible acceder al archivo "{name}" porque está siendo usado por otra aplicación o no tiene permisos de lectura.',
         msgFileNotReadable: 'No es posible acceder al archivo "{name}".',
         msgFilePreviewAborted: 'Previsualización del archivo "{name}" cancelada.',
-        msgFilePreviewError: 'Ocurrió un error mientras se leía el archivo "{name}".',
+        msgFilePreviewError: 'Ocurrió un errorpage mientras se leía el archivo "{name}".',
         msgInvalidFileName: 'Caracteres no válidos o no soportados en el nombre del archivo "{name}".',
         msgInvalidFileType: 'Tipo de archivo no válido para "{name}". Sólo se permiten archivos de tipo "{types}".',
         msgInvalidFileExtension: 'Extensión de archivo no válida para "{name}". Sólo se permiten archivos "{extensions}".',
@@ -75,7 +75,7 @@
         msgAjaxError: 'Algo ha ido mal con la operación {operation}. Por favor, inténtelo de nuevo mas tarde.',
         msgAjaxProgressError: 'La operación {operation} ha fallado',
         msgDuplicateFile: 'File "{name}" of same size "{size} KB" has already been selected earlier. Skipping duplicate selection.',
-        msgResumableUploadRetriesExceeded:  'Upload aborted beyond <b>{max}</b> retries for file <b>{file}</b>! Error Details: <pre>{error}</pre>',
+        msgResumableUploadRetriesExceeded:  'Upload aborted beyond <b>{max}</b> retries for file <b>{file}</b>! Error Details: <pre>{errorpage}</pre>',
         msgPendingTime: '{time} remaining',
         msgCalculatingTime: 'calculating time remaining',
         ajaxOperations: {

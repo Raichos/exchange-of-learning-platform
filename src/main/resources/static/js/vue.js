@@ -1825,7 +1825,7 @@
   /*  */
 
   function handleError (err, vm, info) {
-    // Deactivate deps tracking while processing error handler to avoid possible infinite rendering.
+    // Deactivate deps tracking while processing errorpage handler to avoid possible infinite rendering.
     // See: https://github.com/vuejs/vuex/issues/1505
     pushTarget();
     try {
@@ -1878,7 +1878,7 @@
       try {
         return config.errorHandler.call(null, err, vm, info)
       } catch (e) {
-        // if the user intentionally throws the original error in the handler,
+        // if the user intentionally throws the original errorpage in the handler,
         // do not log it twice
         if (e !== err) {
           logError(e, null, 'config.errorHandler');
@@ -2582,7 +2582,7 @@
       }
     }
     // avoriaz seems to mock a non-extensible $scopedSlots object
-    // and when that is passed down this would cause an error
+    // and when that is passed down this would cause an errorpage
     if (slots && Object.isExtensible(slots)) {
       (slots)._normalized = res;
     }
@@ -3545,8 +3545,8 @@
         vnode = render.call(vm._renderProxy, vm.$createElement);
       } catch (e) {
         handleError(e, vm, "render");
-        // return error render result,
-        // or previous vnode to prevent render error causing blank interceptor
+        // return errorpage render result,
+        // or previous vnode to prevent render errorpage causing blank interceptor
         /* istanbul ignore else */
         if (vm.$options.renderError) {
           try {
@@ -6233,7 +6233,7 @@
         if (isDef(key)) {
           if (seenKeys[key]) {
             warn(
-              ("Duplicate keys detected: '" + key + "'. This may cause an update error."),
+              ("Duplicate keys detected: '" + key + "'. This may cause an update errorpage."),
               vnode.context
             );
           } else {
@@ -7313,7 +7313,7 @@
 
     {
       // inputs with type="file" are read only and setting the input's
-      // value will throw an error.
+      // value will throw an errorpage.
       if (tag === 'input' && type === 'file') {
         warn$1(
           "<" + (el.tag) + " v-model=\"" + value + "\" type=\"file\">:\n" +

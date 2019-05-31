@@ -20,6 +20,8 @@ spring:
   #ueditor
   resources:
     static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
+  messages:
+    basename: i18n.login
 
 
 server:

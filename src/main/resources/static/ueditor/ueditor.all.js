@@ -8111,7 +8111,7 @@ UE.Editor.defaultOptions = function(editor){
             console && console.error(msg);
             //me.fireEvent('showMessage', {
             //    'title': msg,
-            //    'type': 'error'
+            //    'type': 'errorpage'
             //});
         }
     };
