@@ -354,7 +354,7 @@
 
                     <!--编辑区-->
                     <div class="form-group ml-3 mr-3">
-                        <label for="exampleInputEmail1">请输入文章标题</label>
+                        <label for="exampleInputEmail1" class="mt-3">请输入文章标题</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入文章标题">
                     </div>
 
@@ -617,13 +617,13 @@
     $('#radiosYes').click(function () {
         // alert($('#radiosYes').prop('checked'));
         if($('#radiosYes').prop('checked')){
-            $('#upload-vedio').show();
+            $('#upload-vedio').show(500);
         }
     });
     $('#radiosNo').click(function () {
         // alert($('#radiosYes').attr("checked"));
         if($('#radiosNo').prop('checked')){
-            $('#upload-vedio').hide();
+            $('#upload-vedio').hide(500);
         }
     });
 
@@ -653,7 +653,15 @@
             //获取文本
             // $.ajax()
         }
-    })
+    });
+
+
+    $(function () {
+        //添加自适应
+        $('#edui1').addClass('w-100');
+        $('.file-input').addClass('w-100');
+    });
+
 
 </script>
 </html>
