@@ -2,7 +2,6 @@ package com.ckkj.exchangeoflearningplatform.config;
 
 
 import com.ckkj.exchangeoflearningplatform.security.CustomUserDetailsService;
-import com.ckkj.exchangeoflearningplatform.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -41,21 +40,27 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 //String password = MD5Utils.md5(charSequence.toString());
                 //System.out.println("aaaaffff:::charSequence="+charSequence+",s="+s);
                 //return s.equals(password);
+                //System.out.println("new BCryptPasswordEncoder().matches(charSequence.toString(),s)="+new BCryptPasswordEncoder().matches(charSequence.toString(),s));
                 return new BCryptPasswordEncoder().matches(charSequence.toString(),s);
             }
         });
     }
 
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers().permitAll()
-                .antMatchers("/loginUser").permitAll()
                 .anyRequest().authenticated();
 
         // 设置登陆页
         http.formLogin().loginPage("/login")
                 .loginProcessingUrl("/loginUser")
-                .defaultSuccessUrl("/userIndex").permitAll()
+                .defaultSuccessUrl("/userIndex",true)
+                //.successForwardUrl("/userIndex")
+                .failureUrl("/indextwos").permitAll()
+                .usernameParameter("username")
+                .passwordParameter("password")
                 .and()
                 .logout().permitAll();
 

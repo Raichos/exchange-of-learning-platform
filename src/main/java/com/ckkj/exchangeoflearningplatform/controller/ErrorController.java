@@ -19,4 +19,9 @@ public class ErrorController {
     public String error500(){
         return "error/500";
     }
+
+    @GetMapping("/403")
+    public String error403(){
+        return "error/403";
+    }
 }

@@ -21,8 +21,8 @@ public class LoginController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/loginUser")
-    public String userLogin(@RequestParam("userName") String userName,
+    /*@PostMapping("/loginUser")
+    public String userLogin(@RequestParam("username") String userName,
                             @RequestParam("password") String password,
                             HttpSession session) {
         System.out.println("进入登陆");
@@ -41,7 +41,7 @@ public class LoginController {
         } else {
             return "loginFalse";
         }
-    }
+    }*/
 
     @GetMapping("/users/sign_in")
     public String register(){
