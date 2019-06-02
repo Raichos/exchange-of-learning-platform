@@ -6,6 +6,7 @@ import com.ckkj.exchangeoflearningplatform.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,7 +45,8 @@ public class RegisterController {
             return "false";
         }
 
-        user.setPassword(MD5Utils.md5(user.getPassword()));
+        //user.setPassword(MD5Utils.md5(user.getPassword()));
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         int count = userService.register(user);
         if (count > 0){
             return "true";

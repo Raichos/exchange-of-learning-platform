@@ -28,4 +28,9 @@ public class ExchangeOfLearningPlatformApplicationTests {
         System.out.println("iftrue2="+iftrue2);
     }
 
+    @Test
+    public void test01(){
+        System.out.println("password="+new BCryptPasswordEncoder().encode("aaa"));
+    }
+
 }
