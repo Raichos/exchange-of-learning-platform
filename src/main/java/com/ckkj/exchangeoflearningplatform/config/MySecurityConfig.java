@@ -31,7 +31,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(new PasswordEncoder() {
             @Override
             public String encode(CharSequence charSequence) {
-                //System.out.println("charSequence.toString()="+charSequence.toString());
+                System.out.println("charSequence.toString()="+charSequence.toString());
                 return charSequence.toString();
             }
 
@@ -40,7 +40,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 //String password = MD5Utils.md5(charSequence.toString());
                 //System.out.println("aaaaffff:::charSequence="+charSequence+",s="+s);
                 //return s.equals(password);
-                //System.out.println(charSequence.toString()+" s="+s);
                 //System.out.println("new BCryptPasswordEncoder().matches(charSequence.toString(),s)="+new BCryptPasswordEncoder().matches(charSequence.toString(),s));
                 return new BCryptPasswordEncoder().matches(charSequence.toString(),s);
             }
