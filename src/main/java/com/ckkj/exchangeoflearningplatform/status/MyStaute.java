@@ -1,6 +1,10 @@
 package com.ckkj.exchangeoflearningplatform.status;
 
+import lombok.Data;
+
 /**
+ * 状态返回
+ *
  * @author lzh
  * create 2019-05-08-22:51
  */
@@ -8,9 +12,9 @@ package com.ckkj.exchangeoflearningplatform.status;
 public enum MyStaute {
 
 
-    SUCCESS(200, "success"),
-    ERROR(500, "errorpage"),
-    UNKNOWN_ERROR(-1, "unknown_error");
+    UNKNOWN_ERROR(-1, "unknown_error"),
+    FALSE(0,"false"),
+    SUCCESS(1,"true");
 
     private Integer code;
     private String msg;
