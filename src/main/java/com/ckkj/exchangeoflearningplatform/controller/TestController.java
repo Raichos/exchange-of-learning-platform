@@ -97,4 +97,10 @@ public class TestController {
         return "indextwo";
     }
 
+    @GetMapping("/resourcetwo")
+    public String resourcetwo() {
+
+        return "resourceShare";
+    }
+
 }

@@ -1,12 +1,14 @@
 package com.ckkj.exchangeoflearningplatform.controller;
 
+import com.ckkj.exchangeoflearningplatform.model.TempUser;
+import com.ckkj.exchangeoflearningplatform.service.TempService;
 import com.ckkj.exchangeoflearningplatform.service.UserService;
+import com.ckkj.exchangeoflearningplatform.status.MyStaute;
 import com.ckkj.exchangeoflearningplatform.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -20,6 +22,9 @@ public class LoginController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    TempService tempService;
 
     /*@PostMapping("/loginUser")
     public String userLogin(@RequestParam("username") String userName,
@@ -42,6 +47,59 @@ public class LoginController {
             return "loginFalse";
         }
     }*/
+
+    @GetMapping("/phone")
+    public String phone(){
+        System.out.println("phone");
+        return "/login/phoneLogin";
+    }
+
+    /**
+     * 二维码扫描提交
+     * @param tempUser
+     * @return
+     */
+    @PostMapping("/phoneLogin")
+    @ResponseBody
+    public int phoneLogin(TempUser tempUser){
+        System.out.println("TempUser="+tempUser);
+
+        //查找用户
+        String userPassword = userService.findPasswordByUName(tempUser.getUserName());
+        System.out.println("tempUser.getPassword"+tempUser.getPassword()+"userPassword"+userPassword);
+        boolean isTrue = new BCryptPasswordEncoder().matches(tempUser.getPassword(), userPassword);
+
+        System.out.println("isTrue="+isTrue);
+
+        if (!isTrue){
+            return 0;
+        }
+
+        //记录扫描登陆用户
+        int count = tempService.update(tempUser);
+        System.out.println("TempUser保存成功");
+
+        return count;
+    }
+
+    @PostMapping("/qrlogin")
+    @ResponseBody
+    public TempUser qrlogin(){
+
+        String tempName = tempService.findTempName();
+
+        //System.out.println("userName="+tempName);
+
+        if ("000000".equals(tempName)){
+            //return MyStaute.FALSE;
+            //System.out.println("false");
+            return null;
+        }
+
+        String tempPassword = tempService.findTempPassword(tempName);
+
+        return new TempUser(1,tempName,tempPassword);
+    }
 
     @GetMapping("/users/sign_in")
     public String register(){

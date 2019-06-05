@@ -108,6 +108,51 @@
                 }
             });
         });
+
+        $(document).ready(function () {
+            $("#nav-profile-tab").click(function () {
+                // alert("扫码");
+
+                var QRTime = 3;
+                var temp = setInterval(function () {
+
+                    $.ajax({
+                        "url":"http://localhost:8080/qrlogin",
+                        "data":"",
+                        "type":"POST",
+                        "dataType":"json",
+                        "success":function (data) {
+                            // alert("success.id="+data.id);
+                            // alert("success.userName="+data.userName);
+                            // alert("success.password="+data.password);
+
+                            var params = {"username":data.userName, "password":data.password};
+                            $.ajax({
+                                "url":"http://localhost:8080/loginUser",
+                                "data":params,
+                                "type":"POST",
+                                "dataType":"json"
+                            });
+                            alert("登陆成功");
+                            window.location.href="/userIndex";
+                            clearInterval(temp);
+
+                        },
+                        "error":function () {
+                            //alert("账号或密码错误");
+                        }
+                    });
+
+                    //alert("扫码="+QRTime);
+                    //清除线程
+                    $("#nav-home-tab").click(function () {
+                        clearInterval(temp);
+                    });
+
+                }, 3000);
+
+            });
+        });
     </script>
 </head>
 <body>
@@ -262,7 +307,7 @@
                                             </div>
                                             <!--                                二维码-->
                                             <div class="tab-pane fade col-sm-12 text-center align-content-center" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                                <img src="../../static/img/login/R.png">
+                                                <img src="../../static/img/login/phoneLogin.jpg">
                                                 <p th:text="#{login.wechatScan}">请使用微信扫一扫登陆</p>
                                             </div>
                                         </div>

@@ -1,6 +1,7 @@
 package com.ckkj.exchangeoflearningplatform.service.impl;
 
 import com.ckkj.exchangeoflearningplatform.mapper.UserMapper;
+import com.ckkj.exchangeoflearningplatform.model.TempUser;
 import com.ckkj.exchangeoflearningplatform.model.User;
 import com.ckkj.exchangeoflearningplatform.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,11 @@ public class UserServiceImpl implements UserService {
     public int register(User user) {
         int count = userMapper.insertUser(user);
         return count;
+    }
+
+    @Override
+    public String findPasswordByUName(String userName) {
+        String Password = userMapper.findPasswordByName(userName);
+        return Password;
     }
 }
