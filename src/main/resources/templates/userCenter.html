@@ -315,20 +315,44 @@
                         <div class="tab-content">
                             <div class="tab-pane fade show active text-right" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                 <div class="text-left">
-                                    <span class="ml-3">请输入充值金额(1元=10积分):</span>
-                                    <input id="wechat-pay" type="text" class="form-control ml-3 mr-3" style="width:97%" required>
+<!--                                    <span class="ml-3">请输入充值金额(1元=10积分):</span>-->
+<!--                                    <input id="wechat-pay" type="text" class="form-control ml-3 mr-3" style="width:97%" required>-->
+                                    <div class="col-md-6 mb-3">
+                                        <label for="wechat-pay">请输入充值金额(1元=10积分):</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupPrepend3">￥</span>
+                                            </div>
+                                            <input id="wechat-pay" type="text" class="form-control was-invalid" placeholder="请输入充值金额(1元=10积分)" aria-describedby="inputGroupPrepend3" value="20" required>
+                                            <div class="invalid-feedback ml-5">
+                                                请输入正确的格式
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button class="btn btn-success mt-2 mr-2 row" id="wechat-pay-button" type="button" data-toggle="modal" data-target="#qr-pay-model">提交</button>
+                                <button class="btn btn-success mt-2 mr-2 row" id="wechat-pay-button" type="button">提交</button>
                                 <span class="w-100 weshare-top-line row"></span>
                                 <span class="row m-2 text-left text-secondary" style="font-size:14px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前支付方式为微信支付，请输入您要充值的金额后，点击提交，会出现二维码，您只需打开微信扫一扫支付即可实现支付，若支付过程中出现问题，请联系我们。我们将为您解决。——WeShare</span>
 
                             </div>
                             <div class="tab-pane fade col-sm-12 text-right" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                 <div class="text-left">
-                                    <span class="ml-3">请输入充值金额(1元=10积分):</span>
-                                    <input id="alipay" type="text" class="form-control ml-3 mr-3" style="width:97%" required>
+<!--                                    <span class="ml-3">请输入充值金额(1元=10积分):</span>-->
+<!--                                    <input id="alipay" type="text" class="form-control ml-3 mr-3" style="width:97%" required>-->
+                                    <div class="col-md-6 mb-3">
+                                        <label for="alipay">请输入充值金额(1元=10积分):</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">￥</span>
+                                            </div>
+                                            <input id="alipay" type="text" class="form-control was-invalid" placeholder="请输入充值金额(1元=10积分)" aria-describedby="inputGroupPrepend3" value="20" required>
+                                            <div class="invalid-feedback ml-5">
+                                                请输入正确的格式
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button class="btn btn-success mt-2 mr-2 row" id="alipay-button" type="button" data-toggle="modal" data-target="#qr-pay-model">提交</button>
+                                <button class="btn btn-success mt-2 mr-2 row" id="alipay-button" type="button">提交</button>
                                 <span class="w-100 weshare-top-line row"></span>
                                 <span class="row m-2 text-left text-secondary" style="font-size:14px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前支付方式为支付宝支付，请输入您要充值的金额后，点击提交，会出现二维码，您只需打开支付宝扫一扫支付即可实现支付，若支付过程中出现问题，请联系我们。我们将为您解决。——WeShare</span>
 
@@ -641,8 +665,36 @@
     }).mouseout(function () {
 
     });
-    
+
+    function wechatPayMoneyCheck(){
+        //校验输入金额格式是否正确
+        var numberPatt = /^[0-9]+$/;
+        var payMoney = $('#wechat-pay').val();
+        if(!numberPatt.test(payMoney)){
+            if($('#wechat-pay').hasClass('was-invalid')) {
+                $('#wechat-pay').removeClass('was-invalid');
+                $('#wechat-pay').addClass('is-invalid');
+            }
+            return false;
+        }else{
+            if($('#wechat-pay').hasClass('is-invalid')) {
+                $('#wechat-pay').removeClass('is-invalid');
+                $('#wechat-pay').addClass('was-invalid');
+            }
+            return true;
+        }
+    }
+    //失去焦点执行
+    $('#wechat-pay').blur(function () {
+        wechatPayMoneyCheck();
+    });
+
     $('#wechat-pay-button').click(function () {
+
+        if(!wechatPayMoneyCheck())
+            return;
+
+        $('#qr-pay-model').modal('show');
         $('#qr-pay-model-title').text('请使用微信扫一扫');
         $('#pay-time').text(300);
         //启动时间计时器
@@ -670,7 +722,39 @@
 
         // 这里写生成二维码
     });
+
+
+    function alipayMoneyCheck(){
+        //校验输入金额格式是否正确
+        var numberPatt = /^[0-9]+$/;
+        var payMoney = $('#alipay').val();
+        if(!numberPatt.test(payMoney)){
+            if($('#alipay').hasClass('was-invalid')){
+                $('#alipay').removeClass('was-invalid');
+                $('#alipay').addClass('is-invalid');
+            }
+
+            return false;
+        }else{
+            if($('#alipay').hasClass('is-invalid'))
+            {
+                $('#alipay').removeClass('is-invalid');
+                $('#alipay').addClass('was-invalid');
+            }
+
+            return true;
+        }
+    }
+    //失去焦点执行
+    $('#alipay').blur(function () {
+        alipayMoneyCheck();
+    });
+
     $('#alipay-button').click(function () {
+
+        if(!alipayMoneyCheck())  //检测不过
+            return;
+        $('#qr-pay-model').modal('show');
         $('#qr-pay-model-title').text('请使用支付宝扫一扫');
         $('#pay-time').text(300);
         //启动时间计时器
