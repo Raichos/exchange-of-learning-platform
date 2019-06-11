@@ -48,7 +48,7 @@ public class ExchangeOfLearningPlatformApplicationTests {
     @Test
     public void test02(){
         QRCodeUtil qrCodeUtil = new QRCodeUtil();
-        qrCodeUtil.qRCodeFactor();
+        //qrCodeUtil.qRCodeFactor();
     }
 
     @Test
@@ -61,8 +61,8 @@ public class ExchangeOfLearningPlatformApplicationTests {
 
     @Test
     public void test04(){
-        String tempName = tempLoginMapper.findTempName();
-        System.out.println("tempName="+tempName);
+        //String tempName = tempLoginMapper.findTempName();
+        //System.out.println("tempName="+tempName);
     }
 
     @Test
@@ -71,6 +71,14 @@ public class ExchangeOfLearningPlatformApplicationTests {
         System.out.println("ClassType="+MyStaute.SUCCESS.getClass().toString());;
         System.out.println("equal="+(MyStaute.SUCCESS).equals(MyStaute.FALSE));
         System.out.println("equal="+(HttpStatus.FORBIDDEN).equals(HttpStatus.NOT_FOUND));
+    }
+
+    @Test
+    public void test06(){
+        String path = Class.class.getClass().getResource("/").getPath();
+        System.out.println("path="+path); //path=/F:/idea2018WorkSpace/exchange-of-learning-platform/target/test-classes/
+        System.out.println(path.indexOf("exchange-of-learning-platform"));
+        System.out.println(path.substring(1,path.indexOf("exchange-of-learning-platform")+"exchange-of-learning-platform".length()+1));
     }
 
 }

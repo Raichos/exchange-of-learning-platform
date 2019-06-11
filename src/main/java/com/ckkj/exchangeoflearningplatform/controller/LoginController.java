@@ -62,6 +62,7 @@ public class LoginController {
     @PostMapping("/phoneLogin")
     @ResponseBody
     public int phoneLogin(TempUser tempUser){
+
         System.out.println("TempUser="+tempUser);
 
         //查找用户
@@ -76,7 +77,7 @@ public class LoginController {
         }
 
         //记录扫描登陆用户
-        int count = tempService.update(tempUser);
+        int count = tempService.createTempUser(tempUser);
         System.out.println("TempUser保存成功");
 
         return count;
@@ -84,13 +85,13 @@ public class LoginController {
 
     @PostMapping("/qrlogin")
     @ResponseBody
-    public TempUser qrlogin(){
+    public TempUser qrlogin(@RequestParam("rid") String rid){
 
-        String tempName = tempService.findTempName();
+        String tempName = tempService.findTempNameByRid(rid);
 
         //System.out.println("userName="+tempName);
 
-        if ("000000".equals(tempName)){
+        if ("000000".equals(tempName) || "".equals(tempName) || tempName ==null){
             //return MyStaute.FALSE;
             //System.out.println("false");
             return null;
@@ -98,7 +99,7 @@ public class LoginController {
 
         String tempPassword = tempService.findTempPassword(tempName);
 
-        return new TempUser(1,tempName,tempPassword);
+        return new TempUser(-1,tempName,tempPassword,"temp");
     }
 
     @GetMapping("/users/sign_in")

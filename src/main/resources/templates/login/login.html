@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script src="../../static/js/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+    //扫码随机码
+    var rid = Math.random().toString(36).substr(2);
+    //请求后端生产携带随机码的二维码
+    var para = {"rid":rid};
+    $.ajax({
+        "url":"http://localhost:8080/lose/createQRCode",
+        "data":para,
+        "type":"POST",
+        "dataType":"json",
+        "success":function (data) {
+            //alert(data);
+        },
+        "error":function () {
+            //alert("error");
+        }
+    });
+   /* $.post("http://localhost:8080/lose/createQRCode",rid,function (data) {
+        alert("data="+data);
+    });*/
+
+</script>
 <head>
     <meta charset="UTF-8">
     <title>视拼购商家后台登陆</title>
-    <script src="../../static/js/jquery-3.4.0.js"></script>
+    <!--<script src="../../static/js/jquery-3.4.0.js"></script>-->
     <script src="../../static/js/bootstrap.js"></script>
     <script src="../../static/js/bootstrap.js"></script>
     <script type="text/javascript" src="../../static/js/vector.js"></script>
@@ -98,8 +121,12 @@
             transition: all .3s;
         }
     </style>
+
     <script>
+
+
         $(function(){
+
             Victor("container", "output");   //登陆背景函数
             $("#entry_name").focus();
             $(document).keydown(function(event){
@@ -109,16 +136,42 @@
             });
         });
 
+        /*//扫码随机码
+        var rid = Math.random().toString(36).substr(2);
+        //请求后端生产携带随机码的二维码
+        var para = {"rid":rid};
+        $.ajax({
+            "url":"http://localhost:8080/lose/createQRCode",
+            "data":para,
+            "type":"POST",
+            "dataType":"json",
+            "success":function (data) {
+                alert("成功了");
+                $("#qrCodeImg").attr("src","../../static/img/login/loginQRCode_"+rid+".jpg");
+            },
+            "error":function () {
+                //alert("error");
+            }
+        });*/
+
         $(document).ready(function () {
+
+
+            // 二维码读取  显示
+            //$("#qrCodeImg").attr("src","../../static/img/login/loginQRCode_"+rid+".jpg");
+
+
             $("#nav-profile-tab").click(function () {
                 // alert("扫码");
 
-                var QRTime = 3;
+                //var QRTime = 3;
+                //alert("rid====="+rid);
                 var temp = setInterval(function () {
 
+                    var qrloginPara = {"rid":rid};
                     $.ajax({
                         "url":"http://localhost:8080/qrlogin",
-                        "data":"",
+                        "data":qrloginPara,
                         "type":"POST",
                         "dataType":"json",
                         "success":function (data) {
@@ -307,7 +360,8 @@
                                             </div>
                                             <!--                                二维码-->
                                             <div class="tab-pane fade col-sm-12 text-center align-content-center" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                                <img src="../../static/img/login/phoneLogin.jpg">
+                                                <!--<img id="qrCodeImg" src="../../static/img/login/phoneLogin.jpg">-->
+                                                <img id="qrCodeImg" th:src="@{/getImg}">
                                                 <p th:text="#{login.wechatScan}">请使用微信扫一扫登陆</p>
                                             </div>
                                         </div>

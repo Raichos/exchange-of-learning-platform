@@ -22,13 +22,13 @@ public interface TempService {
      * @param tempUser
      * @return
      */
-    int update(TempUser tempUser);
+    int createTempUser(TempUser tempUser);
 
     /**
-     * 查找临时表id=1的用户名
+     * 根据随机码查找用户
      * @return
      */
-    String findTempName();
+    String findTempNameByRid(String rid);
 
     /**
      * 查找临时表密码

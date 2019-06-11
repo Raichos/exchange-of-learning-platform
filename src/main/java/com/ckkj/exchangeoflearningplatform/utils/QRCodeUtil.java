@@ -79,16 +79,17 @@ public class QRCodeUtil {
         return image;
     }
 
-    public static void qRCodeFactor(){
-        Scanner in = new Scanner(System.in);
-        System.out.println("欢迎使用二维码生成软件\n请输入要生成的句子：");
-        String words = in.nextLine();
-        System.out.println("------------------------------------------------");
-        System.out.println("开始生成二维码");
-        System.out.println("请输入保存路径：");
-        String url = in.nextLine();
-        writeToFile(words, "png", new File(url));
-        System.out.println("二位码已生成为 : "+url);
+    public static void qRCodeFactor(String str){
+
+        String path = Class.class.getClass().getResource("/").getPath();
+
+        path = path.substring(1,path.indexOf("exchange-of-learning-platform")+"exchange-of-learning-platform".length()+1)+"src/main/resources/static/img/login/";
+
+        String url = path+"loginQRCode_"+str+".jpg";
+        str = "http://192.168.90.94:8080/phone?rid="+str;
+        writeToFile(str, "png", new File(url));
+        System.out.println("二位码已生成为 : "+ url);
+
     }
 
     /*public static void main(String[] args) {

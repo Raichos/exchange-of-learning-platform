@@ -61,6 +61,29 @@
                 alert("提交");
                 $("#formDiv").submit();
             });*/
+
+            //参数处理
+            var parameter = window.location.href;
+            $("#submitButton").click(function () {
+                var num=parameter.indexOf("?");
+                parameter=parameter.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+                var arr = parameter.split("="); //各个参数放到数组里
+                alert(arr[1]);
+
+                var params = {"userName":$("#validationDefaultUsername").val(), "password":$("#validationDefaultPassword").val(),"rid":arr[1]};
+                $.ajax({
+                    "url":"http://localhost:8080/phoneLogin",
+                    "data":params,
+                    "type":"POST",
+                    "dataType":"json",
+                    "success":function (data) {
+                        alert(data);
+                    },
+                    "error":function () {
+                        alert("error");
+                    }
+                });
+            });
         });
     </script>
 </head>
@@ -86,7 +109,7 @@
                        aria-describedby="inputGroupPrepend2" required>
             </div>
             <!--<button id="submitButton" type="button" class="btn btn-success">登陆</button>-->
-            <input id="submitButton" class="btn btn-success" type="submit" value="登陆">
+            <input id="submitButton" class="btn btn-success" type="button" value="登陆">
         </form>
     </div>
 </div>

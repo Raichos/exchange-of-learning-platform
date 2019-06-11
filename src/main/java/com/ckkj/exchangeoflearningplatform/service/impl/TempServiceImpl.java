@@ -25,14 +25,14 @@ public class TempServiceImpl implements TempService {
     }
 
     @Override
-    public int update(TempUser tempUser) {
-        int count = tempLoginMapper.updateUser(tempUser);
+    public int createTempUser(TempUser tempUser) {
+        int count = tempLoginMapper.createTempUser(tempUser);
         return count;
     }
 
     @Override
-    public String findTempName() {
-        String userName = tempLoginMapper.findTempName();
+    public String findTempNameByRid(String rid) {
+        String userName = tempLoginMapper.findTempNameByRid(rid);
         return userName;
     }
 
