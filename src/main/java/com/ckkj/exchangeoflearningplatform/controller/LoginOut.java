@@ -23,7 +23,7 @@ public class LoginOut {
     @ResponseBody
     public String loginout(){
         System.out.println("用户登出");
-        tempService.update(new TempUser(1,"000000",""));
+        //tempService.deleteUser(new TempUser(1,"000000","",""));
 
         return "logout";
     }
