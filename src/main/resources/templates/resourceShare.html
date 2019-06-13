@@ -508,6 +508,16 @@
                             UE.getEditor('editor').execCommand( "clearlocaldata" );
                             alert("已清空草稿箱")
                         }
+
+                        $(document).ready(function () {
+                            $("#userLogout").click(function () {
+                                $.ajax({
+                                    "url":"http://localhost:8080/phoneLoginOut",
+                                    "type":"GET",
+                                    "dataType":"json"
+                                });
+                            });
+                        });
                     </script>
 
 

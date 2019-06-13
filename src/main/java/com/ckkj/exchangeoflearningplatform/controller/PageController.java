@@ -20,4 +20,11 @@ public class PageController {
     public String userIndex(){
         return "/userIndex";
     }
+
+    //http://ip:8080/userCenter
+    @RequestMapping("/userCenter")
+    public String userCenter()
+    {
+        return "/userCenter";
+    }
 }

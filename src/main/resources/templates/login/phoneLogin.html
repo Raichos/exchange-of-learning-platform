@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端登陆</title>
+
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/font-awesome.css">
+    <script src="../../static/js/jquery-3.4.0.js"></script>
+    <script src="../../static/js/bootstrap.js"></script>
+
+    <style>
+        body {
+            background: #372147;
+            text-align: center;
+
+        }
+
+        #formDiv {
+            border: 1px solid #d3e7f4;
+            width: 1000px;
+            margin: 0 auto;
+            top:50%;
+        }
+
+        form {
+            border: 1px solid #f4ee53;
+            text-align: center;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            width: 500px;
+        }
+
+        span{
+            margin-top: 50px;
+        }
+
+        input{
+            margin-top: 50px;
+            height: 70px;
+        }
+
+        #submitButton{
+            margin-top: 50px;
+            width: 500px;
+            height: 70px;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            //2.3 窗口的高度
+            var wh = $(this).height();
+            //alert("wh="+wh);
+            $("#formDiv").height(wh-10);
+
+            /*$("#submitButton").click(function () {
+                alert("提交");
+                $("#formDiv").submit();
+            });*/
+
+            //参数处理
+            var parameter = window.location.href;
+            $("#submitButton").click(function () {
+                var num=parameter.indexOf("?");
+                parameter=parameter.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+                var arr = parameter.split("="); //各个参数放到数组里
+                alert(arr[1]);
+
+                var params = {"userName":$("#validationDefaultUsername").val(), "password":$("#validationDefaultPassword").val(),"rid":arr[1]};
+                $.ajax({
+                    "url":"http://localhost:8080/phoneLogin",
+                    "data":params,
+                    "type":"POST",
+                    "dataType":"json",
+                    "success":function (data) {
+                        alert(data);
+                    },
+                    "error":function () {
+                        alert("error");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <div id="formDiv" align="center">
+        <form method="post" action="/phoneLogin">
+            <h1><i><strong>WeShare Login</strong></i></h1>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend"><i class="fa fa-user-o"
+                                                                             aria-hidden="true"></i></span>
+                </div>
+                <input type="text" class="form-control" id="validationDefaultUsername" name="userName" placeholder="Username"
+                       aria-describedby="inputGroupPrepend2" required>
+            </div>
+            <br>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="2"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                </div>
+                <input type="password" class="form-control" name="password" id="validationDefaultPassword" placeholder="Password"
+                       aria-describedby="inputGroupPrepend2" required>
+            </div>
+            <!--<button id="submitButton" type="button" class="btn btn-success">登陆</button>-->
+            <input id="submitButton" class="btn btn-success" type="button" value="登陆">
+        </form>
+    </div>
+</div>
+</body>
+</html>
