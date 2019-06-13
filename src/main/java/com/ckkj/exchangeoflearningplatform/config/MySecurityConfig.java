@@ -71,6 +71,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         //对静态资源放行
-        web.ignoring().antMatchers("/css/**", "/js/**", "/static/**","/lose/**","/register","ueditor/**","/login/**","/","/index");
+        web.ignoring().antMatchers("/css/**", "/js/**", "/static/**",
+                "/lose/**","/register","ueditor/**","/login/**","/","/index","/phoneLogin",
+                "/phone","/qrlogin","/getImg");
     }
 }

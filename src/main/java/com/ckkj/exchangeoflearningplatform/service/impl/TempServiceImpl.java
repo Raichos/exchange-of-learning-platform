@@ -37,7 +37,7 @@ public class TempServiceImpl implements TempService {
     }
 
     @Override
-    public String findTempPassword(String tempUser) {
-        return tempLoginMapper.findTempPassword(tempUser);
+    public String findTempPassword(String tempUser,String rid) {
+        return tempLoginMapper.findTempPassword(tempUser,rid);
     }
 }

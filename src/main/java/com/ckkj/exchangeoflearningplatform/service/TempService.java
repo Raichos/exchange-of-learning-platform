@@ -34,5 +34,5 @@ public interface TempService {
      * 查找临时表密码
      * @return
      */
-    String findTempPassword(String tempUser);
+    String findTempPassword(String tempUser,String rid);
 }

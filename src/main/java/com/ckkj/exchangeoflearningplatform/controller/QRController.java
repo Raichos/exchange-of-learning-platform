@@ -23,6 +23,7 @@ import java.io.OutputStream;
 public class QRController {
 
     //private String ridcord = "phoneLogina";
+    //private int count = 0;
     private String ridcord;
 
     @PostMapping("/lose/createQRCode")
@@ -41,7 +42,10 @@ public class QRController {
     @GetMapping("/getImg")
     public void getImg(/*@RequestParam("rid") String rid ,*/ HttpServletResponse response) throws IOException {
         System.out.println("getImg");
-
+        /*if (this.count == 0){
+            ridcord = "phoneLogin";
+            this.count = 1;
+        }*/
         //QRCodeUtil.qRCodeFactor(rid);
 
         OutputStream os = null;
