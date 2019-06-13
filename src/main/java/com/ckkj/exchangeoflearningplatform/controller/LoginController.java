@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpSession;
 
 /**
@@ -97,7 +96,7 @@ public class LoginController {
             return null;
         }
 
-        String tempPassword = tempService.findTempPassword(tempName);
+        String tempPassword = tempService.findTempPassword(tempName,rid);
 
         return new TempUser(-1,tempName,tempPassword,"temp");
     }

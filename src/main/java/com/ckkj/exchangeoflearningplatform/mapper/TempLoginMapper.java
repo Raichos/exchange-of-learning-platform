@@ -20,8 +20,8 @@ public interface TempLoginMapper {
     @Select("SELECT user_name FROM temp_login WHERE rid = #{rid}")
     String findTempNameByRid(String rid);
 
-    @Select("SELECT password FROM temp_login WHERE user_name = #{tempUser}")
-    String findTempPassword(String tempUser);
+    @Select("SELECT password FROM temp_login WHERE user_name = #{tempUser} AND rid = #{rid}")
+    String findTempPassword(String tempUser,String rid);
 
     @Insert("INSERT INTO temp_login (user_name,password,rid) VALUES (#{userName},#{password},#{rid})")
     int createTempUser(TempUser tempUser);

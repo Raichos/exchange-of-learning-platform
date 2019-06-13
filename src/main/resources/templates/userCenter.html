@@ -308,6 +308,8 @@
                                 <div class="form-group row">
                                     <label for="inputEmail3" class="col-form-label">用户名</label>
                                     <div class="col-4">
+
+
                                         <input type="email" class="form-control" id="inputEmail3" placeholder="用户名">
                                     </div>
                                 </div>
@@ -781,6 +783,12 @@
 
 
         // 这里写生成二维码
+    });
+
+    $(function () {
+        $("#wechat-pay-button").click(function () {
+            var $money = $("#wechat-pay").val(); //金额
+        });
     });
 
 </script>
