@@ -87,8 +87,14 @@ public class TestController {
 
     @GetMapping("/resource")
     public String resources() {
-        System.out.println("share");
+        System.out.println("sharehtml");
         return "resourceSha";
+    }
+
+    @GetMapping("/userindex")
+    public String userIndex(){
+        System.out.println("userIndex.html");
+        return "userIndex";
     }
 
     @GetMapping("/indextwos")
