@@ -192,6 +192,10 @@
         .left-new-items a:hover{
             color:#ca0c16;
         }
+
+        .word-title a:hover{
+            text-decoration:none;
+        }
     </style>
 </head>
 <body>
@@ -283,18 +287,18 @@
                     <div class="ml-4 w-100">
                         <div class="row w-100">
                             <div class="col-6">
-                                <span>等奖:</span><span>15</span>
+                                <span>等奖:</span><span class="ml-1">15</span>
                             </div>
                             <div class="col-6">
-                                <span>访问:</span><span>17万+</span>
+                                <span>访问:</span><span class="ml-1">17万+</span>
                             </div>
                         </div>
                         <div class="row w-100">
                             <div class="col-6">
-                                <span>积分:</span><span>3306</span>
+                                <span>积分:</span><span class="ml-1">3306</span>
                             </div>
                             <div class="col-6">
-                                <span>排名:</span><span>17万+</span>
+                                <span>排名:</span><span class="ml-1">17万+</span>
                             </div>
                         </div>
                     </div>
@@ -344,9 +348,38 @@
             <!--                主内容-->
             <div class="Boyu-content mt-2 ml-2" style="width: 78%;">
                 <div class="h-100 m-4" id="center-word">
-                    <script src="../static/wordhtml/test1.js"></script>
-<!--                    <iframe onload="setIframeHeight(this)" id="ifm1" height="6000px" class="h-100 w-100" src="../static/wordhtml/test1.html" frameborder="0" name="iframe-word" scrolling="auto">-->
-<!--                    </iframe>-->
+                    <div class="word-title pb-3" style="border-bottom: 1px solid #333;">
+                        <div class="row">
+                            <span class="text-center align-content-center pt-1" style="color: #ca0c16;border: 1px solid #f4ced0;border-radius: 50%;height: 36px;width: 36px;">原</span>
+                            <h3 class="ml-2" style="font-family: 微软雅黑;font-weight: bold;text-decoration: none;">关于jquery操作iframe中内容, 无法正常显示的问题</h3>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="">
+                                2014年02月26日 19:39:51
+                            </div>
+                            <div class="ml-3">
+                                <a class="" href="#">Rakers</a>
+                            </div>
+                            <div class="ml-3">
+                                阅读数 <span>1129</span>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe src="../static/wordhtml/test1.html" frameborder="0" scrolling="no" id="word-iframe" onload="this.height=800"></iframe>
+                    <script type="text/javascript">
+                        function reinitIframe(){
+                            var iframe = document.getElementById("word-iframe");
+                            try{
+                                var bHeight = iframe.contentWindow.document.body.scrollHeight;
+                                var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+                                var height = Math.max(bHeight, dHeight);
+                                iframe.height = height;
+                                clearInterval(interval);
+                            }catch (ex){}
+
+                        }
+                        var interval = window.setInterval("reinitIframe()", 200);
+                    </script>
                 </div>
 
             </div>
@@ -514,21 +547,6 @@
 
         // 这里写生成二维码
     });
-
-    //设置iframe高度
-    function setIframeHeight(iframe) {
-        if (iframe) {
-            var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
-            if (iframeWin.document.body) {
-                iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
-            }
-        }
-    };
-
-    // $(function () {
-    //    //加载文章
-    //     $('#center-word')
-    // });
 
 </script>
 </html>

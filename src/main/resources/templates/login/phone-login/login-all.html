@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>用户登录</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" href="../../../static/phone-login/css/light7.css">
+    <link rel="stylesheet" href="../../../static/phone-login/css/light7-swiper.css">
+    <link rel="stylesheet" href="../../../static/phone-login/css/base.css">
+    <style type="text/css">
+
+    </style>
+  </head>
+  <body>
+    <!-- 你的html代码 -->
+    <div class="page">
+      <div class="content login-shild">
+        <!-- 这里是页面内容区 -->
+        <div class="login-plugin">
+          <p>选择登陆方式</p>
+          <p class="login-pbutton"><a class="external"><i></i>微信登录</a></p>
+          <p>已经在手机QQ/微博/或浏览器中登陆过？</p>
+          <p onclick="poplogin();">请使用其他登录方式</p>
+        </div>
+
+        <div class="modal-overlay"></div>
+        <div class="pop-login pop-login-out">
+          <p>请选择登录</p>
+          <div>
+            <ul class="clearfix">
+              <li>
+                <a class="external" href="/phoneUser">
+                  <img style="width:25.5px;height:41px;text-align:center;" src="../../../static/phone-login/img/login-pho.png">
+                  <p>账号登录</p>
+                </a>
+              </li>
+              <li>
+                <a class="external" href="#">
+                  <img style="width:36.5px;height:40.5px;text-align:center;" src="../../../static/phone-login/img/login-qq.png">
+                  <p>QQ</p>
+                </a>
+              </li>
+              <li>
+                <a class="external" href="#">
+                  <img style="width:39.5px;height:39.5px;text-align:center;" src="../../../static/phone-login/img/login-sina.png">
+                  <p>新浪微博</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a class="login-p-cancel external">取消</a>
+        </div>
+
+      </div>
+    </div>
+    <!-- html结束 -->
+    <script type='text/javascript' src='../../../static/phone-login/js/jquery.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='../../../static/phone-login/js/light7.js' charset='utf-8'></script>
+    <script type='text/javascript' src='../../../static/phone-login/js/light7-swiper.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='../../../static/phone-login/js/base-widget.js' charset='utf-8'></script>
+
+    <script type="text/javascript">
+      $(function(){
+        $.init();
+      })
+    </script>
+  </body>
+</html>
