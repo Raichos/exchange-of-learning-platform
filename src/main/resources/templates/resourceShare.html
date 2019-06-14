@@ -193,7 +193,9 @@
 
             </div>
             <div class="col-md-2">
-                <span style="color: red;font-size: 28px;font-style: normal;font-weight: bold;">WeShare</span><span style="color: white;font-size: 18px;">管理后台</span>
+                <!--<span style="color: red;font-size: 28px;font-style: normal;font-weight: bold;">WeShare</span>-->
+                <img src="/static/img/brand.png" width="50" height="50">
+                <span style="color: white;font-size: 18px;">管理后台</span>
             </div>
             <!--                <div class="col-md-1"></div>-->
             <div class="col-md-6">
@@ -205,13 +207,15 @@
                         <a class="nav-link" href="#">博语</a>
                     </li>
                     <li class="nav-item" style="margin: 0 5%;">
-                        <a class="nav-link" href="#">积分社区</a>
+                        <a class="nav-link" href="/userCenter">积分社区</a>
                     </li>
                     <li class="nav-item" style="margin: 0 5%;">
-                        <a class="nav-link" href="#">联系平台</a>
+                        <a class="nav-link" href="/userindex">联系平台</a>
                     </li>
                     <li class="nav-item" style="margin: 0 5%;">
-                        <a class="nav-link" href="#" style="color: white">资源分享</a>
+                        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                            资源分享
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -221,7 +225,7 @@
 
                     <div class="btn-group" role="group" id="user-items">
                         <!--                        <div id="btnGroupDrop1" style="" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                        <span class="" id="username" style="font-size: 16px;font-family: 微软雅黑;color: white;font-weight: bold;text-decoration: none;"><img th:src="@{static/img/brand.png}" style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;WeShare</span>
+                        <span class="" id="username" style="font-size: 16px;font-family: 微软雅黑;color: white;font-weight: bold;text-decoration: none;"><img th:src="@{static/img/user_img.jpg}" style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;user</span>
                         <!--                        </div>-->
                         <div id="user-items-dd" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             <a class="dropdown-item" href="#"><i class="fa fa-user"></i>个人中心</a>
@@ -520,29 +524,70 @@
                         });
                     </script>
 
-
                     <hr>
-
-                    <!--这里放视频上传-->
+                    <!--这里设置文章是否需要积分才能观看-->
                     <div class="mt-3 ml-3 row">
-                        <h6>是否上传积分视频？</h6>
-                        <div id="check-group" class="row">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="radiosYes" name="radio-stacked" checked required>
-                                <label class="custom-control-label" for="radiosYes">
+                        <h6>是否设定积分查看文章？</h6>
+                        <div id="check-group1" class="row">
+                            <div class="custom-control">
+                                <input type="radio" class="custom-control-input" id="ArticleRadiosYes" name="radios-stack" checked required>
+                                <label class="custom-control-label" for="ArticleRadiosYes">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是
                                 </label>
                             </div>
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="radiosNo" name="radio-stacked" required>
-                                <label class="custom-control-label" for="radiosNo">
+                            <div class="custom-control">
+                                <input type="radio" class="custom-control-input" id="ArticleRadiosNo" name="radios-stack" required>
+                                <label class="custom-control-label" for="ArticleRadiosNo">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;否
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 ml-3 mr-3 row" id="Article">
+                        积分值：
+                        <input type="text"  onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order" value="0"/>
+                    </div>
+                    <!--这里放视频上传-->
+                    <div class="mt-3 ml-3 row">
+                        <h6>是否上传学习视频？</h6>
+                        <div id="check-group" class="row">
+                            <div class="custom-control">
+                                <input type="radio" class="custom-control-input" id="VideoRadiosYes" name="radio-stacked" checked required>
+                                <label class="custom-control-label" for="VideoRadiosYes">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是
+                                </label>
+                            </div>
+                            <div class="custom-control">
+                                <input type="radio" class="custom-control-input" id="VideoRadiosNo" name="radio-stacked" required>
+                                <label class="custom-control-label" for="VideoRadiosNo">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;否
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="mt-3 ml-3 mr-3 row" id="upload-vedio">
-                        <input id="fileinput" type="file" class="file" data-theme="fas" accept="video/*"  />
+                        <input id="fileinput" type="file" accept="video/*"  />
+                    </div>
+                    <div class="mt-3 ml-3 row">
+                        <h6>是否设定积分观看视频？</h6>
+                        <div id="check-group2" class="row">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="IntegralRadiosYes" name="radios-stacked" checked required>
+                                <label class="custom-control-label" for="IntegralRadiosYes">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="IntegralRadiosNo" name="radios-stacked" required>
+                                <label class="custom-control-label" for="IntegralRadiosNo">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;否
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 ml-3 mr-3 row" id="Integral">
+                        积分值：
+                        <input type="text"  onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order" value="0"/>
                     </div>
                     <div class="mt-3 ml-3 mr-3 row">
                         <!--这里通过ajax提交数据-->
@@ -621,19 +666,50 @@
         $('#user-items #user-items-dd').hide();
     });
 
-    //改变
-    $('#radiosYes').click(function () {
+    // 是否设置文章积分
+    $('#ArticleRadiosYes').click(function () {
         // alert($('#radiosYes').prop('checked'));
-        if($('#radiosYes').prop('checked')){
+        if($('#ArticleRadiosYes').prop('checked')){
+            $('#Article').show(100);
+        }
+    });
+
+    $('#ArticleRadiosNo').click(function () {
+        // alert($('#radiosYes').attr("checked"));
+        if($('#ArticleRadiosNo').prop('checked')){
+            $('#Article').hide(100);
+        }
+    });
+
+    // 是否上传视频
+    $('#VideoRadiosYes').click(function () {
+        // alert($('#radiosYes').prop('checked'));
+        if($('#VideoRadiosYes').prop('checked')){
             $('#upload-vedio').show(500);
         }
     });
-            $('#radiosNo').click(function () {
-                // alert($('#radiosYes').attr("checked"));
-                if($('#radiosNo').prop('checked')){
-                    $('#upload-vedio').hide(500);
+
+    $('#VideoRadiosNo').click(function () {
+        // alert($('#radiosYes').attr("checked"));
+        if($('#VideoRadiosNo').prop('checked')){
+            $('#upload-vedio').hide(500);
         }
     });
+    // 是否设置视频积分
+    $('#IntegralRadiosYes').click(function () {
+        // alert($('#radiosYes').prop('checked'));
+        if($('#IntegralRadiosYes').prop('checked')){
+            $('#Integral ').show(100);
+        }
+    });
+    $('#IntegralRadiosNo').click(function () {
+        // alert($('#radiosYes').attr("checked"));
+        if($('#IntegralRadiosNo').prop('checked')){
+            $('#Integral').hide(100);
+        }
+    });
+
+
 
     $('#fileinput').fileinput({
         language:'zh',
@@ -650,6 +726,9 @@
         videoPreview:true   //视频预览只显示小于20m的视频
     });
 
+    // $('#inte').text({
+    //
+    // });
     //确认提交
     $('#enter-data').click(function () {
         // 首先判断是否选择上传视频

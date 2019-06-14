@@ -103,4 +103,11 @@ public class TestController {
         return "indextwo";
     }
 
+    @GetMapping("/resourcetwo")
+    public String resourcetwo() {
+        System.out.println("sharehtml");
+        return "resourceShare";
+    }
+
+
 }
