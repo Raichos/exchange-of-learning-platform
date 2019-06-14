@@ -30,14 +30,7 @@
             background-color:#f0f0f0;
             padding-bottom: 10%;
         }
-        #content-left{
-            background-color: #f4f5f9;
-            padding-bottom: 100%;
-            /*position:absolute;  //可叠加*/
-            /*background: rgba(0, 0, 0, 1);*/
-            border-radius: 5px;
-            /*margin-left: 20%;*/
-        }
+
 
         .card-text-title{
             padding: 10px 8px 0;
@@ -117,7 +110,30 @@
             margin-right: 8px;
         }
 
-        /*ul li {border-right:1px solid #666;}*/
+        #content-left{
+            background-color: #f4f5f9;
+            padding-bottom: 100%;
+            /*position:absolute;  //可叠加*/
+            /*background: rgba(0, 0, 0, 1);*/
+            border-radius: 5px;
+            /*margin-left: 20%;*/
+        }
+
+        #content-left i, #content-left span{
+            color: white;
+        }
+        /*#content-left .left-items:nth-child(-n+3){*/
+        /*    border-bottom: 1px solid #fff;*/
+        /*}*/
+        #content-left .list-line{
+            /*border-bottom: 1px solid #fff;*/
+            border-bottom: 1px solid #999;
+            width: 86%;
+            margin-left: 6%;
+        }
+        #content-left div div:hover{
+            background-color: #ff4500!important;
+        }
     </style>
 </head>
 <body>
@@ -181,61 +197,114 @@
                 <div class="" id="content-left" style="width: 15%;">
 
                     <!--                    左栏另外写法-->
-                    <div class="sidebar w-100 items bg-secondary">
-                        <ul class="nav w-100 font-color">
-                            <li class="list-item w-100" name="demo1">
-                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
-                                    <div class="item-name">
-                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="bg-secondary">
+                        <div class="bg-secondary p-2 left-items items">
+                            <div class="text-center item-name">
+                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                            </div>
+
+                        </div>
+                        <span class="list-line row"></span>
+                        <div class="bg-secondary p-2 text-center left-items items">
+                            <div class="text-center item-name">
+                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                            </div>
+                        </div>
+                        <span class="list-line row"></span>
+                        <div class="bg-secondary p-2 text-center left-items items">
+                            <div class="text-center item-name">
+                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                            </div>
+                        </div>
+                        <span class="list-line row"></span>
+                        <div class="bg-secondary p-2 text-center left-items items">
+                            <div class="text-center item-name">
+                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                            </div>
+                        </div>
+                        <span class="list-line row"></span>
+                        <div class="bg-secondary p-2 text-center left-items items">
+                            <div class="text-center item-name">
+                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                            </div>
+                        </div>
+                        <span class="list-line row"></span>
+                        <div class="bg-secondary p-2 text-center left-items items">
+                            <div class="text-center item-name">
+                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                            </div>
+                        </div>
                     </div>
-                    <div class="sidebar w-100 items bg-secondary" style="">
-                        <ul class="nav w-100 font-color">
-                            <li class="list-item w-100" name="demo1">
-                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
-                                    <div class="item-name">
-                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="sidebar w-100 items bg-secondary">
-                        <ul class="nav w-100 font-color">
-                            <li class="list-item w-100" name="demo1">
-                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
-                                    <div class="item-name">
-                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="sidebar w-100 items bg-secondary">
-                        <ul class="nav w-100 font-color">
-                            <li class="list-item w-100" name="demo1">
-                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
-                                    <div class="item-name">
-                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="sidebar w-100 items bg-secondary">
-                        <ul class="nav w-100 font-color">
-                            <li class="list-item w-100" name="demo1">
-                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
-                                    <div class="item-name">
-                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
+<!--                    <ul class="w-100">-->
+<!--                        <li class="w-100">-->
+<!--                            <div class="w-100">-->
+<!--                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">-->
+<!--                                <div class="item-name">-->
+<!--                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <div class="w-100 items bg-secondary">-->
+<!--                        <ul class="nav w-100 font-color">-->
+<!--                            <li class="list-item w-100" name="demo1">-->
+<!--                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">-->
+<!--                                    <div class="item-name">-->
+<!--                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="w-100 items bg-secondary" style="">-->
+<!--                        <ul class="nav w-100 font-color">-->
+<!--                            <li class="list-item w-100" name="demo1">-->
+<!--                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">-->
+<!--                                    <div class="item-name">-->
+<!--                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="w-100 items bg-secondary">-->
+<!--                        <ul class="nav w-100 font-color">-->
+<!--                            <li class="list-item w-100" name="demo1">-->
+<!--                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">-->
+<!--                                    <div class="item-name">-->
+<!--                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="w-100 items bg-secondary">-->
+<!--                        <ul class="nav w-100 font-color">-->
+<!--                            <li class="list-item w-100" name="demo1">-->
+<!--                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">-->
+<!--                                    <div class="item-name">-->
+<!--                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="w-100 items bg-secondary">-->
+<!--                        <ul class="nav w-100 font-color">-->
+<!--                            <li class="list-item w-100" name="demo1">-->
+<!--                                <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">-->
+<!--                                    <div class="item-name">-->
+<!--                                        <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
 
                 </div>
 <!--                轮播图等-->
@@ -414,14 +483,20 @@
 
     $('.items').mouseover(function () {
         var id = $(this).index();
-        $('#demo'+(id+1)).show();
-        $(this).find('.item-name').addClass('ml-2');
-    });
-    $('.items').mouseout(function () {
+        // alert(id);
+        if(id == 0)
+            $('#demo'+(id+1)).show();
+        else
+            $('#demo'+(id/2+1)).show();
+        $(this).find('.item-name').addClass('ml-2 mt-1 mb-1 font-weight-bold lead');
+    }).mouseout(function () {
         var id = $(this).index();
 
-        $('#demo'+(id+1)).hide();
-        $(this).find('.item-name').removeClass('ml-2');
+        if(id == 0)
+            $('#demo'+(id+1)).hide();
+        else
+            $('#demo'+(id/2+1)).hide();
+        $(this).find('.item-name').removeClass('ml-2 mt-1 mb-1 font-weight-bold lead');
 
     });
     $('.list-show').mouseover(function () {
