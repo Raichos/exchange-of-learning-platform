@@ -1,10 +1,9 @@
 package com.ckkj.exchangeoflearningplatform.controller;
 
+import com.ckkj.exchangeoflearningplatform.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
@@ -15,21 +14,22 @@ import java.security.Principal;
  */
 @Controller
 public class PageController {
+    @Autowired
+    UserService userService;
 
     @GetMapping("/resourceShare")
-    public String resourceShare(){
+    public String resourceShare() {
         return "/resourceShare";
     }
 
     @RequestMapping("/userIndex")
-    public String userIndex(){
+    public String userIndex() {
         return "/userIndex";
     }
 
     //http://ip:8080/userCenter
     @RequestMapping("/userCenter")
-    public String userCenter()
-    {
+    public String userCenter() {
         return "/userCenter";
     }
 
@@ -41,6 +41,7 @@ public class PageController {
 
     /**
      * 获取登陆名
+     *
      * @param request
      * @return
      */
@@ -52,8 +53,35 @@ public class PageController {
     }
 
     @RequestMapping("/wordIndex")
-    public String wordIndex()
-    {
+    public String wordIndex() {
         return "/wordIndex";
+    }
+
+    /**
+     * 积分充值或使用
+     *
+     * @return
+     */
+    @PostMapping("/useOrAddIntegral")
+    @ResponseBody
+    public String useOrAddIntegral(@RequestParam String userName, @RequestParam String integral) {
+        System.out.println("userName = " + userName);
+        System.out.println("integral = " + integral);
+        return "充值成功";
+    }
+
+    /**
+     * 获取积分状态
+     *
+     * @param userName
+     * @return
+     */
+    @GetMapping("/getIntegralStatus")
+    @ResponseBody
+    public String getIntegralStatus(@RequestParam String userName) {
+        System.out.println("userName = " + userName);
+        int integralStuats = userService.findIntegralStuats(userName);
+        System.out.println("integralStuats = " + integralStuats);
+        return "支付成功";
     }
 }

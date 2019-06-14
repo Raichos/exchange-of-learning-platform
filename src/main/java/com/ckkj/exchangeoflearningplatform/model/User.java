@@ -18,12 +18,14 @@ import java.util.Date;
 @Accessors(chain = true)
 public class User {
 
-    private Integer id;
-    private String userName;
-    private String password;
-    private String email;
-    private Date loginDate;
-    private Date registerDate;
+    private Integer id; //id
+    private String userName; //用户名
+    private String password; //用户密码
+    private String email; //用户邮箱
+    private Date loginDate; //登陆日期
+    private Date registerDate; //注册日期
+    private Integer integral; //积分
+    private Integer integralStatus; //积分状态
 
 }
 

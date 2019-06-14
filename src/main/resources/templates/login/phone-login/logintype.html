@@ -19,7 +19,7 @@
     <div class="page">
       <div class="content">
         <!-- 这里是页面内容区 -->
-        <form id="phone-login-form" method="post">
+        <form id="phone-login-form" method="post" action="/phoneLogin">
           <div class="list-block loginshild">
             <ul>
               <!-- Text inputs -->
@@ -39,6 +39,7 @@
                   <div class="item-inner">
                     <div class="item-input">
                       <input class="" id="validationDefaultPassword" name="password" type="password" placeholder="密码" required>
+                      <input id="rid" name="rid" value="" type="hidden">
                     </div>
                   </div>
                 </div>
@@ -46,7 +47,8 @@
             </ul>
             <p class="protocol"><i></i>我已经阅读并同意<a>《WeShare用户协议》</a></p>
             <div class="login-confirm">
-              <a class="phone-submit" href="#" onclick="test()">确定</a>
+              <!--<a class="phone-submit" href="#" onclick="test()">确定</a>-->
+              <input class="phone-submit" onclick="test()" type="button" value="确定">
             </div>
           </div>
         </form>
@@ -61,7 +63,18 @@
     <script type="text/javascript">
       $(function(){
         $.init();
-      })
+
+        //参数处理
+        var parameter = window.location.href;
+        var num=parameter.indexOf("?");
+        parameter=parameter.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+        var arr = parameter.split("="); //各个参数放到数组里
+        $("#rid").attr("value",arr[1]);
+
+        /*$("#countLogin").click(function () {
+          $("#rid").attr("value","/phoneUser?rid="+arr[1]);
+        });*/
+      });
 
     </script>
   </body>

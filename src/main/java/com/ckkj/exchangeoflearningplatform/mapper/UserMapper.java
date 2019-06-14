@@ -1,10 +1,10 @@
 package com.ckkj.exchangeoflearningplatform.mapper;
 
-import com.ckkj.exchangeoflearningplatform.model.TempUser;
 import com.ckkj.exchangeoflearningplatform.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * @author lzh
@@ -27,5 +27,19 @@ public interface UserMapper {
 
     @Select("SELECT password FROM users WHERE user_name = #{userName}")
     String findPasswordByName(String userName);
+
+    /**
+     * 积分充值或使用
+     */
+    @Update("UPDATE users SET integral = integral+#{number},integral_status = 1 WHERE user_name = #{userName}")
+    int updateIntegral(String userName,int number);
+
+    /**
+     * 查询积分状态
+     * @param userName
+     * @return
+     */
+    @Select("SELECT integral_status FROM users WHERE user_name = #{userName}")
+    int findIntegralStuats(String userName);
 
 }
