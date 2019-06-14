@@ -73,6 +73,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         //对静态资源放行
         web.ignoring().antMatchers("/css/**", "/js/**", "/static/**",
                 "/lose/**","/register","ueditor/**","/login/**","/","/index","/phoneLogin",
-                "/phone","/qrlogin","/getImg");
+                "/phone","/qrlogin","/getImg","/userCenter");
     }
 }

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>文章阅读</title>
+    <link rel="stylesheet" th:href="@{static/css/vshop-main-style.css}">
+    <link th:href="@{static/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{static/boostrap-fileinput/css/fileinput.css}" rel="stylesheet">
+    <link th:href="@{static/boostrap-fileinput/themes/explorer-fa/theme.css}" rel="stylesheet">
+    <link th:href="@{static/boostrap-fileinput/themes/explorer-fas/theme.css}" media="all" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{static/css/font-awesome.css}">
+    <script th:src="@{static/js/jquery-3.4.0.js}"></script>
+    <script th:src="@{static/js/bootstrap.js}"></script>
+    <script th:src="@{static/boostrap-fileinput/js/plugins/piexif.js}" type="text/javascript"></script>
+    <script th:src="@{static/boostrap-fileinput/js/plugins/sortable.js}" type="text/javascript"></script>
+    <script th:src="@{static/boostrap-fileinput/js/fileinput.js}"></script>
+    <script th:src="@{static/boostrap-fileinput/js/locales/zh.js}"></script>
+    <script th:src="@{static/boostrap-fileinput/themes/fas/theme.js}" type="text/javascript"></script>
+    <script th:src="@{static/boostrap-fileinput/themes/explorer-fas/theme.js}" type="text/javascript"></script>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <!--<script type="text/javascript" charset="utf-8" src="../static/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../static/ueditor.all.js"> </script>
+    &lt;!&ndash;建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败&ndash;&gt;
+    &lt;!&ndash;这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文&ndash;&gt;
+    <script type="text/javascript" charset="utf-8" src="../static/lang/zh-cn/zh-cn.js"></script>-->
+    <script type="text/javascript" charset="utf-8" th:src="@{static/ueditor/ueditor.config.js}"></script>
+    <script type="text/javascript" charset="utf-8" th:src="@{static/ueditor/ueditor.all.js}"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" th:src="@{static/ueditor/lang/zh-cn/zh-cn.js}"></script>
+
+
+    <style type="text/css">
+        #vshop-nav{
+            background: rgba(0,0,0,0.3);
+            /*border-radius: 8px;*/
+        }
+        .vshop-nav-items{
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+        }
+        .top-nav li{
+            float: left;
+            list-style-type:none;
+        }
+
+        .WS-user-center-list a:first-child{
+            /*list-style-type:none;*/
+            /*margin-top: 5%;*/
+            border-top: 1px solid #a0aeb9;
+            /*margin: 0 5%;*/
+            /*width: 100%;*/
+            /*text-align: center;*/
+            /*color: #545b62;*/
+        }
+
+        .WS-user-center-list a{
+            /*list-style-type:none;*/
+            /*margin-top: 5%;*/
+            border-bottom: 1px solid #a0aeb9;
+            margin: 0 5%;
+            width: 100%;
+            text-align: center;
+            color: #545b62;
+        }
+
+        .WS-user-center-list a:hover{
+            color: #ff4500;
+        }
+
+        .weshare-top-line{
+            border-top:1px solid #35b558;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+
+        #bg{
+            background-color:#f0f0f0;
+            padding-bottom: 10%;
+        }
+        .Boyu-content-left{
+            background-color: #f4f5f9;
+            padding-bottom: 100%;
+            /*position:absolute;  //可叠加*/
+            /*background: rgba(0, 0, 0, 1);*/
+            border-radius: 5px;
+            /*margin-left: 20%;*/
+        }
+        .Boyu-content{
+            background-color: #f4f5f9;
+            padding-bottom: 100%;
+            border-radius: 5px;
+        }
+
+        .card-text-title{
+            padding: 10px 8px 0;
+            font-size: 15px;
+            color: #333;
+            line-height: 18px;
+            height: 46px;
+            margin-bottom: 4px;
+            overflow: hidden;
+            text-align: justify;
+        }
+        .card-bottom{
+            font-size: 13px;
+            line-height: 22px;
+            height: 22px;
+            overflow: hidden;
+            color: #999;
+            padding-left: 8px;
+            text-align: justify;
+        }
+
+        .font-color{
+            color: #333;
+        }
+
+        .collapse-list{
+            background-color:#f4f5f9;
+        }
+
+        /*叠加显示左栏list*/
+        .list-show{
+            position:absolute;
+            width: 30%;
+            z-index: 9999;
+            border-bottom-right-radius: 5px;
+            padding: 5px;
+
+            /*显示阴影*/
+            -webkit-box-shadow: 4px 4px 10px #292929;
+            -moz-box-shadow: 4px 4px 10px #292929;
+            box-shadow: 4px 4px 10px #292929;
+        }
+        .list-item-totle1{
+            /*display: inline-block;*/
+            width: 80px;
+            height: 20px;
+            text-align: center;
+            background: #a0aeb9;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            font-size: 15px;
+            color: white;
+        }
+        .list-item-title-line1{
+            border-bottom: 1px solid #a0aeb9;
+        }
+        .list-item-totle2{
+            /*display: inline-block;*/
+            width: 80px;
+            height: 20px;
+            text-align: center;
+            background: #35b558;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            font-size: 15px;
+            color: white;
+        }
+        .list-item-title-line2{
+            border-bottom: 1px solid #35b558;
+        }
+        /*分割线*/
+        .interval {
+            float: left;
+            width: 1px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            margin-top: 6px;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        #noScroll{
+            position: fixed;
+            right: 8px;
+            bottom: 160px;
+            width: 44px;
+            z-index: 1999;
+        }
+
+
+        .left-new-items a{
+            color:black;
+        }
+        .left-new-items a:hover{
+            color:#ca0c16;
+        }
+
+        .word-title a:hover{
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+<div id="bg">
+    <div class="top-nav "  style="width: 100%">
+        <nav class="navbar navbar-dark bg-secondary" id="vshop-nav" >
+
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-2">
+                <span style="color: red;font-size: 28px;font-style: normal;font-weight: bold;">WeShare</span><span style="color: white;font-size: 18px;">学习平台</span>
+
+            </div>
+            <!--                <div class="col-md-1"></div>-->
+            <div class="col-md-6">
+                <ul class="navbar-nav mr-auto vshop-nav-items">
+                    <li class="nav-item" style="margin: 0 5%;">
+                        <a class="nav-link" href="#">首页<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item" style="margin: 0 5%;">
+                        <a class="nav-link" href="#">博语</a>
+                    </li>
+                    <li class="nav-item" style="margin: 0 5%;">
+                        <a class="nav-link" href="#">积分社区</a>
+                    </li>
+                    <li class="nav-item" style="margin: 0 5%;">
+                        <a class="nav-link" href="#">联系平台</a>
+                    </li>
+                    <li class="nav-item" style="margin: 0 5%;">
+                        <a class="nav-link" href="#">资源分享</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <!--//头像-->
+                <div>
+
+                    <div class="btn-group" role="group" id="user-items">
+                        <!--                        <div id="btnGroupDrop1" style="" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                        <span class="" id="username" style="font-size: 16px;font-family: 微软雅黑;color: white;font-weight: bold;text-decoration: none;"><img th:src="@{static/img/icon.png}" style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;Rakers</span>
+                        <!--                        </div>-->
+                        <div id="user-items-dd" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="/userCenter"><i class="fa fa-user"></i>个人中心</a>
+                            <a class="dropdown-item" href="#" style="border-top: 1px solid #dee2e6;"><i class="fa fa-stop-circle-o"></i>查看积分</a>
+                            <a class="dropdown-item" href="/logout" style="border-top: 1px solid #dee2e6;"><i class="fa fa-sign-out"></i>退出</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-md-10 row offset-md-1">
+            <!--                侧栏-->
+            <div class="mt-2 " id="Boyu-content-left" style="width: 20%;">
+                <div class="w-100 row pt-3 pb-3" style="background-color: #f4f5f9;border-radius: 5px;">
+                    <div class="ml-3">
+                        <img th:src="@{static/img/icon.png}" style="width: 60px; height: 60px;border-radius: 50%;"/>
+                    </div>
+                    <div class="col mt-2">
+                        <div class=""  style="font-size: 16px;font-family: 微软雅黑;color: black;font-weight: bold;text-decoration: none;">Rakers</div>
+                        <div class="text-secondary"  style="font-size: 12px;font-family: 微软雅黑;font-weight: bold;text-decoration: none;">知名博主</div>
+                    </div>
+                    <div class="mt-3 ml-1 mr-3">
+                        <button type="button" class="btn btn-block btn-outline-success ml-2 mr-2">关注</button>
+                    </div>
+                </div>
+                <div class="w-100 row pt-3 pb-3 mt-2" style="background-color: #f4f5f9;border-radius: 5px;">
+                    <div class="col-3">
+                        <div >原创</div>
+                        <div style="font-size: 16px;font-family: 微软雅黑;font-weight: bold;text-decoration: none;">999</div>
+                    </div>
+                    <div class="col-3">
+                        <div >粉丝</div>
+                        <div style="font-size: 16px;font-family: 微软雅黑;font-weight: bold;text-decoration: none;">999</div>
+                    </div>
+                    <div class="col-3">
+                        <div >喜欢</div>
+                        <div style="font-size: 16px;font-family: 微软雅黑;font-weight: bold;text-decoration: none;">999</div>
+                    </div>
+                    <div class="col-3">
+                        <div >评论</div>
+                        <div style="font-size: 16px;font-family: 微软雅黑;font-weight: bold;text-decoration: none;">999</div>
+                    </div>
+                </div>
+                <div class="w-100 row pt-3 pb-3 mt-2" style="background-color: #f4f5f9;border-radius: 5px;">
+                    <div class="ml-4 w-100">
+                        <div class="row w-100">
+                            <div class="col-6">
+                                <span>等奖:</span><span class="ml-1">15</span>
+                            </div>
+                            <div class="col-6">
+                                <span>访问:</span><span class="ml-1">17万+</span>
+                            </div>
+                        </div>
+                        <div class="row w-100">
+                            <div class="col-6">
+                                <span>积分:</span><span class="ml-1">3306</span>
+                            </div>
+                            <div class="col-6">
+                                <span>排名:</span><span class="ml-1">17万+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 row pt-3 pb-3 mt-2" style="background-color: #f4f5f9;border-radius: 5px;">
+                    <h6 class="w-100 ml-3 pl-2" style="border-left: 5px solid #2f353a">最新文章</h6>
+                    <div class="ml-2 mr-2 left-new-items">
+                        <a class="row nav-link" href="#">任正非：5G背后有个不谈恋爱的小伙子</a>
+                        <a class="row nav-link" href="#">几款好用到爆炸的Google Chrome插件</a>
+                        <a class="row nav-link" href="#">一个39岁程序员的应聘被拒 | 文末送书</a>
+                        <a class="row nav-link" href="#">华为反击美国禁令，悄然推出5G实验室！</a>
+                        <a class="row nav-link" href="#">从开源小白到 Apache Member，我的成长之路</a>
+                    </div>
+                </div>
+                <div class="w-100 row pt-3 pb-3 mt-2" style="background-color: #f4f5f9;border-radius: 5px;">
+                    <h6 class="w-100 ml-3 pl-2" style="border-left: 5px solid #2f353a">精选文章</h6>
+                    <div class="ml-2 mr-2 left-new-items">
+                        <a class="row nav-link" href="#">任正非：5G背后有个不谈恋爱的小伙子</a>
+                        <a class="row nav-link" href="#">几款好用到爆炸的Google Chrome插件</a>
+                        <a class="row nav-link" href="#">一个39岁程序员的应聘被拒 | 文末送书</a>
+                        <a class="row nav-link" href="#">华为反击美国禁令，悄然推出5G实验室！</a>
+                        <a class="row nav-link" href="#">从开源小白到 Apache Member，我的成长之路</a>
+                    </div>
+                </div>
+                <div class="w-100 row pt-3 pb-3 mt-2" style="background-color: #f4f5f9;border-radius: 5px;">
+                    <h6 class="w-100 ml-3 pl-2" style="border-left: 5px solid #2f353a">热门文章</h6>
+                    <div class="ml-2 mr-2 left-new-items">
+                        <a class="row nav-link" href="#">任正非：5G背后有个不谈恋爱的小伙子</a>
+                        <a class="row nav-link" href="#">几款好用到爆炸的Google Chrome插件</a>
+                        <a class="row nav-link" href="#">一个39岁程序员的应聘被拒 | 文末送书</a>
+                        <a class="row nav-link" href="#">华为反击美国禁令，悄然推出5G实验室！</a>
+                        <a class="row nav-link" href="#">从开源小白到 Apache Member，我的成长之路</a>
+                    </div>
+                </div>
+                <div class="mt-2 Boyu-content-left">
+<!--                    <div class="mt-2">-->
+<!--                        <div class="nav WS-user-center-list" id="nav-tab" role="tablist">-->
+<!--                            <a class="mt-2 nav-item nav-link active" id="nav-a1-tab" data-toggle="tab" href="#nav-div1" role="tab" aria-controls="nav-home" aria-selected="true">个人设置</a>-->
+<!--                            <a class="nav-item nav-link" id="nav-a2-tab" data-toggle="tab" href="#nav-div2" role="tab" aria-controls="nav-profile" aria-selected="false">积分充值</a>-->
+<!--                            <a class="nav-item nav-link" id="nav-a3- -->
+<!--                            tab" data-toggle="tab" href="#nav-div3" role="tab" aria-controls="nav-profile" aria-selected="false">积分消费记录</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+
+            </div>
+            <!--                主内容-->
+            <div class="Boyu-content mt-2 ml-2" style="width: 78%;">
+                <div class="h-100 m-4" id="center-word">
+                    <div class="word-title pb-3" style="border-bottom: 1px solid #333;">
+                        <div class="row">
+                            <span class="text-center align-content-center pt-1" style="color: #ca0c16;border: 1px solid #f4ced0;border-radius: 50%;height: 36px;width: 36px;">原</span>
+                            <h3 class="ml-2" style="font-family: 微软雅黑;font-weight: bold;text-decoration: none;">关于jquery操作iframe中内容, 无法正常显示的问题</h3>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="">
+                                2014年02月26日 19:39:51
+                            </div>
+                            <div class="ml-3">
+                                <a class="" href="#">Rakers</a>
+                            </div>
+                            <div class="ml-3">
+                                阅读数 <span>1129</span>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe src="../static/wordhtml/test1.html" frameborder="0" scrolling="no" id="word-iframe" onload="this.height=800"></iframe>
+                    <script type="text/javascript">
+                        function reinitIframe(){
+                            var iframe = document.getElementById("word-iframe");
+                            try{
+                                var bHeight = iframe.contentWindow.document.body.scrollHeight;
+                                var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+                                var height = Math.max(bHeight, dHeight);
+                                iframe.height = height;
+                                clearInterval(interval);
+                            }catch (ex){}
+
+                        }
+                        var interval = window.setInterval("reinitIframe()", 200);
+                    </script>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="mr-5 aside-menu-md-show" id="noScroll" style="-webkit-box-shadow: 4px 4px 10px #292929;-moz-box-shadow: 4px 4px 10px #292929;box-shadow: 4px 4px 10px #292929;">
+                <a class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-bottom-right-radius: 0px"><i class="fa fa-qrcode" style="color: #8e959a"></i></a>
+                <a class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px;border-bottom-right-radius: 0px"><i class="fa fa-qq" style="color: #8e959a"></i></a>
+                <a id="scroll-black" class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px"><i class="fa fa-upload" style="color: #8e959a"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+
+    $('#scroll-black').click(function () {
+        // alert('回滚');
+        $('html, body').animate({scrollTop:0}, 'slow');
+    });
+    $('#scroll-black').hide();
+    $(window).scroll(function () {
+        if ($(document).scrollTop()<=100){
+            // 按钮消失
+            $('#scroll-black').hide();
+        }else{
+            $('#scroll-black').show();
+        }
+        console.log($(document).height());
+        console.log($(document).scrollTop());
+        // 滚动到底部自动增加行
+        if ($(document).scrollTop() == $(document).height()-989) {
+            // alert('已到底');
+        }
+    });
+
+    $('#user-items').mouseover(function () {
+        $('#user-items #user-items-dd').show();
+    }).mouseout(function () {
+        $('#user-items #user-items-dd').hide();
+    });
+
+    $('.WS-user-center-list').mouseover(function () {
+
+    }).mouseout(function () {
+
+    });
+
+    function wechatPayMoneyCheck(){
+        //校验输入金额格式是否正确
+        var numberPatt = /^[0-9]+$/;
+        var payMoney = $('#wechat-pay').val();
+        if(!numberPatt.test(payMoney)){
+            if($('#wechat-pay').hasClass('was-invalid')) {
+                $('#wechat-pay').removeClass('was-invalid');
+                $('#wechat-pay').addClass('is-invalid');
+            }
+            return false;
+        }else{
+            if($('#wechat-pay').hasClass('is-invalid')) {
+                $('#wechat-pay').removeClass('is-invalid');
+                $('#wechat-pay').addClass('was-invalid');
+            }
+            return true;
+        }
+    }
+    //失去焦点执行
+    $('#wechat-pay').blur(function () {
+        wechatPayMoneyCheck();
+    });
+
+    $('#wechat-pay-button').click(function () {
+
+        if(!wechatPayMoneyCheck())
+            return;
+
+        $('#qr-pay-model').modal('show');
+        $('#qr-pay-model-title').text('请使用微信扫一扫');
+        $('#pay-time').text(300);
+        //启动时间计时器
+        var timeInter = setInterval(function () {
+            var time = $('#pay-time').text();
+            $('#pay-time').text(--time);
+
+            if(time == 0){
+                //支付超时
+                $('#qr-pay-model').modal('hide');
+                $('#dangerModal').modal('show');
+            }
+
+            //这里写检测是否支付成功
+
+        }, 1000);
+
+        //用于检测模态框是否关闭
+        var checkModel = setInterval(function () {
+            if(!$('#qr-pay-model').hasClass('show')){
+                clearInterval(timeInter);
+                clearInterval(checkModel);
+            }
+        },1000);
+
+        // 这里写生成二维码
+    });
+
+
+    function alipayMoneyCheck(){
+        //校验输入金额格式是否正确
+        var numberPatt = /^[0-9]+$/;
+        var payMoney = $('#alipay').val();
+        if(!numberPatt.test(payMoney)){
+            if($('#alipay').hasClass('was-invalid')){
+                $('#alipay').removeClass('was-invalid');
+                $('#alipay').addClass('is-invalid');
+            }
+
+            return false;
+        }else{
+            if($('#alipay').hasClass('is-invalid'))
+            {
+                $('#alipay').removeClass('is-invalid');
+                $('#alipay').addClass('was-invalid');
+            }
+
+            return true;
+        }
+    }
+    //失去焦点执行
+    $('#alipay').blur(function () {
+        alipayMoneyCheck();
+    });
+
+    $('#alipay-button').click(function () {
+
+        if(!alipayMoneyCheck())  //检测不过
+            return;
+        $('#qr-pay-model').modal('show');
+        $('#qr-pay-model-title').text('请使用支付宝扫一扫');
+        $('#pay-time').text(300);
+        //启动时间计时器
+        var timeInter = setInterval(function () {
+            var time = $('#pay-time').text();
+            $('#pay-time').text(--time);
+
+            if(time == 0){
+                //支付超时
+                $('#qr-pay-model').modal('hide');
+                $('#dangerModal').modal('show');
+            }
+
+            //这里写检测是否支付成功
+
+        }, 1000);
+
+        //用于检测模态框是否关闭
+        var checkModel = setInterval(function () {
+            if(!$('#qr-pay-model').hasClass('show')){
+                clearInterval(timeInter);
+                clearInterval(checkModel);
+            }
+        },1000);
+
+
+
+        // 这里写生成二维码
+    });
+
+</script>
+</html>

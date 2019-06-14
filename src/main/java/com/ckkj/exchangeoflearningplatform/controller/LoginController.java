@@ -47,10 +47,15 @@ public class LoginController {
         }
     }*/
 
-    @GetMapping("/phone")
+    @RequestMapping("/phone")
     public String phone(){
         System.out.println("phone");
-        return "/login/phoneLogin";
+        return "/login/phone-login/login-all";
+    }
+
+    @RequestMapping("/phoneUser")
+    public String phoneUser(){
+        return "/login/phone-login/logintype";
     }
 
     /**
