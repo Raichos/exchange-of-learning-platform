@@ -33,6 +33,12 @@ public class PageController {
         return "/userCenter";
     }
 
+    @RequestMapping("/recharge")
+    public String rechange()
+    {
+        return "/login/phone-recharge/takeorder";
+    }
+
     /**
      * 获取登陆名
      * @param request
