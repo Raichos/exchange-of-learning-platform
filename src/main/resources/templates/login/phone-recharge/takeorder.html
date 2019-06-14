@@ -21,10 +21,10 @@
       <form action="/useOrAddIntegral" method="post">
       <nav class="bar bar-tab od-bottom-tab">
         <a>
-          <span class="tab-label">实际支付：<i id="reality" class="submit-money">￥0.00</i></span>
+          <span class="tab-label">实际支付：<i class="submit-money"><span id="reality">￥0.00</span></i></span>
         </a>
-        <input type="hidden" name="userName" value="">
-        <input type="hidden" name="integral" value="">
+        <input type="hidden" id="userName" name="userName" value="">
+        <input type="hidden" id="integral" name="integral" value="">
         <!--<a class="tab-item external" href="#">
           <span class="tab-label">立即支付</span>
         </a>-->
@@ -117,11 +117,12 @@
         var arr = parameter.split("&"); //各个参数放到数组里
         var arr1 = arr[0].split("=");
         var arr2 = arr[1].split("=");
-        // alert(arr1[1]);
-        // alert(arr2[1]);
-        $("#reality").attr("value",arr2[1]);
-        $("#userName").attr("value",arr1[1]);
-        $("#integral").attr("value",arr2[1]);
+        alert(arr1[1]);
+        alert(arr2[1]);
+        $("#reality").attr("value",""+arr2[1]);
+        $("#userName").attr("value",""+arr1[1]);
+        $('#reality').val("￥"+arr2[1]);
+        $("#integral").attr("value",""+arr2[1]);
 
       });
     </script>
