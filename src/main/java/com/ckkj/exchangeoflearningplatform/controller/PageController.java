@@ -27,4 +27,10 @@ public class PageController {
     {
         return "/userCenter";
     }
+
+    @RequestMapping("/wordIndex")
+    public String wordIndex()
+    {
+        return "/wordIndex";
+    }
 }
