@@ -35,7 +35,8 @@
           <div>
             <ul class="clearfix">
               <li>
-                <a class="external" href="/phoneUser">
+                <!--<a id="countLogin" class="external" href="/phoneUser">-->
+                <a id="countLogin" class="external">
                   <img style="width:25.5px;height:41px;text-align:center;" src="../../../static/phone-login/img/login-pho.png">
                   <p>账号登录</p>
                 </a>
@@ -68,7 +69,18 @@
     <script type="text/javascript">
       $(function(){
         $.init();
-      })
+
+        //参数处理
+        var parameter = window.location.href;
+        var num=parameter.indexOf("?");
+        parameter=parameter.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+        var arr = parameter.split("="); //各个参数放到数组里
+        $("#rid").attr("value",arr[1]);
+
+        $("#countLogin").click(function () {
+          $("#countLogin").attr("href","/phoneUser?rid="+arr[1]);
+        });
+      });
     </script>
   </body>
 </html>
