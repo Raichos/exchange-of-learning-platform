@@ -36,4 +36,19 @@ public interface UserService {
      * @return
      */
     String findPasswordByUName(String userName);
+
+    /**
+     * 积分充值或使用
+     * @param userName
+     * @param number
+     * @return
+     */
+    int useOrAddIntegral(String userName,int number);
+
+    /**
+     * 查询积分状态
+     * @param userName
+     * @return
+     */
+    int findIntegralStuats(String userName);
 }

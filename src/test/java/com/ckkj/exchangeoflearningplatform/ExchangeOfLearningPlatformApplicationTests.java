@@ -1,6 +1,7 @@
 package com.ckkj.exchangeoflearningplatform;
 
 import com.ckkj.exchangeoflearningplatform.mapper.TempLoginMapper;
+import com.ckkj.exchangeoflearningplatform.mapper.UserMapper;
 import com.ckkj.exchangeoflearningplatform.service.UserService;
 import com.ckkj.exchangeoflearningplatform.status.MyStaute;
 import com.ckkj.exchangeoflearningplatform.utils.QRCodeUtil;
@@ -22,6 +23,9 @@ public class ExchangeOfLearningPlatformApplicationTests {
 
     @Autowired
     TempLoginMapper tempLoginMapper;
+
+    @Autowired
+    UserMapper userMapper;
 
     @Test
     public void contextLoads() {
@@ -79,6 +83,12 @@ public class ExchangeOfLearningPlatformApplicationTests {
         System.out.println("path="+path); //path=/F:/idea2018WorkSpace/exchange-of-learning-platform/target/test-classes/
         System.out.println(path.indexOf("exchange-of-learning-platform"));
         System.out.println(path.substring(1,path.indexOf("exchange-of-learning-platform")+"exchange-of-learning-platform".length()+1));
+    }
+
+    @Test
+    public void test07(){
+        //userMapper.updateIntegral("aaaaaa",-13);
+        System.out.println("Status="+userMapper.findIntegralStuats("aaaaaa"));
     }
 
 }

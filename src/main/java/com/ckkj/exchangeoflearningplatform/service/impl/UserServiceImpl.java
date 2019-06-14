@@ -41,4 +41,14 @@ public class UserServiceImpl implements UserService {
         String Password = userMapper.findPasswordByName(userName);
         return Password;
     }
+
+    @Override
+    public int useOrAddIntegral(String userName, int number) {
+        return userMapper.updateIntegral(userName,number);
+    }
+
+    @Override
+    public int findIntegralStuats(String userName) {
+        return userMapper.findIntegralStuats(userName);
+    }
 }
