@@ -28,6 +28,18 @@ public class PageController {
         return "/userCenter";
     }
 
+    /**
+     * 获取登陆名
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/getusername", method = RequestMethod.GET)
+    @ResponseBody
+    public String currentUserNameSimple(HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        return principal.getName();
+    }
+
     @RequestMapping("/wordIndex")
     public String wordIndex()
     {

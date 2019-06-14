@@ -64,11 +64,18 @@
 
             //参数处理
             var parameter = window.location.href;
-            $("#submitButton").click(function () {
-                var num=parameter.indexOf("?");
+            var num=parameter.indexOf("?");
+            parameter=parameter.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+            var arr = parameter.split("="); //各个参数放到数组里
+            $("#rid").attr("value",arr[1]);
+
+            //参数处理
+            //var parameter = window.location.href;
+            /*$("#submitButton").click(function () {
+                /!*var num=parameter.indexOf("?");
                 parameter=parameter.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
-                var arr = parameter.split("="); //各个参数放到数组里
-                alert(arr[1]);
+                var arr = parameter.split("="); //各个参数放到数组里*!/
+                //alert(arr[1]);
 
                 var params = {"userName":$("#validationDefaultUsername").val(), "password":$("#validationDefaultPassword").val(),"rid":arr[1]};
                 $.ajax({
@@ -83,7 +90,13 @@
                         alert("error");
                     }
                 });
-            });
+
+                /!*alert("rid="+arr[1]);
+                var ranrid=arr[1];
+                $.post("http://localhost:8080/phoneLogin",{'userName':$("#validationDefaultUsername").val(), 'password':$("#validationDefaultPassword").val(),'rid':ranrid},function (data) {
+                    alert("data="+data);
+                });*!/
+            });*/
         });
     </script>
 </head>
@@ -107,9 +120,10 @@
                 </div>
                 <input type="password" class="form-control" name="password" id="validationDefaultPassword" placeholder="Password"
                        aria-describedby="inputGroupPrepend2" required>
+                <input type="hidden" id="rid" name="rid" value="">
             </div>
             <!--<button id="submitButton" type="button" class="btn btn-success">登陆</button>-->
-            <input id="submitButton" class="btn btn-success" type="button" value="登陆">
+            <input id="submitButton" class="btn btn-success" type="submit" value="登陆">
         </form>
     </div>
 </div>
