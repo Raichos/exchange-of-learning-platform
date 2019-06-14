@@ -352,7 +352,7 @@
                                     </div>
                                 </div>
                                 <!--<button class="btn btn-success mt-2 mr-2 row" id="wechat-pay-button" type="button">提交</button>-->
-                                <input onclick="getUserName();" type="button" class="btn btn-success mt-2 mr-2 row" id="wechat-pay-button" value="提交a">
+                                <input onclick="getUserName();" type="button" class="btn btn-success mt-2 mr-2 row" id="wechat-pay-button" value="提交">
                                 <!--<input type="text" id="getval"/> <button id="send">点击更换验证码</button><br>-->
                                 <span class="w-100 weshare-top-line row"></span>
                                 <span class="row m-2 text-left text-secondary" style="font-size:14px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前支付方式为微信支付，请输入您要充值的金额后，点击提交，会出现二维码，您只需打开微信扫一扫支付即可实现支付，若支付过程中出现问题，请联系我们。我们将为您解决。——WeShare</span>
@@ -643,7 +643,8 @@
 <script>
 
 
-    window.onload =function() {
+    //window.onload =function() {
+    $(document).ready(function () {
 
         $('#scroll-black').click(function () {
             // alert('回滚');
@@ -707,23 +708,30 @@
             userName = data;
             //alert("username="+userName);
         });
-        var qrcode = new QRCode(document.getElementById("qrcode"), {
-            width : 96,//设置宽高
-            height : 96
-        });
-        qrcode.makeCode("http://www.baidu.com");
-        document.getElementById("wechat-pay-button").onclick =function(){
-            qrcode.makeCode(document.getElementById("wechat-pay").value);
-        }
 
         $('#wechat-pay-button').click(function () {
+
+            // var integral = document.getElementById("wechat-pay").value;
+            var integral = $("#wechat-pay").val();
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                width : 96,//设置宽高
+                height : 96
+            });
+            qrcode.makeCode("http://www.baidu.com");
+            document.getElementById("wechat-pay-button").onclick =function(){
+                //qrcode.makeCode(document.getElementById("wechat-pay").value);
+                // alert("integral="+integral)
+                qrcode.makeCode("http://192.168.87.136:8080/recharge?userName="+userName+"&integral="+integral);
+            }
+
+            alert("integral="+integral);
 
             if (!wechatPayMoneyCheck())
                 return;
 
             $('#qr-pay-model').modal('show');
             $('#qr-pay-model-title').text('请使用微信扫一扫');
-            $('#pay-time').text(10);
+            $('#pay-time').text(120);
             //启动时间计时器
             var timeInter = setInterval(function () {
                 var time = $('#pay-time').text();
@@ -737,10 +745,15 @@
 
                 //这里写检测是否支付成功
                 $.get("/getIntegralStatus",{"userName":userName},function (data) {
-                    alert("data="+data);
-                    clearInterval(timeInter);
-                    clearInterval(checkModel);
-                    $('#qr-pay-model').modal('hide');
+                    //alert("data="+data);
+                    if ("" + data == "支付成功") {
+                        alert("支付成功="+data);
+                        clearInterval(timeInter);
+                        clearInterval(checkModel);
+                        $('#qr-pay-model').modal('hide');
+                    } else {
+                        //alert("支付失败=“+data");
+                    }
                 });
 
 
@@ -823,7 +836,7 @@
                 var $money = $("#wechat-pay").val(); //金额
             });
         });
-    }
+    })
 </script>
 <!--<script>
     /*window.onload =function(){

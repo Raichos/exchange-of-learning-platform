@@ -18,14 +18,19 @@
   <body>
     <!-- 你的html代码 -->
     <div class="page">
+      <form action="/useOrAddIntegral" method="post">
       <nav class="bar bar-tab od-bottom-tab">
         <a>
-          <span class="tab-label">实际支付：<i class="submit-money">￥0.00</i></span>
+          <span class="tab-label">实际支付：<i id="reality" class="submit-money">￥0.00</i></span>
         </a>
-        <a class="tab-item external" href="#">
+        <input type="hidden" name="userName" value="">
+        <input type="hidden" name="integral" value="">
+        <!--<a class="tab-item external" href="#">
           <span class="tab-label">立即支付</span>
-        </a>
+        </a>-->
+        <input type="submit" value="立即支付">
       </nav>
+      </form>
       <div class="content">
         <!-- 这里是页面内容区 -->
 
@@ -102,6 +107,22 @@
             text += "0";
         }
         $(".submit-money").text(text);
+      });
+
+      $(function () {
+        //参数处理
+        var parameter = window.location.href;
+        var num=parameter.indexOf("?");
+        parameter=parameter.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+        var arr = parameter.split("&"); //各个参数放到数组里
+        var arr1 = arr[0].split("=");
+        var arr2 = arr[1].split("=");
+        // alert(arr1[1]);
+        // alert(arr2[1]);
+        $("#reality").attr("value",arr2[1]);
+        $("#userName").attr("value",arr1[1]);
+        $("#integral").attr("value",arr2[1]);
+
       });
     </script>
   </body>

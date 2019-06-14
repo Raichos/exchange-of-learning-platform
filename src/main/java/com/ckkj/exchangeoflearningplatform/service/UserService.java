@@ -51,4 +51,10 @@ public interface UserService {
      * @return
      */
     int findIntegralStuats(String userName);
+
+    /**
+     * 充值成功或使用成功状态改变
+     * @param userName
+     */
+    void updateIntegralStuats(String userName);
 }

@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
+
 /**
  * 登出处理
  *
@@ -21,9 +24,13 @@ public class LoginOut {
 
     @GetMapping("/phoneLoginOut")
     @ResponseBody
-    public String loginout(){
+    public String loginout(HttpServletRequest request){
         System.out.println("用户登出");
         //tempService.deleteUser(new TempUser(1,"000000","",""));
+
+        Principal principal = request.getUserPrincipal();
+        String name = principal.getName();
+        tempService.deleteUserInTemp(name);
 
         return "logout";
     }

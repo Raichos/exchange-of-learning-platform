@@ -34,8 +34,7 @@ public class PageController {
     }
 
     @RequestMapping("/recharge")
-    public String rechange()
-    {
+    public String rechange() {
         return "/login/phone-recharge/takeorder";
     }
 
@@ -82,6 +81,14 @@ public class PageController {
         System.out.println("userName = " + userName);
         int integralStuats = userService.findIntegralStuats(userName);
         System.out.println("integralStuats = " + integralStuats);
-        return "支付成功";
+
+        if (integralStuats == 1){
+            userService.updateIntegralStuats(userName);
+            return "支付成功";
+        } else{
+
+            return "";
+        }
+
     }
 }

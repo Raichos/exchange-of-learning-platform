@@ -1,6 +1,7 @@
 package com.ckkj.exchangeoflearningplatform.mapper;
 
 import com.ckkj.exchangeoflearningplatform.model.TempUser;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -26,4 +27,10 @@ public interface TempLoginMapper {
     @Insert("INSERT INTO temp_login (user_name,password,rid) VALUES (#{userName},#{password},#{rid})")
     int createTempUser(TempUser tempUser);
 
+    /**
+     * 删除用户
+     * @param userName
+     */
+    @Delete("DELETE FROM temp_login WHERE user_name = #{userName}")
+    void deleteUserInTemp(String userName);
 }

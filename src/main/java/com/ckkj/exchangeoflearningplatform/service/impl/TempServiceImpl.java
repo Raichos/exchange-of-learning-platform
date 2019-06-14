@@ -40,4 +40,9 @@ public class TempServiceImpl implements TempService {
     public String findTempPassword(String tempUser,String rid) {
         return tempLoginMapper.findTempPassword(tempUser,rid);
     }
+
+    @Override
+    public void deleteUserInTemp(String userName) {
+        tempLoginMapper.deleteUserInTemp(userName);
+    }
 }

@@ -35,4 +35,10 @@ public interface TempService {
      * @return
      */
     String findTempPassword(String tempUser,String rid);
+
+    /**
+     * 用户退出
+     * @param userName
+     */
+    void deleteUserInTemp(String userName);
 }

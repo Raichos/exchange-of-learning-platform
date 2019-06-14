@@ -42,4 +42,10 @@ public interface UserMapper {
     @Select("SELECT integral_status FROM users WHERE user_name = #{userName}")
     int findIntegralStuats(String userName);
 
+    /**
+     * 充值成功或使用成功状态改变
+     * @param userName
+     */
+    @Update("UPDATE users SET integral_status = 0 WHERE user_name = #{userName}")
+    void updateIntegralStuats(String userName);
 }
