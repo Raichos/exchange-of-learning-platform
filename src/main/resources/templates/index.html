@@ -67,6 +67,11 @@
             z-index: 2;
             border-bottom-right-radius: 5px;
             padding: 5px;
+
+            /*显示阴影*/
+            -webkit-box-shadow: 4px 4px 10px #292929;
+            -moz-box-shadow: 4px 4px 10px #292929;
+            box-shadow: 4px 4px 10px #292929;
         }
 
         .list-item-totle1{
@@ -134,6 +139,37 @@
         #content-left div div:hover{
             background-color: #ff4500!important;
         }
+        .noScroll-div{
+            position: fixed;
+            right: 100px;
+            bottom: 160px;
+            z-index: 1998;
+            width: 200px;
+            height: 260px;
+            border-radius: 5px 5px 0 5px;
+
+            /*阴影*/
+            -webkit-box-shadow: 4px 4px 10px #292929;
+            -moz-box-shadow: 4px 4px 10px #292929;
+            box-shadow: 4px 4px 10px #292929;
+        }
+        .noScroll{
+            position: fixed;
+            right: 8px;
+            bottom: 160px;
+            width: 44px;
+            z-index: 1998;
+
+            /*阴影*/
+            -webkit-box-shadow: 4px 4px 10px #292929;
+            -moz-box-shadow: 4px 4px 10px #292929;
+            box-shadow: 4px 4px 10px #292929;
+        }
+
+        .noScroll a{
+            border-radius: 0;
+        }
+
     </style>
 </head>
 <body>
@@ -145,7 +181,8 @@
 
                 </div>
                 <div class="col-md-2">
-                    <span style="color: white;font-size: 28px;font-style: normal;font-weight: bold;">WeShare</span>
+<!--                    <span style="color: white;font-size: 28px;font-style: normal;font-weight: bold;">WeShare</span>-->
+                    <img src="../static/img/weshare-icon.png" style="width: 20%"/>
                     <!--<img src="../static/img/weshare.png"/>-->
                     <span style="color: white;font-size: 18px;">管理后台</span>
                 </div>
@@ -463,6 +500,17 @@
                     </div>
 
                 </div>
+                <div class="row">
+                    <div class="bg-light noScroll-div text-center" id="qr-div" style="display: none;">
+                        <img class="mt-4 w-75" src="../static/img/login/R.png"/>
+                        <h6 class="mt-4"><img class="w-25" src="../static/img/weshare-icon.png"/>扫码关注我们</h6>
+                    </div>
+                    <div class="mr-5 aside-menu-md-show noScroll">
+                        <a class="btn btn-light qr" style="width: 45px;height: 45px;background: #f4f5f9;border-bottom-right-radius: 0px"><i class="fa fa-qrcode" style="color: #8e959a"></i></a>
+                        <a class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px;border-bottom-right-radius: 0px"><i class="fa fa-qq" style="color: #8e959a"></i></a>
+                        <a id="scroll-black" class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px"><i class="fa fa-upload" style="color: #8e959a"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -541,6 +589,13 @@
         $('#user-items #user-items-dd').show();
     }).mouseout(function () {
         $('#user-items #user-items-dd').hide();
+    });
+
+    //qr
+    $('.qr').mouseover(function () {
+        $('#qr-div').show();
+    }).mouseout(function () {
+        $('#qr-div').hide();
     });
 
     //动态加载文章标题, 虚拟接口// 每次只拿10条
