@@ -63,9 +63,11 @@ public class PageController {
      */
     @PostMapping("/useOrAddIntegral")
     @ResponseBody
-    public String useOrAddIntegral(@RequestParam String userName, @RequestParam String integral) {
+    public String useOrAddIntegral(@RequestParam String userName, @RequestParam int integral) {
         System.out.println("userName = " + userName);
         System.out.println("integral = " + integral);
+        userService.useOrAddIntegral(userName,integral);
+
         return "充值成功";
     }
 

@@ -732,7 +732,7 @@
                 height : 96
             });
             qrcode.makeCode("http://192.168.87.136:8080/recharge?userName="+userName+"&integral="+integral);
-            alert("integral="+integral);
+            //alert("integral="+integral);
 
             if (!wechatPayMoneyCheck())
                 return;
@@ -755,7 +755,8 @@
                 $.get("/getIntegralStatus",{"userName":userName},function (data) {
                     //alert("data="+data);
                     if ("" + data == "支付成功") {
-                        alert("支付成功="+data);
+                        //alert("支付成功="+data);
+                        alert("支付成功");
                         clearInterval(timeInter);
                         clearInterval(checkModel);
                         $('#qr-pay-model').modal('hide');
