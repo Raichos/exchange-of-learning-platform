@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>用户首页</title>
@@ -163,7 +163,8 @@
 
             </div>
             <div class="col-md-2">
-                <span style="color: red;font-size: 28px;font-style: normal;font-weight: bold;">WeShare</span><span style="color: white;font-size: 18px;">管理后台</span>
+                <img src="/static/img/brand.png" width="50" height="50">
+                <span style="color: white;font-size: 18px;">管理后台</span>
             </div>
             <!--                <div class="col-md-1"></div>-->
             <div class="col-md-6">
@@ -193,7 +194,8 @@
 
                     <div class="btn-group" role="group" id="user-items">
 <!--                        <div id="btnGroupDrop1" style="" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                            <span class="" id="username" style="font-size: 16px;font-family: 微软雅黑;color: white;font-weight: bold;text-decoration: none;"><img src="../static/img/icon.png" style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;WeShare</span>
+                            <span class="" id="username" style="font-size: 16px;font-family: 微软雅黑;color: white;font-weight: bold;text-decoration: none;">
+                                <img src="../static/img/user_img.png" style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;阿海</span>
 <!--                        </div>-->
                         <div id="user-items-dd" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                 <a class="dropdown-item" href="/userCenter"><i class="fa fa-user"></i>个人中心</a>
