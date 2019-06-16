@@ -347,18 +347,6 @@
 </body>
 <script src="../static/js/vue.js"></script>
 <script>
-    // $('.nav-dropdown').click(function () {
-    //     //判断当前点击的对象
-    //     if($(this).hasClass('nav-dropdown')){
-    //         if($(this).hasClass('open') === true){
-    //             // 如果已经打开
-    //             $(this).removeClass('open');
-    //         }else
-    //             $(this).addClass('open');
-    //     }
-    //
-    // });
-
 
     $('.items').mouseover(function () {
         var id = $(this).index();
@@ -382,18 +370,6 @@
         $(this).show();
     });
     $('.list-show').mouseout(function () {
-
-        // var x = e.pageX;
-        // var y = e.pageY;
-        // var y1 = $(this).offset().top;
-        // var y2 = y1 + $(this).height();
-        // var x1 = $(this).offset().left;
-        // var x2 = x1 + $(this).width();
-        //
-        // if( x < x1 || x > x2 || y < y1 || y > y2){//鼠标不在该DIV中
-        //     $(this).hide();
-        // }else{  //鼠标在该DIV中
-        // };
         $(this).hide();
     });
 

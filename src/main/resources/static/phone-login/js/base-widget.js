@@ -67,7 +67,6 @@ $(".ad-gourp-ctl-d").click(function(){               //删除默认地址阻止
 
 //提交表单
 $('.phone-submit').click(function () {
-    $.alert('test');
 
     //利用ajax提交表单
     var formData = new FormData($('#phone-login-form')[0]);
@@ -77,15 +76,20 @@ $('.phone-submit').click(function () {
     $.ajax({
         url:'/phoneLogin',
         data:formData,  //提交表单
-        // dataType: 'JSON',
         type:'post',
         async: true,        //异步
         processData: false,  //很重要，告诉jquery不要对form进行处理
         contentType: false,  //很重要，指定为false才能形成正确的Content-Type
         success:function (obj) {
-            if(obj == true)
+            if(obj == true) {
                 $.alert('登陆成功!');
-            else
+
+                //跳转登陆成功页面
+                setTimeout(function(){
+                    window.location.href = "/phoneLoginSuccess";
+                },100);
+
+            }else
                 $.alert('登陆失败!');
         },
         error:function (obj) {

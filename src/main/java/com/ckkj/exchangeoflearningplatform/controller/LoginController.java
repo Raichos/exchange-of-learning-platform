@@ -58,6 +58,12 @@ public class LoginController {
         return "/login/phone-login/logintype";
     }
 
+    @RequestMapping("/phoneLoginSuccess")
+    public String phoneLoginSuccess(){
+        return "/login/phone-login/login-success";
+    }
+
+
     /**
      * 二维码扫描提交
      * @param tempUser

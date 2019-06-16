@@ -240,9 +240,13 @@
                                 "type":"POST",
                                 "dataType":"json"
                             });
-                            alert("登陆成功");
-                            window.location.href="/userIndex";
-                            clearInterval(temp);
+                            // alert("登陆成功");
+                            //100毫秒后执行
+                            setTimeout(function(){
+                                window.location.href="/userIndex";
+                                clearInterval(temp);
+                            },100);
+
 
                         },
                         "error":function () {
