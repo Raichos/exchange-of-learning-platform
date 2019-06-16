@@ -24,9 +24,13 @@ public class UploadController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/upload1", method = RequestMethod.POST)
+    @RequestMapping(value = "/uploadVideos", method = RequestMethod.POST)
     public String uploadVideo(HttpServletRequest request) throws IOException {
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
+        // 文章标题
+        String videoTitle = request.getParameter("VideoTitle");
+        // 文章id
+        int titleId = Integer.valueOf(request.getParameter("TitleId")) ;
         String newPath = "D:" + File.separatorChar;
         for (int i = 0; i < files.size(); i++) {
             MultipartFile multipartFile = files.get(i);
