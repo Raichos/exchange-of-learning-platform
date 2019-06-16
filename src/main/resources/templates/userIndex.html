@@ -417,6 +417,7 @@
         if(scrollTop + windowHeight == scrollHeight){
             //这里继续获取数据
             $.getJSON("/getWordTitleJson", function (response) {
+            //$.getJSON("/findAllTitle", function (response) {
                 //动态加载数据
                 for(var i = 0; i < response.items.length; i++)
                     items.items.push(response.items[i]);
@@ -451,7 +452,7 @@
     });
 
     //动态加载文章标题, 虚拟接口// 每次只拿10条
-    var it = Mock.mock("/getWordTitleJson", {
+    var it = Mock.mock("/getWordTitleJsons", {
         'items|10-20': [{
             'title': '@ctitle(30)',
             'author': '@cname',
@@ -463,28 +464,38 @@
         'count':1
     });
 
-    $.getJSON("/getWordTitleJson", function (response) {
-        items = response;
-        new Vue({
-            el: '#word-items',
-            data: items,
-            methods: {
-                getUrl:function (index) {
-                    return items.items[index].link;
-                }
-            },
-            // ready: function () {
-            //     var self = this;
-            //     /** * 异步请求模拟 */
-            //     setTimeout(function () {
-            //         self.dataObj = {};//真正实现数据更新的是这行代码
-            //         self.dataObj['text'] = 'new text';
-            //         }, 3000);
-            // }
+   $(function () {
+       var currentPage = 0;
+       var userName = "";
+       $.get("/getusername",function (data) {
+           userName = data;
+           //alert("data = "+data);
+           $.getJSON("/getWordTitleJson",{"userName":userName,"currentPage":currentPage}, function (response) {
+           //$.getJSON("/getWordTitleJsons", function (response) {
+               currentPage++;
+               items = {items:response};
+               //alert("items="+items);
+               new Vue({
+                   el: '#word-items',
+                   data: items,
+                   methods: {
+                       getUrl:function (index) {
+                           return items.items[index].link;
+                       }
+                   },
+                   // ready: function () {
+                   //     var self = this;
+                   //     /** * 异步请求模拟 */
+                   //     setTimeout(function () {
+                   //         self.dataObj = {};//真正实现数据更新的是这行代码
+                   //         self.dataObj['text'] = 'new text';
+                   //         }, 3000);
+                   // }
 
-
-        });
-    });
+               });
+           });
+       });
+   })
 
 </script>
 </html>
