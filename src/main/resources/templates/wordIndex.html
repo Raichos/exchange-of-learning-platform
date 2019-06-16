@@ -467,6 +467,13 @@
         'count':1
     });
 
+    //参数处理
+    var parameter = window.location.href;
+    var num=parameter.indexOf("?");
+    parameter=parameter.substr(num+1);
+    var arr = parameter.split("=");
+    //alert("id="+arr[1]);
+
     var items;
     $.getJSON("/getWordTitleJson", function (response) {
         items = response;
