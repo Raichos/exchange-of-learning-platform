@@ -177,14 +177,9 @@
         <div class="top-nav "  style="width: 100%">
             <nav class="navbar navbar-dark bg-secondary" id="vshop-nav" >
 
-                <div class="col-md-1">
-
-                </div>
-                <div class="col-md-2">
-<!--                    <span style="color: white;font-size: 28px;font-style: normal;font-weight: bold;">WeShare</span>-->
+                <div class="col-md-2 offset-md-1">
                     <img src="../static/img/weshare-icon.png" style="width: 20%"/>
-                    <!--<img src="../static/img/weshare.png"/>-->
-                    <span style="color: white;font-size: 18px;">管理后台</span>
+<!--                    <span style="color: white;font-size: 18px;">学习平台</span>-->
                 </div>
                 <!--                <div class="col-md-1"></div>-->
                 <div class="col-md-6">
@@ -214,7 +209,8 @@
 
                         <div class="btn-group" role="group" id="user-items">
                             <!--                        <div id="btnGroupDrop1" style="" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                            <span class="" id="username" style="font-size: 16px;font-family: 微软雅黑;color: white;font-weight: bold;text-decoration: none;"><img src="../static/img/brand.png" style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;WeShare</span>
+                            <span class="" id="username" style="font-size: 16px;font-family: 微软雅黑;color: white;font-weight: bold;text-decoration: none;">
+                                <img src="../static/img/user_img.png" style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;WeShare</span>
                             <!--                        </div>-->
                             <div id="user-items-dd" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                 <a class="dropdown-item" href="#"><i class="fa fa-user"></i>个人中心</a>
@@ -458,7 +454,7 @@
                                     <div class="row">
                                         <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
                                         <div class="col" style="height: 80px;">
-                                            <a href="getUrl(index)" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">{{item.title}}</a>
+                                            <a :href="getUrl(index)" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">{{item.title}}</a>
                                             <div class="row">
                                                 <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >{{item.author}}</a>
                                                 <span class="interval"></span>
@@ -509,6 +505,24 @@
                         <a class="btn btn-light qr" style="width: 45px;height: 45px;background: #f4f5f9;border-bottom-right-radius: 0px"><i class="fa fa-qrcode" style="color: #8e959a"></i></a>
                         <a class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px;border-bottom-right-radius: 0px"><i class="fa fa-qq" style="color: #8e959a"></i></a>
                         <a id="scroll-black" class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px"><i class="fa fa-upload" style="color: #8e959a"></i></a>
+                    </div>
+                </div>
+
+<!--                提示注册登陆-->
+                <div id="weshareRegisterGuide" class="w-100" style="display: block; height: 16%;position: fixed;z-index: 999;bottom: 0;background-color: rgba(211,211,211,.9);">
+                    <div class="col-8 offset-2 row">
+                        <img src="../static/img/weshare-icon.png" style="width: 98px;height: 84px;margin-top: 1.9rem !important;"/>
+                        <div class="ml-4 mt-5">
+                            <h5>看了这么久，不妨加入我们吧！</h5>
+                            <p>在WeShare社区，和千万学者一起交流讨论。掌握最新WeShare动态，探索科技创新以及各类丰富资源。</p>
+                        </div>
+                        <div class="mt-5 row">
+<!--                            <a href="login/login.html" class="btn btn-ghost-danger p-3">登陆</a>-->
+<!--                            <a href="login/register.html" class="btn btn-danger p-3">注册</a>-->
+                            <button type="button" class="btn btn-danger pl-5 pr-5">注册</button>
+                            <button type="button" class="btn btn-ghost-danger pl-5 pr-5">登陆</button>
+                        </div>
+
                     </div>
                 </div>
             </div>

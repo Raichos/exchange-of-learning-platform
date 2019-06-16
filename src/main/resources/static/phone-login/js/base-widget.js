@@ -92,7 +92,7 @@ $('.phone-submit').click(function () {
             }else
                 $.alert('登陆失败!');
         },
-        error:function (obj) {
+        error:function () {
             $.alert('登陆失败!');
         }
     });
