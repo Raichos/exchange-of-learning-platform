@@ -34,6 +34,12 @@
         h3, h5, a{
             color:#fff;
         }
+
+        .alert{
+            margin-top: 3rem!important;
+            position: absolute;
+            z-index: 999;
+        }
     </style>
 </head>
 <div>
@@ -48,9 +54,9 @@
                 <div class="col-md-2"></div>
                 <div class="card col-md-8" style="width: 60rem;background: rgba(0,0,0,0.4);border-radius: 15px;">
                     <div class="card-body">
-                        <img style="border-radius: 8px;" src="../../static/img/icon.png"></div>
-                    <h3 class="card-title">0元入驻</h3>
-                    <h5 class="card-subtitle mb-2 text-muted">商家注册</h5>
+                        <img style="border-radius: 8px; width: 150px;" src="../../static/img/weshare-icon.png"></div>
+                    <h3 class="card-title">WeShare</h3>
+                    <h5 class="card-subtitle mb-2 text-muted">WeShare注册</h5>
                     <form id="form" class="form-check-inline" action="/lose/register" method="post">
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
@@ -59,7 +65,7 @@
                                     <div class="input-group-text"><i class="fa fa-user"></i></div>
                                 </div>
                                 <input type="text" class="form-control was-invalid" name="userName" id="username" placeholder="用户名" required>
-                                <div class="invalid-feedback" id="username-message">
+                                <div class="alert alert-danger invalid-feedback" role="alert" id="username-message">
                                     用户名不能为空！
                                 </div>
                             </div>
@@ -68,7 +74,7 @@
                                     <div class="input-group-text">+86</div>
                                 </div>
                                 <input type="text" class="form-control was-invalid" id="phone" placeholder="请输入手机号" required>
-                                <div class="invalid-feedback" id="phoneid-message">
+                                <div class="alert alert-danger invalid-feedback" id="phoneid-message">
                                     手机号不能为空！
                                 </div>
                             </div>
@@ -77,7 +83,7 @@
                                     <div class="input-group-text"><i class="fa fa-lock"></i></div>
                                 </div>
                                 <input type="password" class="form-control was-invalid" name="password" id="userpassword" placeholder="请输入密码" required>
-                                <div class="invalid-feedback" id="userpassword-message">
+                                <div class="alert alert-danger invalid-feedback" id="userpassword-message">
                                     密码不能为空！
                                 </div>
                             </div>
@@ -86,7 +92,7 @@
                                     <div class="input-group-text"><i class="fa fa-lock"></i></div>
                                 </div>
                                 <input type="password" class="form-control was-invalid" id="userpassword2" placeholder="请再次输入密码" required>
-                                <div class="invalid-feedback" id="userpassword2-message">
+                                <div class="alert alert-danger invalid-feedback" id="userpassword2-message">
                                     两次密码不一致！
                                 </div>
                             </div>
@@ -120,7 +126,7 @@
                                     <option value="vip.qq.com">vip.qq.com</option>
                                     <option value="189.cn">189.cn</option>
                                 </select>
-                                <div class="invalid-feedback" id="email-message">
+                                <div class="alert alert-danger invalid-feedback" id="email-message">
                                     邮箱不能为空！
                                 </div>
                             </div>
@@ -128,7 +134,7 @@
                                 <input type="text" class="form-control col-md-4 was-invalid" name="emailCode" id="email-code" placeholder="请输入邮箱验证码" required>
                                 <button type="button" class="btn btn-secondary col-md-4" id="get-email-code">获取验证码</button>
                                 <div class="col-md-4"></div>
-                                <div class="invalid-feedback" id="email-code-message">
+                                <div class="alert alert-danger invalid-feedback" id="email-code-message">
                                     邮箱验证码不能为空！
                                 </div>
                             </div>
@@ -216,6 +222,36 @@
             return true;
         }
     }
+
+    //失去焦点
+    $('#username').blur(function () {
+        $('#username').removeClass("is-invalid");
+        $('#username').addClass('was-invalid');
+    });
+    $('#phoneid').blur(function () {
+        $('#phoneid').removeClass("is-invalid");
+        $('#phoneid').addClass('was-invalid');
+    });
+    $('#phone').blur(function () {
+        $('#phone').removeClass("is-invalid");
+        $('#phone').addClass('was-invalid');
+    });
+    $('#userpassword').blur(function () {
+        $('#userpassword').removeClass("is-invalid");
+        $('#userpassword').addClass('was-invalid');
+    });
+    $('#userpassword2').blur(function () {
+        $('#userpassword2').removeClass("is-invalid");
+        $('#userpassword2').addClass('was-invalid');
+    });
+    $('#email').blur(function () {
+        $('#email').removeClass("is-invalid");
+        $('#email').addClass('was-invalid');
+    });
+    $('#email-code').blur(function () {
+        $('#email-code').removeClass("is-invalid");
+        $('#email-code').addClass('was-invalid');
+    });
 
     //创建账号
     $('#create-user').click(function () {

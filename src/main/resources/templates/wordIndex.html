@@ -12,6 +12,7 @@
     <link rel="stylesheet" th:href="@{static/css/font-awesome.css}">
     <script th:src="@{static/js/jquery-3.4.0.js}"></script>
     <script th:src="@{static/js/bootstrap.js}"></script>
+    <script th:src="@{static/js/mock.js}"></script>
     <script th:src="@{static/boostrap-fileinput/js/plugins/piexif.js}" type="text/javascript"></script>
     <script th:src="@{static/boostrap-fileinput/js/plugins/sortable.js}" type="text/javascript"></script>
     <script th:src="@{static/boostrap-fileinput/js/fileinput.js}"></script>
@@ -92,7 +93,6 @@
         }
         .Boyu-content{
             background-color: #f4f5f9;
-            padding-bottom: 100%;
             border-radius: 5px;
         }
 
@@ -380,6 +380,34 @@
                         }
                         var interval = window.setInterval("reinitIframe()", 200);
                     </script>
+                    <div class="ml-2 mt-2 w-100" style="background: #f4f5f9;" id="word-items">
+                        <table class="table table-hover">
+                            <tbody>
+                            <!--采用vue-->
+                            <tr v-for="(item, index) in items">
+                                <td class="">
+                                    <div class="row">
+                                        <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
+                                        <div class="col" style="height: 80px;">
+                                            <a href="getUrl(index)" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">{{item.title}}</a>
+                                            <div class="row">
+                                                <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >{{item.author}}</a>
+                                                <span class="interval"></span>
+                                                <a href="#" style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >程序人生</a>
+                                                <span class="interval"></span>
+                                                <p style="text-decoration: none;color: #8a8a8a;font-size: 14px;" >{{item.date}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2 mr-2">
+                                        <p style="font-size: 14px;color: #8a8a8a;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.brief}}</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>
@@ -394,6 +422,7 @@
     </div>
 </div>
 </body>
+<script th:src="@{static/js/vue.js}"></script>
 <script>
 
 
@@ -409,13 +438,59 @@
         }else{
             $('#scroll-black').show();
         }
-        console.log($(document).height());
-        console.log($(document).scrollTop());
+        var scrollTop = $(this).scrollTop();
+        var scrollHeight = $(document).height();
+        var windowHeight = $(this).height();
         // 滚动到底部自动增加行
-        if ($(document).scrollTop() == $(document).height()-989) {
-            // alert('已到底');
+        if(scrollTop + windowHeight == scrollHeight){
+            //这里继续获取数据
+            //不再获取
+            // $.getJSON("/getWordTitleJson", function (response) {
+            //     //动态加载数据
+            //     for(var i = 0; i < response.items.length; i++)
+            //         items.items.push(response.items[i]);
+            // });
         }
     });
+
+
+    //动态加载文章标题, 虚拟接口// 每次只拿10条
+    var it = Mock.mock("/getWordTitleJson", {
+        'items|10-20': [{
+            'title': '@ctitle(30)',
+            'author': '@cname',
+            'date': '@date(\'yyyy-MM-dd HH:mm:ss\')',
+            'brief':'@ctitle(160)', //简介
+            'link': '@url("http")'
+
+        }],
+        'count':1
+    });
+
+    var items;
+    $.getJSON("/getWordTitleJson", function (response) {
+        items = response;
+        new Vue({
+            el: '#word-items',
+            data: items,
+            methods: {
+                getUrl:function (index) {
+                    return items.items[index].link;
+                }
+            },
+            // ready: function () {
+            //     var self = this;
+            //     /** * 异步请求模拟 */
+            //     setTimeout(function () {
+            //         self.dataObj = {};//真正实现数据更新的是这行代码
+            //         self.dataObj['text'] = 'new text';
+            //         }, 3000);
+            // }
+
+
+        });
+    });
+
 
     $('#user-items').mouseover(function () {
         $('#user-items #user-items-dd').show();
@@ -542,7 +617,6 @@
                 clearInterval(checkModel);
             }
         },1000);
-
 
 
         // 这里写生成二维码
