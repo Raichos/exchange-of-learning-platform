@@ -388,7 +388,9 @@
                     <div>
                         <script id="editor" type="text/plain" class="ml-3 mr-3"></script>
                     </div>
-                    <div id="btns">
+
+                    <button onclick="getAllHtml()">获得整个html的内容</button>
+                    <!--<div id="btns">
                         <div>
                             <button onclick="getAllHtml()">获得整个html的内容</button>
                             <button onclick="getContent()">获得内容</button>
@@ -425,7 +427,7 @@
                         <button onclick="deleteEditor()">
                             删除编辑器
                         </button>
-                    </div>
+                    </div>-->
 
                     <script type="text/javascript">
 
@@ -455,7 +457,24 @@
                         }
 
                         function getAllHtml() {
-                            alert(UE.getEditor('editor').getAllHtml())
+                            //alert(UE.getEditor('editor').getAllHtml())
+                            var title = $("#exampleInputEmail1").val();
+                            var artcleHtml = UE.getEditor('editor').getAllHtml();
+
+                            var userName = "";
+
+                            $.get("/getusername",function (data) {
+                                userName = data;
+                                //alert("username="+userName);
+
+                                $.post("/addArticle",{"userArticle":userName,"title":title,"artcle":artcleHtml},function (data) {
+
+                                    alert(data);
+
+                                });
+
+
+                            });
                         }
 
                         function getContent() {
