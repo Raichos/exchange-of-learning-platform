@@ -31,7 +31,8 @@
     <link th:href="@{static/css/bootstrap.min.css}" rel="stylesheet">
     <link th:href="@{static/boostrap-fileinput/css/fileinput.css}" rel="stylesheet">
     <link th:href="@{static/boostrap-fileinput/themes/explorer-fa/theme.css}" rel="stylesheet">
-    <link th:href="@{static/boostrap-fileinput/themes/explorer-fas/theme.css}" media="all" rel="stylesheet" type="text/css"/>
+    <link th:href="@{static/boostrap-fileinput/themes/explorer-fas/theme.css}" media="all" rel="stylesheet"
+          type="text/css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{static/css/font-awesome.css}">
     <script th:src="@{static/js/jquery-3.4.0.js}"></script>
@@ -50,32 +51,36 @@
     &lt;!&ndash;这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文&ndash;&gt;
     <script type="text/javascript" charset="utf-8" src="../static/lang/zh-cn/zh-cn.js"></script>-->
     <script type="text/javascript" charset="utf-8" th:src="@{static/ueditor/ueditor.config.js}"></script>
-    <script type="text/javascript" charset="utf-8" th:src="@{static/ueditor/ueditor.all.js}"> </script>
+    <script type="text/javascript" charset="utf-8" th:src="@{static/ueditor/ueditor.all.js}"></script>
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
     <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
     <script type="text/javascript" charset="utf-8" th:src="@{static/ueditor/lang/zh-cn/zh-cn.js}"></script>
 
 
     <style type="text/css">
-        #vshop-nav{
-            background: rgba(0,0,0,0.3);
+        #vshop-nav {
+            background: rgba(0, 0, 0, 0.3);
             /*border-radius: 8px;*/
         }
-        .vshop-nav-items{
+
+        .vshop-nav-items {
             -webkit-box-orient: horizontal;
             -webkit-box-direction: normal;
             -ms-flex-direction: row;
             flex-direction: row;
         }
-        .top-nav li{
+
+        .top-nav li {
             float: left;
-            list-style-type:none;
+            list-style-type: none;
         }
-        #bg{
-            background-color:#f0f0f0;
+
+        #bg {
+            background-color: #f0f0f0;
             padding-bottom: 10%;
         }
-        #content-left{
+
+        #content-left {
             background-color: #f4f5f9;
             padding-bottom: 100%;
             /*position:absolute;  //可叠加*/
@@ -84,7 +89,7 @@
             /*margin-left: 20%;*/
         }
 
-        .card-text-title{
+        .card-text-title {
             padding: 10px 8px 0;
             font-size: 15px;
             color: #333;
@@ -94,7 +99,8 @@
             overflow: hidden;
             text-align: justify;
         }
-        .card-bottom{
+
+        .card-bottom {
             font-size: 13px;
             line-height: 22px;
             height: 22px;
@@ -104,17 +110,17 @@
             text-align: justify;
         }
 
-        .font-color{
+        .font-color {
             color: #333;
         }
 
-        .collapse-list{
-            background-color:#f4f5f9;
+        .collapse-list {
+            background-color: #f4f5f9;
         }
 
         /*叠加显示左栏list*/
-        .list-show{
-            position:absolute;
+        .list-show {
+            position: absolute;
             width: 30%;
             z-index: 9999;
             border-bottom-right-radius: 5px;
@@ -125,7 +131,8 @@
             -moz-box-shadow: 4px 4px 10px #292929;
             box-shadow: 4px 4px 10px #292929;
         }
-        .list-item-totle1{
+
+        .list-item-totle1 {
             /*display: inline-block;*/
             width: 80px;
             height: 20px;
@@ -136,10 +143,12 @@
             font-size: 15px;
             color: white;
         }
-        .list-item-title-line1{
+
+        .list-item-title-line1 {
             border-bottom: 1px solid #a0aeb9;
         }
-        .list-item-totle2{
+
+        .list-item-totle2 {
             /*display: inline-block;*/
             width: 80px;
             height: 20px;
@@ -150,9 +159,11 @@
             font-size: 15px;
             color: white;
         }
-        .list-item-title-line2{
+
+        .list-item-title-line2 {
             border-bottom: 1px solid #35b558;
         }
+
         /*分割线*/
         .interval {
             float: left;
@@ -165,7 +176,7 @@
             margin-right: 8px;
         }
 
-        #noScroll{
+        #noScroll {
             position: fixed;
             right: 8px;
             bottom: 160px;
@@ -186,8 +197,8 @@
 </head>
 <body>
 <div id="bg">
-    <div class="top-nav "  style="width: 100%">
-        <nav class="navbar navbar-dark bg-secondary" id="vshop-nav" >
+    <div class="top-nav " style="width: 100%">
+        <nav class="navbar navbar-dark bg-secondary" id="vshop-nav">
 
             <div class="col-md-1">
 
@@ -213,7 +224,8 @@
                         <a class="nav-link" href="/userindex">联系平台</a>
                     </li>
                     <li class="nav-item" style="margin: 0 5%;">
-                        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top"
+                                title="Tooltip on top">
                             资源分享
                         </button>
                     </li>
@@ -225,12 +237,17 @@
 
                     <div class="btn-group" role="group" id="user-items">
                         <!--                        <div id="btnGroupDrop1" style="" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                        <span class="" id="username" style="font-size: 16px;font-family: 微软雅黑;color: white;font-weight: bold;text-decoration: none;"><img th:src="@{static/img/user_img.jpg}" style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;user</span>
+                        <span class="" id="username"
+                              style="font-size: 16px;font-family: 微软雅黑;color: white;font-weight: bold;text-decoration: none;"><img
+                                th:src="@{static/img/user_img.png}"
+                                style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;user</span>
                         <!--                        </div>-->
                         <div id="user-items-dd" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             <a class="dropdown-item" href="#"><i class="fa fa-user"></i>个人中心</a>
-                            <a class="dropdown-item" href="#" style="border-top: 1px solid #dee2e6;"><i class="fa fa-stop-circle-o"></i>查看积分</a>
-                            <a class="dropdown-item" href="/logout" style="border-top: 1px solid #dee2e6;"><i class="fa fa-sign-out"></i>退出</a>
+                            <a class="dropdown-item" href="#" style="border-top: 1px solid #dee2e6;"><i
+                                    class="fa fa-stop-circle-o"></i>查看积分</a>
+                            <a class="dropdown-item" href="/logout" style="border-top: 1px solid #dee2e6;"><i
+                                    class="fa fa-sign-out"></i>退出</a>
 
                         </div>
                     </div>
@@ -250,7 +267,8 @@
                         <li class="list-item w-100" name="demo1">
                             <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
                                 <div class="item-name">
-                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" th:src="@{static/img/userIndex/right.gif}"/>
+                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4"
+                                                                                                     th:src="@{static/img/userIndex/right.gif}"/>
                                 </div>
                             </a>
                         </li>
@@ -261,7 +279,8 @@
                         <li class="list-item w-100" name="demo1">
                             <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
                                 <div class="item-name">
-                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" th:src="@{static/img/userIndex/right.gif}"/>
+                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4"
+                                                                                                     th:src="@{static/img/userIndex/right.gif}"/>
                                 </div>
                             </a>
                         </li>
@@ -272,7 +291,8 @@
                         <li class="list-item w-100" name="demo1">
                             <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
                                 <div class="item-name">
-                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" th:src="@{static/img/userIndex/right.gif}"/>
+                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4"
+                                                                                                     th:src="@{static/img/userIndex/right.gif}"/>
                                 </div>
                             </a>
                         </li>
@@ -283,7 +303,8 @@
                         <li class="list-item w-100" name="demo1">
                             <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
                                 <div class="item-name">
-                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" th:src="@{static/img/userIndex/right.gif}"/>
+                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4"
+                                                                                                     th:src="@{static/img/userIndex/right.gif}"/>
                                 </div>
                             </a>
                         </li>
@@ -294,7 +315,8 @@
                         <li class="list-item w-100" name="demo1">
                             <a class="nav-link" href="#" data-toggle="collapse" data-target="#demo1">
                                 <div class="item-name">
-                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" th:src="@{static/img/userIndex/right.gif}"/>
+                                    <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4"
+                                                                                                     th:src="@{static/img/userIndex/right.gif}"/>
                                 </div>
                             </a>
                         </li>
@@ -306,36 +328,38 @@
             <div class="" style="width: 85%;">
                 <div id="demo1" class="mt-2 collapse collapse-list list-show" data-parent="#collapse-list">
                     <div>
-                        <div class="list-item-totle1">知识海洋</div><div class="list-item-title-line1 w-100"></div>
+                        <div class="list-item-totle1">知识海洋</div>
+                        <div class="list-item-title-line1 w-100"></div>
                     </div>
 
-                    1  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    1 Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     <div>
-                        <div class="list-item-totle2">新知识</div><div class="list-item-title-line2 w-100"></div>
+                        <div class="list-item-totle2">新知识</div>
+                        <div class="list-item-title-line2 w-100"></div>
                     </div>
-                    1  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    1 Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </div>
                 <div id="demo2" class="mt-2 collapse collapse-list list-show" data-parent="#collapse-list">
-                    2  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    2 Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </div>
                 <div id="demo3" class="mt-2 collapse collapse-list list-show" data-parent="#collapse-list">
-                    3  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    3 Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </div>
                 <div id="demo4" class="mt-2 collapse collapse-list list-show" data-parent="#collapse-list">
-                    4  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    4 Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </div>
                 <div id="demo5" class="mt-2 collapse collapse-list list-show" data-parent="#collapse-list">
-                    5  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    5 Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </div>
@@ -357,48 +381,51 @@
                     <!--编辑区-->
                     <div class="form-group ml-3 mr-3">
                         <label for="exampleInputEmail1" class="mt-3">请输入文章标题</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入文章标题">
+                        <input type="text" class="form-control" name="title" id="exampleInputEmail1"
+                               aria-describedby="emailHelp" placeholder="请输入文章标题" required/>
                     </div>
 
                     <div>
                         <script id="editor" type="text/plain" class="ml-3 mr-3"></script>
                     </div>
-<!--                    <div id="btns">-->
-<!--                        <div>-->
-<!--                            <button onclick="getAllHtml()">获得整个html的内容</button>-->
-<!--                            <button onclick="getContent()">获得内容</button>-->
-<!--                            <button onclick="setContent()">写入内容</button>-->
-<!--                            <button onclick="setContent(true)">追加内容</button>-->
-<!--                            <button onclick="getContentTxt()">获得纯文本</button>-->
-<!--                            <button onclick="getPlainTxt()">获得带格式的纯文本</button>-->
-<!--                            <button onclick="hasContent()">判断是否有内容</button>-->
-<!--                            <button onclick="setFocus()">使编辑器获得焦点</button>-->
-<!--                            <button onmousedown="isFocus(event)">编辑器是否获得焦点</button>-->
-<!--                            <button onmousedown="setblur(event)" >编辑器失去焦点</button>-->
+                    <div id="btns">
+                        <div>
+                            <button onclick="getAllHtml()">获得整个html的内容</button>
+                            <button onclick="getContent()">获得内容</button>
+                            <button onclick="setContent()">写入内容</button>
+                            <button onclick="setContent(true)">追加内容</button>
+                            <button onclick="getContentTxt()">获得纯文本</button>
+                            <button onclick="getPlainTxt()">获得带格式的纯文本</button>
+                            <button onclick="hasContent()">判断是否有内容</button>
+                            <button onclick="setFocus()">使编辑器获得焦点</button>
+                            <button onmousedown="isFocus(event)">编辑器是否获得焦点</button>
+                            <button onmousedown="setblur(event)">编辑器失去焦点</button>
 
-<!--                        </div>-->
-<!--                        <div>-->
-<!--                            <button onclick="getText()">获得当前选中的文本</button>-->
-<!--                            <button onclick="insertHtml()">插入给定的内容</button>-->
-<!--                            <button id="enable" onclick="setEnabled()">可以编辑</button>-->
-<!--                            <button onclick="setDisabled()">不可编辑</button>-->
-<!--                            <button onclick=" UE.getEditor('editor').setHide()">隐藏编辑器</button>-->
-<!--                            <button onclick=" UE.getEditor('editor').setShow()">显示编辑器</button>-->
-<!--                            <button onclick=" UE.getEditor('editor').setHeight(300)">设置高度为300默认关闭了自动长高</button>-->
-<!--                        </div>-->
+                        </div>
+                        <div>
+                            <button onclick="getText()">获得当前选中的文本</button>
+                            <button onclick="insertHtml()">插入给定的内容</button>
+                            <button id="enable" onclick="setEnabled()">可以编辑</button>
+                            <button onclick="setDisabled()">不可编辑</button>
+                            <button onclick=" UE.getEditor('editor').setHide()">隐藏编辑器</button>
+                            <button onclick=" UE.getEditor('editor').setShow()">显示编辑器</button>
+                            <button onclick=" UE.getEditor('editor').setHeight(300)">设置高度为300默认关闭了自动长高</button>
+                        </div>
 
-<!--                        <div>-->
-<!--                            <button onclick="getLocalData()" >获取草稿箱内容</button>-->
-<!--                            <button onclick="clearLocalData()" >清空草稿箱</button>-->
-<!--                        </div>-->
+                        <div>
+                            <button onclick="getLocalData()">获取草稿箱内容</button>
+                            <button onclick="clearLocalData()">清空草稿箱</button>
+                        </div>
 
-<!--                    </div>-->
-<!--                    <div>-->
-<!--                        <button onclick="createEditor()">-->
-<!--                            创建编辑器</button>-->
-<!--                        <button onclick="deleteEditor()">-->
-<!--                            删除编辑器</button>-->
-<!--                    </div>-->
+                    </div>
+                    <div>
+                        <button onclick="createEditor()">
+                            创建编辑器
+                        </button>
+                        <button onclick="deleteEditor()">
+                            删除编辑器
+                        </button>
+                    </div>
 
                     <script type="text/javascript">
 
@@ -407,25 +434,30 @@
                         var ue = UE.getEditor('editor');
 
 
-                        function isFocus(e){
+                        function isFocus(e) {
                             alert(UE.getEditor('editor').isFocus());
                             UE.dom.domUtils.preventDefault(e)
                         }
-                        function setblur(e){
+
+                        function setblur(e) {
                             UE.getEditor('editor').blur();
                             UE.dom.domUtils.preventDefault(e)
                         }
+
                         function insertHtml() {
                             var value = prompt('插入html代码', '');
                             UE.getEditor('editor').execCommand('insertHtml', value)
                         }
+
                         function createEditor() {
                             enableBtn();
                             UE.getEditor('editor');
                         }
+
                         function getAllHtml() {
                             alert(UE.getEditor('editor').getAllHtml())
                         }
+
                         function getContent() {
                             var arr = [];
                             arr.push("使用editor.getContent()方法可以获得编辑器的内容");
@@ -433,6 +465,7 @@
                             arr.push(UE.getEditor('editor').getContent());
                             alert(arr.join("\n"));
                         }
+
                         function getPlainTxt() {
                             var arr = [];
                             arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
@@ -440,12 +473,14 @@
                             arr.push(UE.getEditor('editor').getPlainTxt());
                             alert(arr.join('\n'))
                         }
+
                         function setContent(isAppendTo) {
                             var arr = [];
                             arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
                             UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
                             alert(arr.join("\n"));
                         }
+
                         function setDisabled() {
                             UE.getEditor('editor').setDisabled('fullscreen');
                             disableBtn("enable");
@@ -471,6 +506,7 @@
                             arr.push(UE.getEditor('editor').getContentTxt());
                             alert(arr.join("\n"));
                         }
+
                         function hasContent() {
                             var arr = [];
                             arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
@@ -478,13 +514,16 @@
                             arr.push(UE.getEditor('editor').hasContents());
                             alert(arr.join("\n"));
                         }
+
                         function setFocus() {
                             UE.getEditor('editor').focus();
                         }
+
                         function deleteEditor() {
                             disableBtn();
                             UE.getEditor('editor').destroy();
                         }
+
                         function disableBtn(str) {
                             var div = document.getElementById('btns');
                             var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
@@ -496,6 +535,7 @@
                                 }
                             }
                         }
+
                         function enableBtn() {
                             var div = document.getElementById('btns');
                             var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
@@ -504,21 +544,21 @@
                             }
                         }
 
-                        function getLocalData () {
-                            alert(UE.getEditor('editor').execCommand( "getlocaldata" ));
+                        function getLocalData() {
+                            alert(UE.getEditor('editor').execCommand("getlocaldata"));
                         }
 
-                        function clearLocalData () {
-                            UE.getEditor('editor').execCommand( "clearlocaldata" );
+                        function clearLocalData() {
+                            UE.getEditor('editor').execCommand("clearlocaldata");
                             alert("已清空草稿箱")
                         }
 
                         $(document).ready(function () {
                             $("#userLogout").click(function () {
                                 $.ajax({
-                                    "url":"http://localhost:8080/phoneLoginOut",
-                                    "type":"GET",
-                                    "dataType":"json"
+                                    "url": "http://localhost:8080/phoneLoginOut",
+                                    "type": "GET",
+                                    "dataType": "json"
                                 });
                             });
                         });
@@ -530,13 +570,15 @@
                         <h6>是否设定积分查看文章？</h6>
                         <div id="check-group1" class="row">
                             <div class="custom-control">
-                                <input type="radio" class="custom-control-input" id="ArticleRadiosYes" name="radios-stack" checked required>
+                                <input type="radio" class="custom-control-input" id="ArticleRadiosYes"
+                                       name="radios-stack" checked required>
                                 <label class="custom-control-label" for="ArticleRadiosYes">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是
                                 </label>
                             </div>
                             <div class="custom-control">
-                                <input type="radio" class="custom-control-input" id="ArticleRadiosNo" name="radios-stack" required>
+                                <input type="radio" class="custom-control-input" id="ArticleRadiosNo"
+                                       name="radios-stack" required>
                                 <label class="custom-control-label" for="ArticleRadiosNo">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;否
                                 </label>
@@ -545,40 +587,47 @@
                     </div>
                     <div class="mt-3 ml-3 mr-3 row" id="Article">
                         积分值：
-                        <input type="text"  onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order" value="0"/>
+                        <input type="text" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order"
+                               value="0"/>
                     </div>
                     <!--这里放视频上传-->
                     <div class="mt-3 ml-3 row">
                         <h6>是否上传学习视频？</h6>
                         <div id="check-group" class="row">
                             <div class="custom-control">
-                                <input type="radio" class="custom-control-input" id="VideoRadiosYes" name="radio-stacked" checked required>
+                                <input type="radio" class="custom-control-input" id="VideoRadiosYes"
+                                       name="radio-stacked" checked required>
                                 <label class="custom-control-label" for="VideoRadiosYes">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是
                                 </label>
                             </div>
                             <div class="custom-control">
-                                <input type="radio" class="custom-control-input" id="VideoRadiosNo" name="radio-stacked" required>
+                                <input type="radio" class="custom-control-input" id="VideoRadiosNo"
+                                       name="radio-stacked"
+                                       required>
                                 <label class="custom-control-label" for="VideoRadiosNo">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;否
                                 </label>
                             </div>
                         </div>
                     </div>
+                    <!-- 上传视频 -->
                     <div class="mt-3 ml-3 mr-3 row" id="upload-vedio">
-                        <input id="fileinput" type="file" accept="video/*"  />
+                        <input id="fileinput" type="file" name="file" accept="video/*"/>
                     </div>
                     <div class="mt-3 ml-3 row">
                         <h6>是否设定积分观看视频？</h6>
                         <div id="check-group2" class="row">
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="IntegralRadiosYes" name="radios-stacked" checked required>
+                                <input type="radio" class="custom-control-input" id="IntegralRadiosYes"
+                                       name="radios-stacked" checked required>
                                 <label class="custom-control-label" for="IntegralRadiosYes">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是
                                 </label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="IntegralRadiosNo" name="radios-stacked" required>
+                                <input type="radio" class="custom-control-input" id="IntegralRadiosNo"
+                                       name="radios-stacked" required>
                                 <label class="custom-control-label" for="IntegralRadiosNo">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;否
                                 </label>
@@ -587,20 +636,31 @@
                     </div>
                     <div class="mt-3 ml-3 mr-3 row" id="Integral">
                         积分值：
-                        <input type="text"  onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order" value="0"/>
+                        <input type="text" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order"
+                               value="0"/>
                     </div>
                     <div class="mt-3 ml-3 mr-3 row">
                         <!--这里通过ajax提交数据-->
-                        <button type="button" class="btn btn-primary col-md-2 offset-md-10 pt-2 pb-2" id="enter-data">确认发表</button>
+                        <button type="button" class="btn btn-primary col-md-2 offset-md-10 pt-2 pb-2"
+                                id="enter-data">
+                            确认发表
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-2">
-            <div class="mr-5 aside-menu-md-show" id="noScroll" style="-webkit-box-shadow: 4px 4px 10px #292929;-moz-box-shadow: 4px 4px 10px #292929;box-shadow: 4px 4px 10px #292929;">
-                <a class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-bottom-right-radius: 0px"><i class="fa fa-qrcode" style="color: #8e959a"></i></a>
-                <a class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px;border-bottom-right-radius: 0px"><i class="fa fa-qq" style="color: #8e959a"></i></a>
-                <a id="scroll-black" class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px"><i class="fa fa-upload" style="color: #8e959a"></i></a>
+            <div class="mr-5 aside-menu-md-show" id="noScroll"
+                 style="-webkit-box-shadow: 4px 4px 10px #292929;-moz-box-shadow: 4px 4px 10px #292929;box-shadow: 4px 4px 10px #292929;">
+                <a class="btn btn-light"
+                   style="width: 45px;height: 45px;background: #f4f5f9;border-bottom-right-radius: 0px"><i
+                        class="fa fa-qrcode" style="color: #8e959a"></i></a>
+                <a class="btn btn-light"
+                   style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px;border-bottom-right-radius: 0px"><i
+                        class="fa fa-qq" style="color: #8e959a"></i></a>
+                <a id="scroll-black" class="btn btn-light"
+                   style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px"><i
+                        class="fa fa-upload" style="color: #8e959a"></i></a>
             </div>
         </div>
     </div>
@@ -618,17 +678,17 @@
     //     }
     //
     // });
-
+    var form;
 
     $('.items').mouseover(function () {
         var id = $(this).index();
-        $('#demo'+(id+1)).show();
+        $('#demo' + (id + 1)).show();
         $(this).find('.item-name').addClass('ml-2');
     });
     $('.items').mouseout(function () {
         var id = $(this).index();
 
-        $('#demo'+(id+1)).hide();
+        $('#demo' + (id + 1)).hide();
         $(this).find('.item-name').removeClass('ml-2');
 
     });
@@ -642,20 +702,20 @@
 
     $('#scroll-black').click(function () {
         // alert('回滚');
-        $('html, body').animate({scrollTop:0}, 'slow');
+        $('html, body').animate({scrollTop: 0}, 'slow');
     });
     $('#scroll-black').hide();
     $(window).scroll(function () {
-        if ($(document).scrollTop()<=100){
+        if ($(document).scrollTop() <= 100) {
             // 按钮消失
             $('#scroll-black').hide();
-        }else{
+        } else {
             $('#scroll-black').show();
         }
         console.log($(document).height());
         console.log($(document).scrollTop());
         // 滚动到底部自动增加行
-        if ($(document).scrollTop() == $(document).height()-989) {
+        if ($(document).scrollTop() == $(document).height() - 989) {
             // alert('已到底');
         }
     });
@@ -669,14 +729,14 @@
     // 是否设置文章积分
     $('#ArticleRadiosYes').click(function () {
         // alert($('#radiosYes').prop('checked'));
-        if($('#ArticleRadiosYes').prop('checked')){
+        if ($('#ArticleRadiosYes').prop('checked')) {
             $('#Article').show(100);
         }
     });
 
     $('#ArticleRadiosNo').click(function () {
         // alert($('#radiosYes').attr("checked"));
-        if($('#ArticleRadiosNo').prop('checked')){
+        if ($('#ArticleRadiosNo').prop('checked')) {
             $('#Article').hide(100);
         }
     });
@@ -684,61 +744,90 @@
     // 是否上传视频
     $('#VideoRadiosYes').click(function () {
         // alert($('#radiosYes').prop('checked'));
-        if($('#VideoRadiosYes').prop('checked')){
+        if ($('#VideoRadiosYes').prop('checked')) {
             $('#upload-vedio').show(500);
         }
     });
 
     $('#VideoRadiosNo').click(function () {
         // alert($('#radiosYes').attr("checked"));
-        if($('#VideoRadiosNo').prop('checked')){
+        if ($('#VideoRadiosNo').prop('checked')) {
             $('#upload-vedio').hide(500);
         }
     });
     // 是否设置视频积分
     $('#IntegralRadiosYes').click(function () {
         // alert($('#radiosYes').prop('checked'));
-        if($('#IntegralRadiosYes').prop('checked')){
+        if ($('#IntegralRadiosYes').prop('checked')) {
             $('#Integral ').show(100);
         }
     });
     $('#IntegralRadiosNo').click(function () {
         // alert($('#radiosYes').attr("checked"));
-        if($('#IntegralRadiosNo').prop('checked')){
+        if ($('#IntegralRadiosNo').prop('checked')) {
             $('#Integral').hide(100);
         }
     });
 
 
-
     $('#fileinput').fileinput({
-        language:'zh',
-        uploadUr1:'./upload/',
-        allowedFileExtensions:['AVI','wma','rmvb','rm','flash','mp4','mid','36p'],
-        showRemove : true,//是否显示删除按钮
-        showClose : false,
-        previewSettings : {
-            image : {
-                width : "100%",
-                height : "100%"
+        language: 'zh',
+        uploadUr1: '',
+        allowedFileExtensions: ['AVI', 'wma', 'rmvb', 'rm', 'flash', 'mp4', 'mid', '36p'],
+        showRemove: true,//是否显示删除按钮
+        showClose: false,
+        previewSettings: {
+            image: {
+                width: "100%",
+                height: "100%"
             }
         },
-        videoPreview:true   //视频预览只显示小于20m的视频
+        videoPreview: true   //视频预览只显示小于20m的视频
     });
 
-    // $('#inte').text({
-    //
-    // });
+    var fileBtn = $("input[name = file]"); //上传的视频
+
+
+    var fileObj;
+    fileBtn.change(function () {
+        // 传入后台存储时需要用到上传的视频对象（视频标题VedioTitle、视频名称VedioName、上传时间nt、视频大小VideoSize、视频类型VideoType）
+        fileObj = fileBtn.get(0).files[0]; //js获取文件对象
+        if (fileObj) {
+            var fileSize = getSize(fileObj.size);
+            // $("label[name=upfileName]").text('文件名：' + fileObj.name);
+            // $("label[name=upfileSize]").text('文件大小：' + fileSize);
+            // $("label[name=upfileType]").text('文件类型：' + fileObj.type);
+        }
+        // FormData 对象
+        form = new FormData();
+        form.append('file', fileObj); // 文件对象
+    });
+
+
     //确认提交
     $('#enter-data').click(function () {
-        // 首先判断是否选择上传视频
-        if($('#radiosYes').prop('checked')){    //选择是
-            //获取文本
-            //获取视频
-            // $.ajax()
-        }else{  //只上传文本
-            //获取文本
-            // $.ajax()
+        var uploadTitle = $("input[name = title]")[0].value; // 文章标题
+
+
+        if(form != null)
+        {
+            $.ajax({
+                url: "/upload1/",
+                type: "post",
+                data: form,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data === 'Yes') {
+                        alert('success');
+                    }
+                },
+
+                error: function (e) {
+                    alert("错误！");
+                }
+
+            });
         }
     });
 
@@ -748,6 +837,16 @@
         $('#edui1').addClass('w-100');
         $('.file-input').addClass('w-100');
     });
+
+    function getSize(size) {
+        var fileSize = '0KB';
+        if (size > 1024 * 1024) {
+            fileSize = (Math.round(size / (1024 * 1024))).toString() + 'MB';
+        } else {
+            fileSize = (Math.round(size / 1024)).toString() + 'KB';
+        }
+        return fileSize;
+    }
 
 
 </script>
