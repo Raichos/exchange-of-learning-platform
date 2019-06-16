@@ -110,8 +110,7 @@ public class ArticleUtils {
         int bodyStart = article.indexOf("<body");
         int bodyEnd = article.indexOf("</body");
         String body = article.substring(bodyStart, bodyEnd);
-        //String conn = body.replaceAll("<(/{0,1})([a-zA-Z]+)(\\.+)>", "");
-        //String conn = body.replaceAll("<(\\s+)( *)>", "");
+
         String conn = body.replaceAll("<([a-zA-Z]+( *)(\\.*))>","");
         int i = conn.indexOf("<", 0);
         String str = conn.substring(0,i);
@@ -119,6 +118,6 @@ public class ArticleUtils {
         System.out.println(str);
 
 
-        return "";
+        return str;
     }
 }

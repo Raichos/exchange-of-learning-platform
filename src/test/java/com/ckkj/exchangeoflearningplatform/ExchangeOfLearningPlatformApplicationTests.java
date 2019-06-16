@@ -773,6 +773,10 @@ public class ExchangeOfLearningPlatformApplicationTests {
         System.out.println(conn);
         System.out.println(i);
         System.out.println(str);
+        System.out.println("----------------------------");
+        String s = ArticleUtils.articleIntroduce(article);
+        System.out.println(s);
+
     }
 
     @Test

@@ -41,7 +41,15 @@ public class ArticleController {
         Article article = new Article().setUserArticle(userArticle).setTitle(title).setAnnounce(new Date()).setArticlePath("/article/" + userArticle + "_" + uuid);
         ArticleUtils.WriteStringToFile(userArticle, artcle, path);
 
+        String content = ArticleUtils.articleIntroduce(artcle);
+        if (content.length() > 127){
+            content = content.substring(0,127);
+        }
+        article.setBrief(content);
+
         int i = articleService.addArticle(article);
+
+
         if (i == 1) {
 
             return "上传成功";

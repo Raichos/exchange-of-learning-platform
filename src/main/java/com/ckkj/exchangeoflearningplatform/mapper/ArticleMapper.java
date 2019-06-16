@@ -22,7 +22,7 @@ public interface ArticleMapper {
      * @param article
      * @return
      */
-    @Insert("INSERT INTO article (user_article,title,article_path,announce) VALUES (#{userArticle},#{title},#{articlePath},#{announce})")
+    @Insert("INSERT INTO article (user_article,title,article_path,announce,brief) VALUES (#{userArticle},#{title},#{articlePath},#{announce},#{brief})")
     int addArticle(Article article);
 
     /**
