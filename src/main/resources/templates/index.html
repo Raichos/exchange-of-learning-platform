@@ -579,7 +579,7 @@
             $.getJSON("/getWordTitleJson", function (response) {
                 //动态加载数据
                 for(var i = 0; i < response.items.length; i++)
-                    items.items.push(response.items[0]);
+                    items.items.push(response.items[i]);
             });
         }
     });
@@ -608,7 +608,7 @@
             'link': '@url("http")'
 
         }],
-        'count':1
+        // 'count':1
     });
 
     $.getJSON("/getWordTitleJson", function (response) {

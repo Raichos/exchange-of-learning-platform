@@ -595,7 +595,7 @@ var QRCode;
     })() : (function () { // Drawing in Canvas
         function _onMakeImage() {
             this._elImage.src = this._elCanvas.toDataURL("image/png");
-            this._elImage.style.display = "block";
+            this._elImage.style.display = "inline";
             this._elCanvas.style.display = "none";
         }
 
@@ -683,7 +683,7 @@ var QRCode;
             this._bIsPainted = false;
             this._elImage = document.createElement("img");
             this._elImage.alt = "Scan me!";
-            this._elImage.style.display = "none";
+            this._elImage.style.display = "inline";
             this._el.appendChild(this._elImage);
             this._bSupportDataURI = null;
         };
@@ -704,7 +704,7 @@ var QRCode;
             var nRoundedWidth = Math.round(nWidth);
             var nRoundedHeight = Math.round(nHeight);
 
-            _elImage.style.display = "none";
+            _elImage.style.display = "inline";
             this.clear();
 
             for (var row = 0; row < nCount; row++) {

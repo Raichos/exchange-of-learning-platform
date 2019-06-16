@@ -218,6 +218,10 @@
             background: url('../static/img/userIndex/right.gif') top left no-repeat;
         }
 
+        .qrcode img{
+            width: 200px;
+        }
+
         /*ul li {border-right:1px solid #666;}*/
     </style>
 </head>
@@ -261,7 +265,7 @@
 
                     <div class="btn-group" role="group" id="user-items">
                         <!--                        <div id="btnGroupDrop1" style="" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                        <span class="" id="username" style="font-size: 16px;font-family: 微软雅黑;color: white;font-weight: bold;text-decoration: none;"><img th:src="@{static/img/weshare.png}" style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;WeShare</span>
+                        <span class="" id="username" style="font-size: 16px;font-family: 微软雅黑;color: white;font-weight: bold;text-decoration: none;"><img th:src="@{static/img/icon.png}" style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;WeShare</span>
                         <!--                        </div>-->
                         <div id="user-items-dd" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             <a class="dropdown-item" href="/userCenter"><i class="fa fa-user"></i>个人中心</a>
@@ -281,7 +285,7 @@
             <div class="mt-2 " id="Boyu-content-left" style="width: 20%;">
                 <div class="w-100 row pt-3 pb-3" style="background-color: #f4f5f9;border-radius: 5px;">
                     <div class="ml-3">
-                        <img th:src="@{static/img/weshare.png}" style="width: 60px; height: 60px;border-radius: 50%;"/>
+                        <img th:src="@{static/img/icon.png}" style="width: 60px; height: 60px;border-radius: 50%;"/>
                     </div>
                     <div class="col mt-2">
                         <div class=""  style="font-size: 16px;font-family: 微软雅黑;color: black;font-weight: bold;text-decoration: none;">Rakers</div>
@@ -394,7 +398,7 @@
                                     </div>
                                     <div class="modal-body text-center align-content-center">
                                         <!--<img class="mt-4 mb-4" src="../static/img/login/R.png"><br>-->
-                                        <div id="qrcode" style="width: 96px;height: 96px;"></div>
+                                        <div class="text-center pt-4 pb-4" id="qrcode"></div>
                                             <!--<input type="text" id="getval"/> <button id="send">点击更换验证码</button><br>-->
 
                                         <span class="mb-4">支付剩余时间：<span class="text-danger" id="pay-time">300</span></span>
@@ -728,23 +732,29 @@
             var integral = $("#wechat-pay").val();
             $("#qrcode").empty();
             var qrcode = new QRCode(document.getElementById("qrcode"), {
-                width : 96,//设置宽高
-                height : 96
+                width : 250,//设置宽高
+                height : 250
             });
             qrcode.makeCode("http://192.168.87.136:8080/recharge?userName="+userName+"&integral="+integral);
             //alert("integral="+integral);
+
+            //设置剧中
+            // $('#qrcode img').addClass('w-100');
+            // $('#qrcode img').css('display', null);
+            // $('#qrcode img').attr('style', null); //display: block;
 
             if (!wechatPayMoneyCheck())
                 return;
 
             $('#qr-pay-model').modal('show');
             $('#qr-pay-model-title').text('请使用微信扫一扫');
-            $('#pay-time').text(120);
+            $('#pay-time').text(600);
             //启动时间计时器
             var timeInter = setInterval(function () {
                 var time = $('#pay-time').text();
                 $('#pay-time').text(--time);
-
+                // $('#qrcode img').css('display', null);
+                // $('#qrcode img').attr('style', null);
                 if (time == 0) {
                     //支付超时
                     $('#qr-pay-model').modal('hide');
