@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>登录成功</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" href="../../../static/phone-login/css/light7.css">
+    <link rel="stylesheet" href="../../../static/phone-login/css/light7-swiper.css">
+    <link rel="stylesheet" href="../../../static/phone-login/css/base.css">
+</head>
+<body>
+<!-- 你的html代码 -->
+<div class="page">
+    <div class="content">
+        <!-- 这里是页面内容区 -->
+        <div class="text-center">
+            <h4>登陆成功!</h4>
+            <img src="../../../static/img/login/R.png" style="width: 60em;height: 60em;"/>
+            <h6>扫码关注我们</h6>
+        </div>
+    </div>
+</div>
+<!-- html结束 -->
+<script type='text/javascript' src='../../../static/phone-login/js/jquery.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='../../../static/phone-login/js/light7.js' charset='utf-8'></script>
+<script type='text/javascript' src='../../../static/phone-login/js/light7-swiper.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='../../../static/phone-login/js/base-widget.js' charset='utf-8'></script>
+
+<script type="text/javascript">
+    $(function(){
+        $.init();
+
+        //参数处理
+        var parameter = window.location.href;
+        var num=parameter.indexOf("?");
+        parameter=parameter.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+        var arr = parameter.split("="); //各个参数放到数组里
+        $("#rid").attr("value",arr[1]);
+
+        /*$("#countLogin").click(function () {
+          $("#rid").attr("value","/phoneUser?rid="+arr[1]);
+        });*/
+    });
+
+</script>
+</body>
+</html>

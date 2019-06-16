@@ -5,10 +5,7 @@ import com.ckkj.exchangeoflearningplatform.service.ArticleService;
 import com.ckkj.exchangeoflearningplatform.utils.ArticleUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -40,11 +37,19 @@ public class ArticleController {
         String path = Class.class.getClass().getResource("/").getPath();
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
 
-        path = path.substring(1, path.indexOf("exchange-of-learning-platform") + "exchange-of-learning-platform".length() + 1) + "src/main/resources/static/article/" + userArticle + "_" + uuid+".txt";
+        path = path.substring(1, path.indexOf("exchange-of-learning-platform") + "exchange-of-learning-platform".length() + 1) + "src/main/resources/static/article/" + userArticle + "_" + uuid+".html";
         Article article = new Article().setUserArticle(userArticle).setTitle(title).setAnnounce(new Date()).setArticlePath("/article/" + userArticle + "_" + uuid);
         ArticleUtils.WriteStringToFile(userArticle, artcle, path);
 
+        String content = ArticleUtils.articleIntroduce(artcle);
+        if (content.length() > 127){
+            content = content.substring(0,127);
+        }
+        article.setBrief(content);
+
         int i = articleService.addArticle(article);
+
+
         if (i == 1) {
 
             return "上传成功";
@@ -113,4 +118,64 @@ public class ArticleController {
 
         return articles;
     }
+
+    /**
+     * 根据id查找文章
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/getArticleById")
+    @ResponseBody
+    public Article getArticleById(@RequestParam("id") int id){
+
+        Article article = articleService.findArticleById(id);
+
+        return article;
+    }
+
+    /**
+     * 通过文章id查找文章并返回json数据
+     * @param id
+     * @return
+     */
+    @GetMapping("/getContent")
+    @ResponseBody
+    public String getContent(@RequestParam("id") int id){
+
+
+        String path1 = Class.class.getClass().getResource("/").getPath();
+        path1 = path1.substring(1, path1.indexOf("exchange-of-learning-platform") + "exchange-of-learning-platform".length() + 1) + "src/main/resources/static";
+
+        String path2 = articleService.getPathById(id);
+
+        path2 = path1+path2+".html";
+
+        String content = ArticleUtils.readArticleByPath(path2);
+
+        return content;
+    }
+
+    /**
+     * 查询所有文章
+     * @return
+     */
+    @GetMapping("/getAllArticle")
+    @ResponseBody
+    public List<Map<String, Object>> getAllArticle(){
+
+        List<Map<String, Object>> articles = articleService.findAllArticle();
+
+
+        return articles;
+    }
+
+    /*@GetMapping("/static/article/{article}")
+    public String articlePage(@PathVariable String article){
+
+        System.out.println("article="+article);
+
+        return "article/aaaa";
+    }*/
+
 }

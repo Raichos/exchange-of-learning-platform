@@ -98,10 +98,26 @@ public class ArticleUtils {
         return article;
     }
 
+    /**
+     * 文章简介
+     *
+     * @param article
+     * @return
+     */
     public static String articleIntroduce(String article){
 
-        article.replace("","");
 
-        return "";
+        int bodyStart = article.indexOf("<body");
+        int bodyEnd = article.indexOf("</body");
+        String body = article.substring(bodyStart, bodyEnd);
+
+        String conn = body.replaceAll("<([a-zA-Z]+( *)(\\.*))>","");
+        int i = conn.indexOf("<", 0);
+        String str = conn.substring(0,i);
+
+        System.out.println(str);
+
+
+        return str;
     }
 }

@@ -177,12 +177,35 @@
             margin-right: 8px;
         }
 
-        #noScroll{
+        .noScroll-div{
+            position: fixed;
+            right: 100px;
+            bottom: 160px;
+            z-index: 1998;
+            width: 200px;
+            height: 260px;
+            border-radius: 5px 5px 0 5px;
+
+            /*阴影*/
+            -webkit-box-shadow: 4px 4px 10px #292929;
+            -moz-box-shadow: 4px 4px 10px #292929;
+            box-shadow: 4px 4px 10px #292929;
+        }
+        .noScroll{
             position: fixed;
             right: 8px;
             bottom: 160px;
             width: 44px;
-            z-index: 1999;
+            z-index: 1998;
+
+            /*阴影*/
+            -webkit-box-shadow: 4px 4px 10px #292929;
+            -moz-box-shadow: 4px 4px 10px #292929;
+            box-shadow: 4px 4px 10px #292929;
+        }
+
+        .noScroll a{
+            border-radius: 0;
         }
 
 
@@ -258,7 +281,7 @@
                         <img th:src="@{static/img/icon.png}" style="width: 60px; height: 60px;border-radius: 50%;"/>
                     </div>
                     <div class="col mt-2">
-                        <div class=""  style="font-size: 16px;font-family: 微软雅黑;color: black;font-weight: bold;text-decoration: none;">Rakers</div>
+                        <div class="" id="left-word-author" style="font-size: 16px;font-family: 微软雅黑;color: black;font-weight: bold;text-decoration: none;">Rakers</div>
                         <div class="text-secondary"  style="font-size: 12px;font-family: 微软雅黑;font-weight: bold;text-decoration: none;">知名博主</div>
                     </div>
                     <div class="mt-3 ml-1 mr-3">
@@ -351,17 +374,17 @@
                     <div class="word-title pb-3" style="border-bottom: 1px solid #333;">
                         <div class="row">
                             <span class="text-center align-content-center pt-1" style="color: #ca0c16;border: 1px solid #f4ced0;border-radius: 50%;height: 36px;width: 36px;">原</span>
-                            <h3 class="ml-2" style="font-family: 微软雅黑;font-weight: bold;text-decoration: none;">关于jquery操作iframe中内容, 无法正常显示的问题</h3>
+                            <h3 id="word-title" class="ml-2" style="font-family: 微软雅黑;font-weight: bold;text-decoration: none;">关于jquery操作iframe中内容, 无法正常显示的问题</h3>
                         </div>
                         <div class="row mt-2">
-                            <div class="">
+                            <div class="" id="word-date">
                                 2014年02月26日 19:39:51
                             </div>
                             <div class="ml-3">
-                                <a class="" href="#">Rakers</a>
+                                <a class="" href="#" id="word-author">Rakers</a>
                             </div>
                             <div class="ml-3">
-                                阅读数 <span>1129</span>
+                                阅读数 <span id="word-read-count">1129</span>
                             </div>
                         </div>
                     </div>
@@ -389,7 +412,7 @@
                                     <div class="row">
                                         <img class="m-2" src="../static/img/icon.png" style="width: 80px;height: 80px;"/>
                                         <div class="col" style="height: 80px;">
-                                            <a href="getUrl(index)" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">{{item.title}}</a>
+                                            <a :href="getUrl(index)" class="mt-2 mb-2 mr-2 row" style="font-size: 20px;font-family: 微软雅黑;color: #3f3f3f;font-weight: bold;text-decoration: none;">{{item.title}}</a>
                                             <div class="row">
                                                 <a href="#" style="color: black;text-decoration: none;font-size: 14px;" >{{item.author}}</a>
                                                 <span class="interval"></span>
@@ -413,10 +436,16 @@
             </div>
         </div>
         <div class="col-md-1">
-            <div class="mr-5 aside-menu-md-show" id="noScroll" style="-webkit-box-shadow: 4px 4px 10px #292929;-moz-box-shadow: 4px 4px 10px #292929;box-shadow: 4px 4px 10px #292929;">
-                <a class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-bottom-right-radius: 0px"><i class="fa fa-qrcode" style="color: #8e959a"></i></a>
-                <a class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px;border-bottom-right-radius: 0px"><i class="fa fa-qq" style="color: #8e959a"></i></a>
-                <a id="scroll-black" class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px"><i class="fa fa-upload" style="color: #8e959a"></i></a>
+            <div class="row">
+                <div class="bg-light noScroll-div text-center" id="qr-div" style="display: none;">
+                    <img class="mt-4 w-75" src="../static/img/login/R.png"/>
+                    <h6 class="mt-4"><img class="w-25" src="../static/img/weshare-icon.png"/>扫码关注我们</h6>
+                </div>
+                <div class="mr-5 aside-menu-md-show noScroll">
+                    <a class="btn btn-light qr" style="width: 45px;height: 45px;background: #f4f5f9;border-bottom-right-radius: 0px"><i class="fa fa-qrcode" style="color: #8e959a"></i></a>
+                    <a class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px;border-bottom-right-radius: 0px"><i class="fa fa-qq" style="color: #8e959a"></i></a>
+                    <a id="scroll-black" class="btn btn-light" style="width: 45px;height: 45px;background: #f4f5f9;border-top-right-radius: 0px"><i class="fa fa-upload" style="color: #8e959a"></i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -467,6 +496,7 @@
         'count':1
     });
 
+
     var items;
     $.getJSON("/getWordTitleJson", function (response) {
         items = response;
@@ -477,7 +507,7 @@
                 getUrl:function (index) {
                     return items.items[index].link;
                 }
-            },
+            }
             // ready: function () {
             //     var self = this;
             //     /** * 异步请求模拟 */
@@ -621,6 +651,48 @@
 
         // 这里写生成二维码
     });
+    //qr
+    $('.qr').mouseover(function () {
+        $('#qr-div').show();
+    }).mouseout(function () {
+        $('#qr-div').hide();
+    });
+
+    //获取文章
+    $(function () {
+
+        //参数处理
+        var parameter = window.location.href;
+        var num=parameter.indexOf("?");
+        parameter=parameter.substr(num+1);
+        var arr = parameter.split("=");
+        //alert("id="+arr[1]);
+
+        //发送请求获取内容
+        $.getJSON('/getArticleById', {'id':arr[1]}, function (obj) {
+
+            if(obj != null){
+                // 修改数据
+                $('#word-title').text(obj.title);
+                $('#word-date').text(obj.announce);
+                //alert("aa="+obj.announce);
+                $('#word-author').text(obj.user_article);
+
+                //左边栏名字
+                $('#left-word-author').text(obj.user_article);
+                //头像
+
+                $('#word-read-count').text(obj.count);  //阅读数
+
+                //框
+                $('#word-iframe').src=obj.articlePath;
+                //alert("obj.articlePath="+obj.articlePath);
+                //$("#word-iframe").innerHTML = "";
+            }else{
+                //无此文章
+            }
+        })
+    })
 
 </script>
 </html>

@@ -773,6 +773,10 @@ public class ExchangeOfLearningPlatformApplicationTests {
         System.out.println(conn);
         System.out.println(i);
         System.out.println(str);
+        System.out.println("----------------------------");
+        String s = ArticleUtils.articleIntroduce(article);
+        System.out.println(s);
+
     }
 
     @Test
@@ -780,6 +784,12 @@ public class ExchangeOfLearningPlatformApplicationTests {
         List<Map<String, Object>> pagTitle = articleService.findPagTitle("aaaaaa",0, 2);
         System.out.println(pagTitle);
 
+    }
+
+    @Test
+    public void test14(){
+        String pathById = articleService.getPathById(18);
+        System.out.println(pathById);
     }
 
 }
