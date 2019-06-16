@@ -24,4 +24,5 @@ public class Article {
     private String articlePath;
     private Date announce;
     private String brief; //简介
+    private String count; //访问次数
 }

@@ -61,4 +61,21 @@ public class ArticleServiceImpl implements ArticleService {
 
         return pagTitle;
     }
+
+    @Override
+    public Article findArticleById(int id) {
+        Article article = articleMapper.findArticleById(id);
+        article.setArticlePath("http://localhost:8080/static"+article.getArticlePath()+".html");
+        return article;
+    }
+
+    @Override
+    public List<Map<String, Object>> findAllArticle() {
+        return articleMapper.findAllArticle();
+    }
+
+    @Override
+    public String getPathById(int id) {
+        return articleMapper.getPathById(id);
+    }
 }

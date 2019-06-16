@@ -496,12 +496,6 @@
         'count':1
     });
 
-    //参数处理
-    var parameter = window.location.href;
-    var num=parameter.indexOf("?");
-    parameter=parameter.substr(num+1);
-    var arr = parameter.split("=");
-    //alert("id="+arr[1]);
 
     var items;
     $.getJSON("/getWordTitleJson", function (response) {
@@ -667,23 +661,33 @@
     //获取文章
     $(function () {
 
+        //参数处理
+        var parameter = window.location.href;
+        var num=parameter.indexOf("?");
+        parameter=parameter.substr(num+1);
+        var arr = parameter.split("=");
+        //alert("id="+arr[1]);
+
         //发送请求获取内容
-        $.getJSON('/', {'id':id}, function (obj) {
+        $.getJSON('/getArticleById', {'id':arr[1]}, function (obj) {
 
             if(obj != null){
                 // 修改数据
                 $('#word-title').text(obj.title);
-                $('#word-date').text(obj.date);
-                $('#word-author').text(obj.author);
+                $('#word-date').text(obj.announce);
+                //alert("aa="+obj.announce);
+                $('#word-author').text(obj.user_article);
 
                 //左边栏名字
-                $('#left-word-author').text(obj.author);
+                $('#left-word-author').text(obj.user_article);
                 //头像
 
                 $('#word-read-count').text(obj.count);  //阅读数
 
                 //框
-                $('#word-iframe').src=obj.url;
+                $('#word-iframe').src=obj.articlePath;
+                //alert("obj.articlePath="+obj.articlePath);
+                //$("#word-iframe").innerHTML = "";
             }else{
                 //无此文章
             }

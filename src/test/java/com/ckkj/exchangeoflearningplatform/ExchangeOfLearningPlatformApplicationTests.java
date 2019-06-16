@@ -782,4 +782,10 @@ public class ExchangeOfLearningPlatformApplicationTests {
 
     }
 
+    @Test
+    public void test14(){
+        String pathById = articleService.getPathById(18);
+        System.out.println(pathById);
+    }
+
 }

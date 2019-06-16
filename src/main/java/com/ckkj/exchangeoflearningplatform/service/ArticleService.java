@@ -43,4 +43,26 @@ public interface ArticleService {
      * @return
      */
     List<Map<String, Object>> findPagTitle(String userName,int currentPage, int size);
+
+    /**
+     * 根据id查找文章
+     *
+     * @param id
+     * @return
+     */
+    Article findArticleById(int id);
+
+    /**
+     * 查询所有文章
+     * @return
+     */
+    List<Map<String, Object>> findAllArticle();
+
+    /**
+     * 根据id查找文章
+     *
+     * @param id
+     * @return
+     */
+    String getPathById(int id);
 }
