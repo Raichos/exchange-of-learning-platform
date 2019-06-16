@@ -655,7 +655,7 @@
                     </div>
                     <div class="mt-3 ml-3 mr-3 row" id="Integral">
                         积分值：
-                        <input type="text" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order"
+                        <input id="score" type="text" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order"
                                value="0"/>
                     </div>
                     <div class="mt-3 ml-3 mr-3 row">
@@ -811,12 +811,12 @@
     fileBtn.change(function () {
         // 传入后台存储时需要用到上传的视频对象（视频标题VedioTitle、视频名称VedioName、上传时间nt、视频大小VideoSize、视频类型VideoType）
         fileObj = fileBtn.get(0).files[0]; //js获取文件对象
-        if (fileObj) {
-            var fileSize = getSize(fileObj.size);
-            // $("label[name=upfileName]").text('文件名：' + fileObj.name);
-            // $("label[name=upfileSize]").text('文件大小：' + fileSize);
-            // $("label[name=upfileType]").text('文件类型：' + fileObj.type);
-        }
+        // if (fileObj) {
+        //     var fileSize = getSize(fileObj.size);
+        //     $("label[name=upfileName]").text('文件名：' + fileObj.name);
+        //     $("label[name=upfileSize]").text('文件大小：' + fileSize);
+        //     $("label[name=upfileType]").text('文件类型：' + fileObj.type);
+        // }
         // FormData 对象
         form = new FormData();
         form.append('file', fileObj); // 文件对象
@@ -827,26 +827,48 @@
     $('#enter-data').click(function () {
         var uploadTitle = $("input[name = title]")[0].value; // 文章标题
 
-
-        if(form != null)
-        {
+        // 需要做提交前的容错，这里先默认为true，点击即提交后台
+        var flag = true;
+        if(flag) {
+            var titleId;
+            // 第一次ajax 提交文章
             $.ajax({
-                url: "/upload1/",
+                url: "",
                 type: "post",
-                data: form,
-                processData: false,
-                contentType: false,
+                data: "json",
+                dataType: "json",
                 success: function (data) {
-                    if (data === 'Yes') {
-                        alert('success');
-                    }
-                },
-
-                error: function (e) {
-                    alert("错误！");
+                    titleId = data.id      // 文章在数据库中唯一id
                 }
-
             });
+
+            if ($('#IntegralRadiosYes')[0].checked) {
+                var fileInfo = {
+                    "videoName": fileObj.name,
+                    "titleId": 1,
+                    "postTime": new Date(),
+                    "videoSize": getSize(fileObj.size),
+                    "videoType": fileObj.type,
+                    "score": $("#score")[0].value
+                };
+                form.append('videoInfo', JSON.stringify(fileInfo));
+                // 第二次ajax 提交视频
+                $.ajax({
+                    url: "/uploadVideos",
+                    type: "post",
+                    data: form,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        if (data === 'Yes') {
+                            alert('success');
+                        }
+                    },
+                    error: function (e) {
+                        alert("错误！");
+                    }
+                })
+            }
         }
     });
 
