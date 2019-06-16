@@ -6,7 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.time.LocalDate;
+import java.io.Serializable;
+import java.util.Date;
 
 
 /**
@@ -17,12 +18,15 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
-public class Video {
+public class Video implements Serializable {
+    private static final long serialVersionUID = -6957361951748382519L;
 
     private Integer id;
-    private String vedioName;
+    private String videoName;
     private String titleId;
-    private LocalDate postTime;
-    private String vedioSize;
-    private String vedioType;
+    private Date postTime;
+    private String videoSize;
+    private String videoType;
+    private int score;
+    private String videoPath;
 }

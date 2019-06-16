@@ -655,7 +655,7 @@
                     </div>
                     <div class="mt-3 ml-3 mr-3 row" id="Integral">
                         积分值：
-                        <input type="text" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order"
+                        <input id="score" type="text" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order"
                                value="0"/>
                     </div>
                     <div class="mt-3 ml-3 mr-3 row">
@@ -842,31 +842,33 @@
                 }
             });
 
-            var fileInfo = {
-                "vedioName": fileObj.name,
-                "titleId": titleId,
-                "postTime": new Date(),
-                "vedioSize": getSize(),
-                "vedioType": fileObj.type
-            };
-            form.append('fileInfo', fileInfo);
-            // 第二次ajax 提交视频
-            $.ajax({
-                url: "/uploadVideos",
-                type: "post",
-                data: form,
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    if (data === 'Yes') {
-                        alert('success');
+            if ($('#IntegralRadiosYes')[0].checked) {
+                var fileInfo = {
+                    "videoName": fileObj.name,
+                    "titleId": 1,
+                    "postTime": new Date(),
+                    "videoSize": getSize(fileObj.size),
+                    "videoType": fileObj.type,
+                    "score": $("#score")[0].value
+                };
+                form.append('videoInfo', JSON.stringify(fileInfo));
+                // 第二次ajax 提交视频
+                $.ajax({
+                    url: "/uploadVideos",
+                    type: "post",
+                    data: form,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        if (data === 'Yes') {
+                            alert('success');
+                        }
+                    },
+                    error: function (e) {
+                        alert("错误！");
                     }
-                },
-
-                error: function (e) {
-                    alert("错误！");
-                }
-            })
+                })
+            }
         }
     });
 

@@ -1,7 +1,10 @@
 package com.ckkj.exchangeoflearningplatform.TestController;
 
+import com.alibaba.fastjson.JSONObject;
+import com.ckkj.exchangeoflearningplatform.mapper.VideoMapper;
+import com.ckkj.exchangeoflearningplatform.model.Video;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +21,9 @@ import java.util.List;
 @Controller
 public class UploadController {
 
+    @Autowired
+    private VideoMapper videoMapper;
+
     @GetMapping("/upload")
     public String upload() {
         return "/test/Upload";
@@ -27,18 +33,15 @@ public class UploadController {
     @RequestMapping(value = "/uploadVideos", method = RequestMethod.POST)
     public String uploadVideo(HttpServletRequest request) throws IOException {
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
-        // 文章标题
-        String videoTitle = request.getParameter("VideoTitle");
-        // 文章id
-        int titleId = Integer.valueOf(request.getParameter("TitleId")) ;
-        String newPath = "D:" + File.separatorChar;
+        String videoInfo = request.getParameter("videoInfo");
+        Video video = JSONObject.parseObject(videoInfo, Video.class);
+        String newPath = "D:" + File.separator + "视频" + File.separator;
         for (int i = 0; i < files.size(); i++) {
             MultipartFile multipartFile = files.get(i);
             // 获取文件名
             String fileName = multipartFile.getOriginalFilename();
             // 获取文件后缀
             String prefix = fileName.substring(fileName.lastIndexOf("."));
-            String videoPath = "C:\\临时视频保存处\\";
             // MultipartFile转换为File
 //            File file = File.createTempFile("abc", prefix, new File(videoPath));
             File file = new File(newPath + "abc" + prefix);
@@ -51,9 +54,14 @@ public class UploadController {
 
             File newFile = new File(newPath + md5Name + prefix);
             boolean flag = file.renameTo(newFile);
-            System.out.println(flag);
+            if (flag){
+                video.setVideoPath(newFile.getAbsolutePath());
+                int id = videoMapper.insertVideo(video);
+                System.out.println(id);
+                return "success";
+            }
         }
-        return "success";
+        return "error";
     }
 //    @ResponseBody
 //    @RequestMapping(value = "/apk_upload", method = RequestMethod.POST)
