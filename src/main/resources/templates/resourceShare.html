@@ -463,11 +463,15 @@
 
                             var userName = "";
 
-                            $.get("/getusername",function (data) {
+                            $.get("/getusername", function (data) {
                                 userName = data;
                                 //alert("username="+userName);
 
-                                $.post("/addArticle",{"userArticle":userName,"title":title,"artcle":artcleHtml},function (data) {
+                                $.post("/addArticle", {
+                                    "userArticle": userName,
+                                    "title": title,
+                                    "artcle": artcleHtml
+                                }, function (data) {
 
                                     alert(data);
 
@@ -655,7 +659,8 @@
                     </div>
                     <div class="mt-3 ml-3 mr-3 row" id="Integral">
                         积分值：
-                        <input id="score" type="text" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order"
+                        <input id="score" type="text" onkeyup="this.value=this.value.replace(/[^\d]/g,'') "
+                               name="f_order"
                                value="0"/>
                     </div>
                     <div class="mt-3 ml-3 mr-3 row">
@@ -788,7 +793,7 @@
         }
     });
 
-
+    // 选择上传视频文件的配置
     $('#fileinput').fileinput({
         language: 'zh',
         uploadUr1: '',
@@ -801,78 +806,84 @@
                 height: "100%"
             }
         },
-        videoPreview: true   //视频预览只显示小于20m的视频
+        videoPreview: true,   //视频预览只显示小于20m的视频
+        maxFilePreviewSize: 614400  // 500 MB
     });
 
     var fileBtn = $("input[name = file]"); //上传的视频
+    var fileObj; // 视频对象
+    var lanjie = true; // 判断文件的大小进行后台拦截
 
-
-    var fileObj;
+    // 选择上传文件后的响应
     fileBtn.change(function () {
         // 传入后台存储时需要用到上传的视频对象（视频标题VedioTitle、视频名称VedioName、上传时间nt、视频大小VideoSize、视频类型VideoType）
         fileObj = fileBtn.get(0).files[0]; //js获取文件对象
+
         // if (fileObj) {
         //     var fileSize = getSize(fileObj.size);
         //     $("label[name=upfileName]").text('文件名：' + fileObj.name);
         //     $("label[name=upfileSize]").text('文件大小：' + fileSize);
         //     $("label[name=upfileType]").text('文件类型：' + fileObj.type);
         // }
-        if (fileObj !== null) {
-            // FormData 对象
-            form = new FormData();
-            form.append('file', fileObj); // 文件对象
+        // alert(fileObj.size);
+        if (fileObj !== undefined) {
+            // 判断视频对象的大小
+            if (fileObj.size > 524288000) {
+                lanjie = true;
+                alert("请输入小于500M的视频文件哦 。。。");
+            } else {
+                lanjie = false;
+                // FormData 对象
+                form = new FormData();
+                form.append('file', fileObj); // 文件对象
+            }
         }
     });
 
-
     //确认提交
     $('#enter-data').click(function () {
-
-        // 需要做提交前的容错，这里先默认为true，点击即提交后台
-        var flag = true;
-        if(flag) {
-            var titleId;
-            // 第一次ajax 提交文章
-            $.ajax({
-                url: "",
-                type: "post",
-                data: "json",
-                dataType: "json",
-                success: function (data) {
-                    titleId = data.id      // 文章在数据库中唯一id
-                }
-            });
-            var file = fileObj;
-            if ($('#VideoRadiosYes')[0].checked && file !== undefined) {
-                var fileInfo = {
-                    "videoName": file.name,
-                    "titleId": 1,
-                    "postTime": new Date(),
-                    "videoSize": getSize(file.size),
-                    "videoType": file.type,
-                    "score": $("#score")[0].value
-                };
-                form.append('videoInfo', JSON.stringify(fileInfo));
-                // 第二次ajax 提交视频
-                $.ajax({
-                    url: "/uploadVideos",
-                    type: "post",
-                    data: form,
-                    processData: false,
-                    contentType: false,
-                    success: function (data) {
-                        if (data === 'Yes') {
-                            alert('success');
-                        }
-                    },
-                    error: function (e) {
-                        alert("错误！");
-                    }
-                })
-            } else {
-                alert("亲，你没有上传视频哦~~~~")
+        var titleId;
+        // 第一次ajax 提交文章
+        $.ajax({
+            url: "",
+            type: "post",
+            data: "json",
+            dataType: "json",
+            success: function (data) {
+                titleId = data.id      // 文章在数据库中唯一id
             }
+        });
+        var file = fileObj;
+        if ($('#VideoRadiosYes')[0].checked && file !== undefined && !lanjie) {
+            var fileInfo = {
+                "videoName": file.name,
+                "titleId": 1,
+                "postTime": new Date(),
+                "videoSize": getSize(file.size),
+                "videoType": file.type,
+                "score": $("#score")[0].value
+            };
+            form.append('videoInfo', JSON.stringify(fileInfo));
+            // 第二次ajax 提交视频
+            $.ajax({
+                url: "/uploadVideos",
+                type: "post",
+                data: form,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data === 'Yes') {
+                        alert('success');
+                    }
+                },
+                error: function (e) {
+                    alert("错误！");
+                }
+            })
+        } else {
+            alert("亲，你没有上传视频哦~~~~")
         }
+
     });
 
 
