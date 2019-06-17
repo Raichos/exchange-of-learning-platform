@@ -132,7 +132,7 @@ public class ArticleController {
     public Article getArticleById(@RequestParam("id") int id){
 
         Article article = articleService.findArticleById(id);
-        article.setAnnounce(new Date(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(article.getAnnounce())));
+//        article.setAnnounce(new Date(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(article.getAnnounce())));
 
         return article;
     }
