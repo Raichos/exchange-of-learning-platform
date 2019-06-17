@@ -1,4 +1,4 @@
-package com.ckkj.exchangeoflearningplatform.TestController;
+package com.ckkj.exchangeoflearningplatform.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ckkj.exchangeoflearningplatform.mapper.VideoMapper;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileInputStream;
