@@ -136,6 +136,9 @@
             width: 86%;
             margin-left: 6%;
         }
+        /*#content-left div{*/
+        /*    background: rgba(0,0,0,.75);*/
+        /*}*/
         #content-left div div:hover{
             background-color: #ff4500!important;
         }
@@ -168,6 +171,25 @@
 
         .noScroll a{
             border-radius: 0;
+        }
+
+        .collapse a{
+            color: #333;
+            font-size: 14px;
+        }
+        .collapse a:first-child{
+            color: black;
+        }
+
+        .weshare-href-row-line{
+            border-top: 1px solid #e4e4e4;
+        }
+        .weshare-href-row-line:first-child{
+            border-top: 0;
+        }
+        .collapse a:hover{
+            color: #35b558;
+            text-decoration-line: none;
         }
 
     </style>
@@ -234,43 +256,55 @@
                 <div class="" id="content-left" style="width: 15%;">
 
                     <!--                    左栏另外写法-->
-                    <div class="bg-secondary">
-                        <div class="bg-secondary p-2 left-items items">
-                            <div class="text-center item-name">
-                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
+                    <div class="" style="background: rgba(0,0,0,.75);">
+                        <div class="p-2 text-left left-items items" >
+                            <div class="text-left item-name ml-3">
+                                <i class="fa fa-html5"></i><span class="ml-3">前端开发</span><img class="float-right mr-3 mt-2" src="../static/img/userIndex/right.gif"/>
                             </div>
+                        </div>
+                        <span class="list-line row"></span>
+                        <div class="p-2 text-left left-items items">
+                            <div class="text-left item-name ml-3">
+                                <i class="fa fa-android"></i><span class="ml-3">移动开发</span><img class="float-right mr-3 mt-2" src="../static/img/userIndex/right.gif"/>
+                            </div>
+                        </div>
+                        <span class="list-line row"></span>
+                        <div class="p-2 text-left left-items items">
+                            <div class="text-left item-name ml-3">
+                                <i class="fa fa-black-tie"></i><span class="ml-3">后端开发</span><img class="float-right mr-3 mt-2" src="../static/img/userIndex/right.gif"/>
+                            </div>
+                        </div>
+                        <span class="list-line row"></span>
+                        <div class=" p-2 text-left left-items items">
+                            <div class="text-left item-name ml-3">
+                                <i class="fa fa-road"></i><span class="ml-3">人工智能</span><img class="float-right mr-3 mt-2" src="../static/img/userIndex/right.gif"/>
+                            </div>
+                        </div>
+                        <span class="list-line row"></span>
+                        <div class=" p-2 text-left left-items items">
+                            <div class="text-left item-name ml-3">
+                                <i class="fa fa-fax"></i><span class="ml-3">智能硬件/物联网</span><img class="float-right mr-3 mt-2" src="../static/img/userIndex/right.gif"/>
+                            </div>
+                        </div>
+                        <span class="list-line row"></span>
+                        <div class=" p-2 text-left left-items items">
+                            <div class="text-left item-name ml-3">
+                                <i class="fa fa-tag"></i><span class="ml-3">设计/产品/测试</span><img class="float-right mr-3 mt-2" src="../static/img/userIndex/right.gif"/>
+                            </div>
+                        </div>
+                        <span class="list-line row"></span>
+                        <div class=" p-2 text-left left-items items">
+                            <div class="text-left item-name ml-3">
+                                <i class="fa fa-database"></i><span class="ml-3">云计算/大数据</span><img class="float-right mr-3 mt-2" src="../static/img/userIndex/right.gif"/>
+                            </div>
+                        </div>
+                        <span class="list-line row"></span>
+                        <div class=" p-2 text-left left-items items">
+                            <div class="text-left item-name ml-3">
+                                <i class="fa fa-telegram"></i><span class="ml-3">技术支撑</span><img class="float-right mr-3 mt-2" src="../static/img/userIndex/right.gif"/>
+                            </div>
+                        </div>
 
-                        </div>
-                        <span class="list-line row"></span>
-                        <div class="bg-secondary p-2 text-center left-items items">
-                            <div class="text-center item-name">
-                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
-                            </div>
-                        </div>
-                        <span class="list-line row"></span>
-                        <div class="bg-secondary p-2 text-center left-items items">
-                            <div class="text-center item-name">
-                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
-                            </div>
-                        </div>
-                        <span class="list-line row"></span>
-                        <div class="bg-secondary p-2 text-center left-items items">
-                            <div class="text-center item-name">
-                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
-                            </div>
-                        </div>
-                        <span class="list-line row"></span>
-                        <div class="bg-secondary p-2 text-center left-items items">
-                            <div class="text-center item-name">
-                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
-                            </div>
-                        </div>
-                        <span class="list-line row"></span>
-                        <div class="bg-secondary p-2 text-center left-items items">
-                            <div class="text-center item-name">
-                                <i class="fa fa-envelope"></i><span class="ml-3">前端开发</span><img class="ml-4" src="../static/img/userIndex/right.gif"/>
-                            </div>
-                        </div>
                     </div>
 
 <!--                    <ul class="w-100">-->
@@ -350,36 +384,786 @@
                         <div>
                             <div class="list-item-totle1">知识海洋</div><div class="list-item-title-line1 w-100"></div>
                         </div>
+                        <div class="ml-3 mt-2 mr-3">
+                            <div class="row weshare-href-row-line">
+                                <a href="#">前端基础</a>
+                                <a class="ml-3" href="#">HTML</a>
+                                <span class="interval"></span>
+                                <a href="#">CSS</a>
+                                <span class="interval"></span>
+                                <a href="#">JavaScript</a>
+                                <span class="interval"></span>
+                                <a href="#">HTML5</a>
+                                <span class="interval"></span>
+                                <a href="#">CSS3</a>
+                                <span class="interval"></span>
+                                <a href="#">技术前瞻</a>
 
-                        1  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        <div>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">前端进阶</a>
+                                <a class="ml-3" href="#">Typescript</a>
+                                <span class="interval"></span>
+                                <a href="#">前端安全</a>
+                                <span class="interval"></span>
+                                <a href="#">项目实战</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">前端框架</a>
+                                <a class="ml-3" href="#">jQuery</a>
+                                <span class="interval"></span>
+                                <a href="#">jQuery</a>
+                                <span class="interval"></span>
+                                <a href="#">jQuery UI</a>
+                                <span class="interval"></span>
+                                <a href="#">jQuery</a>
+                                <span class="interval"></span>
+                                <a href="#">Mobile</a>
+                                <span class="interval"></span>
+                                <a href="#">Ext</a>
+                                <span class="interval"></span>
+                                <a href="#">JS</a>
+                                <span class="interval"></span>
+                                <a href="#">AngularJS</a>
+                                <span class="interval"></span>
+                                <a href="#">ReactJS</a>
+                                <span class="interval"></span>
+                                <a href="#">Bootstrap</a>
+                                <span class="interval"></span>
+                                <a href="#">React Native</a>
+                                <span class="interval"></span>
+                                <a href="#">Backbone</a>
+                                <span class="interval"></span>
+                                <a href="#">Three.js</a>
+                                <span class="interval"></span>
+                                <a href="#">MooTools</a>
+                                <span class="interval"></span>
+                                <a href="#">Compass</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">HTML5游戏</a>
+                                <a class="ml-3" href="#">Canvas</a>
+                                <span class="interval"></span>
+                                <a href="#">SVG</a>
+                                <span class="interval"></span>
+                                <a href="#">WebGL</a>
+                                <span class="interval"></span>
+                                <a href="#">Cocos2d-js</a>
+                                <span class="interval"></span>
+                                <a href="#">CreateJS</a>
+                                <span class="interval"></span>
+                                <a href="#">Flash</a>
+                                <span class="interval"></span>
+                                <a href="#">Unreal</a>
+                                <span class="interval"></span>
+                                <a href="#">Egret</a>
+                                <span class="interval"></span>
+                                <a href="#">Phaser</a>
+                            </div>
+                        </div>
+                        <div class="mt-2">
                             <div class="list-item-totle2">新知识</div><div class="list-item-title-line2 w-100"></div>
                         </div>
-                        1  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="ml-3 mt-2 mr-3 mb-2">
+                            <div class="row weshare-href-row-line">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">带你领略JavaScript语言的精妙所在</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line pt-2">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">4小时带你玩转PHP服务器配置</a>
+                            </div>
+                        </div>
                     </div>
                     <div id="demo2" class="collapse collapse-list list-show" data-parent="#collapse-list">
-                        2  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div>
+                            <div class="list-item-totle1">知识海洋</div><div class="list-item-title-line1 w-100"></div>
+                        </div>
+                        <div class="ml-3 mt-2 mr-3">
+                            <div class="row weshare-href-row-line">
+                                <a href="#">基础语言</a>
+                                <a class="ml-3" href="#">C</a>
+                                <span class="interval"></span>
+                                <a href="#">C++</a>
+                                <span class="interval"></span>
+                                <a href="#">Objective-C</a>
+                                <span class="interval"></span>
+                                <a href="#">Swift</a>
+                                <span class="interval"></span>
+                                <a href="#">C#</a>
+                                <span class="interval"></span>
+                                <a href="#">Java</a>
+                                <span class="interval"></span>
+                                <a href="#">Perl</a>
+                                <span class="interval"></span>
+                                <a href="#">Shell</a>
+                                <span class="interval"></span>
+                                <a href="#">Qt</a>
+                                <span class="interval"></span>
+                                <a href="#">Scala</a>
+
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">计算机基础</a>
+                                <a class="ml-3" href="#">计算机组成原理</a>
+                                <span class="interval"></span>
+                                <a href="#">网络工程</a>
+                                <span class="interval"></span>
+                                <a href="#">Word</a>
+                                <span class="interval"></span>
+                                <a href="#">Excel</a>
+                                <span class="interval"></span>
+                                <a href="#">PowerPoint</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#"></a>
+                                <a class="ml-3" href="#">算法基础</a>
+                                <span class="interval"></span>
+                                <a href="#">数据结构</a>
+                                <span class="interval"></span>
+                                <a href="#">设计模式</a>
+                                <span class="interval"></span>
+                                <a href="#">软件工程</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">开发工具</a>
+                                <a class="ml-3" href="#">Git/Github</a>
+                                <span class="interval"></span>
+                                <a href="#">SVN</a>
+                                <span class="interval"></span>
+                                <a href="#">VI</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">开放标准</a>
+                                <a class="ml-3" href="#">OpenCL</a>
+                                <span class="interval"></span>
+                                <a href="#">Open XML</a>
+                                <span class="interval"></span>
+                                <a href="#">OpenGL/GLES</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">计算机等级考试</a>
+                                <a class="ml-3" href="#">一级</a>
+                                <span class="interval"></span>
+                                <a href="#">二级C</a>
+                                <span class="interval"></span>
+                                <a href="#">二级Java</a>
+                                <span class="interval"></span>
+                                <a href="#">二级C++</a>
+                                <span class="interval"></span>
+                                <a href="#">网络工程师</a>
+                                <span class="interval"></span>
+                                <a href="#">数据库工程师</a>
+                                <span class="interval"></span>
+                                <a href="#">信息安全工程师</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">企业认证</a>
+                                <a class="ml-3" href="#">思科认证</a>
+                                <span class="interval"></span>
+                                <a href="#">Oracle认证</a>
+                                <span class="interval"></span>
+                                <a href="#">Linux认证</a>
+                                <span class="interval"></span>
+                                <a href="#">ARM认证</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">运维管理</a>
+                                <a class="ml-3" href="#">Shell</a>
+                                <span class="interval"></span>
+                                <a href="#">自动化运维</a>
+                                <span class="interval"></span>
+                                <a href="#">Nginx</a>
+                                <span class="interval"></span>
+                                <a href="#">Apache</a>
+                                <span class="interval"></span>
+                                <a href="#">运维监控</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">商业智能</a>
+                                <a class="ml-3" href="#">FileMaker</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">操作系统</a>
+                                <a class="ml-3" href="#">Linux</a>
+                                <span class="interval"></span>
+                                <a href="#">Windows</a>
+                                <span class="interval"></span>
+                                <a href="#">Mac OS</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">企业服务</a>
+                                <a class="ml-3" href="#">B2C</a>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <div class="list-item-totle2">新知识</div><div class="list-item-title-line2 w-100"></div>
+                        </div>
+                        <div class="ml-3 mt-2 mr-3 mb-2">
+                            <div class="row weshare-href-row-line">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">带你领略JavaScript语言的精妙所在</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line pt-2">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">4小时带你玩转PHP服务器配置</a>
+                            </div>
+                        </div>
                     </div>
                     <div id="demo3" class="collapse collapse-list list-show" data-parent="#collapse-list">
-                        3  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div>
+                            <div class="list-item-totle1">知识海洋</div><div class="list-item-title-line1 w-100"></div>
+                        </div>
+                        <div class="ml-3 mt-2 mr-3">
+                            <div class="row weshare-href-row-line">
+                                <a href="#">前端基础</a>
+                                <a class="ml-3" href="#">HTML</a>
+                                <span class="interval"></span>
+                                <a href="#">CSS</a>
+                                <span class="interval"></span>
+                                <a href="#">JavaScript</a>
+                                <span class="interval"></span>
+                                <a href="#">HTML5</a>
+                                <span class="interval"></span>
+                                <a href="#">CSS3</a>
+                                <span class="interval"></span>
+                                <a href="#">技术前瞻</a>
+
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">前端进阶</a>
+                                <a class="ml-3" href="#">Typescript</a>
+                                <span class="interval"></span>
+                                <a href="#">前端安全</a>
+                                <span class="interval"></span>
+                                <a href="#">项目实战</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">前端框架</a>
+                                <a class="ml-3" href="#">jQuery</a>
+                                <span class="interval"></span>
+                                <a href="#">jQuery</a>
+                                <span class="interval"></span>
+                                <a href="#">jQuery UI</a>
+                                <span class="interval"></span>
+                                <a href="#">jQuery</a>
+                                <span class="interval"></span>
+                                <a href="#">Mobile</a>
+                                <span class="interval"></span>
+                                <a href="#">Ext</a>
+                                <span class="interval"></span>
+                                <a href="#">JS</a>
+                                <span class="interval"></span>
+                                <a href="#">AngularJS</a>
+                                <span class="interval"></span>
+                                <a href="#">ReactJS</a>
+                                <span class="interval"></span>
+                                <a href="#">Bootstrap</a>
+                                <span class="interval"></span>
+                                <a href="#">React Native</a>
+                                <span class="interval"></span>
+                                <a href="#">Backbone</a>
+                                <span class="interval"></span>
+                                <a href="#">Three.js</a>
+                                <span class="interval"></span>
+                                <a href="#">MooTools</a>
+                                <span class="interval"></span>
+                                <a href="#">Compass</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">HTML5游戏</a>
+                                <a class="ml-3" href="#">Canvas</a>
+                                <span class="interval"></span>
+                                <a href="#">SVG</a>
+                                <span class="interval"></span>
+                                <a href="#">WebGL</a>
+                                <span class="interval"></span>
+                                <a href="#">Cocos2d-js</a>
+                                <span class="interval"></span>
+                                <a href="#">CreateJS</a>
+                                <span class="interval"></span>
+                                <a href="#">Flash</a>
+                                <span class="interval"></span>
+                                <a href="#">Unreal</a>
+                                <span class="interval"></span>
+                                <a href="#">Egret</a>
+                                <span class="interval"></span>
+                                <a href="#">Phaser</a>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <div class="list-item-totle2">新知识</div><div class="list-item-title-line2 w-100"></div>
+                        </div>
+                        <div class="ml-3 mt-2 mr-3 mb-2">
+                            <div class="row weshare-href-row-line">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">带你领略JavaScript语言的精妙所在</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line pt-2">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">4小时带你玩转PHP服务器配置</a>
+                            </div>
+                        </div>
                     </div>
                     <div id="demo4" class="collapse collapse-list list-show" data-parent="#collapse-list">
-                        4  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div>
+                            <div class="list-item-totle1">知识海洋</div><div class="list-item-title-line1 w-100"></div>
+                        </div>
+                        <div class="ml-3 mt-2 mr-3">
+                            <div class="row weshare-href-row-line">
+                                <a href="#">基础语言</a>
+                                <a class="ml-3" href="#">C</a>
+                                <span class="interval"></span>
+                                <a href="#">C++</a>
+                                <span class="interval"></span>
+                                <a href="#">Objective-C</a>
+                                <span class="interval"></span>
+                                <a href="#">Swift</a>
+                                <span class="interval"></span>
+                                <a href="#">C#</a>
+                                <span class="interval"></span>
+                                <a href="#">Java</a>
+                                <span class="interval"></span>
+                                <a href="#">Perl</a>
+                                <span class="interval"></span>
+                                <a href="#">Shell</a>
+                                <span class="interval"></span>
+                                <a href="#">Qt</a>
+                                <span class="interval"></span>
+                                <a href="#">Scala</a>
+
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">计算机基础</a>
+                                <a class="ml-3" href="#">计算机组成原理</a>
+                                <span class="interval"></span>
+                                <a href="#">网络工程</a>
+                                <span class="interval"></span>
+                                <a href="#">Word</a>
+                                <span class="interval"></span>
+                                <a href="#">Excel</a>
+                                <span class="interval"></span>
+                                <a href="#">PowerPoint</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#"></a>
+                                <a class="ml-3" href="#">算法基础</a>
+                                <span class="interval"></span>
+                                <a href="#">数据结构</a>
+                                <span class="interval"></span>
+                                <a href="#">设计模式</a>
+                                <span class="interval"></span>
+                                <a href="#">软件工程</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">开发工具</a>
+                                <a class="ml-3" href="#">Git/Github</a>
+                                <span class="interval"></span>
+                                <a href="#">SVN</a>
+                                <span class="interval"></span>
+                                <a href="#">VI</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">开放标准</a>
+                                <a class="ml-3" href="#">OpenCL</a>
+                                <span class="interval"></span>
+                                <a href="#">Open XML</a>
+                                <span class="interval"></span>
+                                <a href="#">OpenGL/GLES</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">计算机等级考试</a>
+                                <a class="ml-3" href="#">一级</a>
+                                <span class="interval"></span>
+                                <a href="#">二级C</a>
+                                <span class="interval"></span>
+                                <a href="#">二级Java</a>
+                                <span class="interval"></span>
+                                <a href="#">二级C++</a>
+                                <span class="interval"></span>
+                                <a href="#">网络工程师</a>
+                                <span class="interval"></span>
+                                <a href="#">数据库工程师</a>
+                                <span class="interval"></span>
+                                <a href="#">信息安全工程师</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">企业认证</a>
+                                <a class="ml-3" href="#">思科认证</a>
+                                <span class="interval"></span>
+                                <a href="#">Oracle认证</a>
+                                <span class="interval"></span>
+                                <a href="#">Linux认证</a>
+                                <span class="interval"></span>
+                                <a href="#">ARM认证</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">运维管理</a>
+                                <a class="ml-3" href="#">Shell</a>
+                                <span class="interval"></span>
+                                <a href="#">自动化运维</a>
+                                <span class="interval"></span>
+                                <a href="#">Nginx</a>
+                                <span class="interval"></span>
+                                <a href="#">Apache</a>
+                                <span class="interval"></span>
+                                <a href="#">运维监控</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">商业智能</a>
+                                <a class="ml-3" href="#">FileMaker</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">操作系统</a>
+                                <a class="ml-3" href="#">Linux</a>
+                                <span class="interval"></span>
+                                <a href="#">Windows</a>
+                                <span class="interval"></span>
+                                <a href="#">Mac OS</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">企业服务</a>
+                                <a class="ml-3" href="#">B2C</a>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <div class="list-item-totle2">新知识</div><div class="list-item-title-line2 w-100"></div>
+                        </div>
+                        <div class="ml-3 mt-2 mr-3 mb-2">
+                            <div class="row weshare-href-row-line">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">带你领略JavaScript语言的精妙所在</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line pt-2">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">4小时带你玩转PHP服务器配置</a>
+                            </div>
+                        </div>
                     </div>
                     <div id="demo5" class="collapse collapse-list list-show" data-parent="#collapse-list">
-                        5  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div>
+                            <div class="list-item-totle1">知识海洋</div><div class="list-item-title-line1 w-100"></div>
+                        </div>
+                        <div class="ml-3 mt-2 mr-3">
+                            <div class="row weshare-href-row-line">
+                                <a href="#">前端基础</a>
+                                <a class="ml-3" href="#">HTML</a>
+                                <span class="interval"></span>
+                                <a href="#">CSS</a>
+                                <span class="interval"></span>
+                                <a href="#">JavaScript</a>
+                                <span class="interval"></span>
+                                <a href="#">HTML5</a>
+                                <span class="interval"></span>
+                                <a href="#">CSS3</a>
+                                <span class="interval"></span>
+                                <a href="#">技术前瞻</a>
+
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">前端进阶</a>
+                                <a class="ml-3" href="#">Typescript</a>
+                                <span class="interval"></span>
+                                <a href="#">前端安全</a>
+                                <span class="interval"></span>
+                                <a href="#">项目实战</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">前端框架</a>
+                                <a class="ml-3" href="#">jQuery</a>
+                                <span class="interval"></span>
+                                <a href="#">jQuery</a>
+                                <span class="interval"></span>
+                                <a href="#">jQuery UI</a>
+                                <span class="interval"></span>
+                                <a href="#">jQuery</a>
+                                <span class="interval"></span>
+                                <a href="#">Mobile</a>
+                                <span class="interval"></span>
+                                <a href="#">Ext</a>
+                                <span class="interval"></span>
+                                <a href="#">JS</a>
+                                <span class="interval"></span>
+                                <a href="#">AngularJS</a>
+                                <span class="interval"></span>
+                                <a href="#">ReactJS</a>
+                                <span class="interval"></span>
+                                <a href="#">Bootstrap</a>
+                                <span class="interval"></span>
+                                <a href="#">React Native</a>
+                                <span class="interval"></span>
+                                <a href="#">Backbone</a>
+                                <span class="interval"></span>
+                                <a href="#">Three.js</a>
+                                <span class="interval"></span>
+                                <a href="#">MooTools</a>
+                                <span class="interval"></span>
+                                <a href="#">Compass</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">HTML5游戏</a>
+                                <a class="ml-3" href="#">Canvas</a>
+                                <span class="interval"></span>
+                                <a href="#">SVG</a>
+                                <span class="interval"></span>
+                                <a href="#">WebGL</a>
+                                <span class="interval"></span>
+                                <a href="#">Cocos2d-js</a>
+                                <span class="interval"></span>
+                                <a href="#">CreateJS</a>
+                                <span class="interval"></span>
+                                <a href="#">Flash</a>
+                                <span class="interval"></span>
+                                <a href="#">Unreal</a>
+                                <span class="interval"></span>
+                                <a href="#">Egret</a>
+                                <span class="interval"></span>
+                                <a href="#">Phaser</a>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <div class="list-item-totle2">新知识</div><div class="list-item-title-line2 w-100"></div>
+                        </div>
+                        <div class="ml-3 mt-2 mr-3 mb-2">
+                            <div class="row weshare-href-row-line">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">带你领略JavaScript语言的精妙所在</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line pt-2">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">4小时带你玩转PHP服务器配置</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="demo7" class="collapse collapse-list list-show" data-parent="#collapse-list">
+                        <div>
+                            <div class="list-item-totle1">知识海洋</div><div class="list-item-title-line1 w-100"></div>
+                        </div>
+                        <div class="ml-3 mt-2 mr-3">
+                            <div class="row weshare-href-row-line">
+                                <a href="#">前端基础</a>
+                                <a class="ml-3" href="#">HTML</a>
+                                <span class="interval"></span>
+                                <a href="#">CSS</a>
+                                <span class="interval"></span>
+                                <a href="#">JavaScript</a>
+                                <span class="interval"></span>
+                                <a href="#">HTML5</a>
+                                <span class="interval"></span>
+                                <a href="#">CSS3</a>
+                                <span class="interval"></span>
+                                <a href="#">技术前瞻</a>
+
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">前端进阶</a>
+                                <a class="ml-3" href="#">Typescript</a>
+                                <span class="interval"></span>
+                                <a href="#">前端安全</a>
+                                <span class="interval"></span>
+                                <a href="#">项目实战</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">前端框架</a>
+                                <a class="ml-3" href="#">jQuery</a>
+                                <span class="interval"></span>
+                                <a href="#">jQuery</a>
+                                <span class="interval"></span>
+                                <a href="#">jQuery UI</a>
+                                <span class="interval"></span>
+                                <a href="#">jQuery</a>
+                                <span class="interval"></span>
+                                <a href="#">Mobile</a>
+                                <span class="interval"></span>
+                                <a href="#">Ext</a>
+                                <span class="interval"></span>
+                                <a href="#">JS</a>
+                                <span class="interval"></span>
+                                <a href="#">AngularJS</a>
+                                <span class="interval"></span>
+                                <a href="#">ReactJS</a>
+                                <span class="interval"></span>
+                                <a href="#">Bootstrap</a>
+                                <span class="interval"></span>
+                                <a href="#">React Native</a>
+                                <span class="interval"></span>
+                                <a href="#">Backbone</a>
+                                <span class="interval"></span>
+                                <a href="#">Three.js</a>
+                                <span class="interval"></span>
+                                <a href="#">MooTools</a>
+                                <span class="interval"></span>
+                                <a href="#">Compass</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">HTML5游戏</a>
+                                <a class="ml-3" href="#">Canvas</a>
+                                <span class="interval"></span>
+                                <a href="#">SVG</a>
+                                <span class="interval"></span>
+                                <a href="#">WebGL</a>
+                                <span class="interval"></span>
+                                <a href="#">Cocos2d-js</a>
+                                <span class="interval"></span>
+                                <a href="#">CreateJS</a>
+                                <span class="interval"></span>
+                                <a href="#">Flash</a>
+                                <span class="interval"></span>
+                                <a href="#">Unreal</a>
+                                <span class="interval"></span>
+                                <a href="#">Egret</a>
+                                <span class="interval"></span>
+                                <a href="#">Phaser</a>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <div class="list-item-totle2">新知识</div><div class="list-item-title-line2 w-100"></div>
+                        </div>
+                        <div class="ml-3 mt-2 mr-3 mb-2">
+                            <div class="row weshare-href-row-line">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">带你领略JavaScript语言的精妙所在</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line pt-2">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">4小时带你玩转PHP服务器配置</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="demo8" class="collapse collapse-list list-show" data-parent="#collapse-list">
+                        <div>
+                            <div class="list-item-totle1">知识海洋</div><div class="list-item-title-line1 w-100"></div>
+                        </div>
+                        <div class="ml-3 mt-2 mr-3">
+                            <div class="row weshare-href-row-line">
+                                <a href="#">基础语言</a>
+                                <a class="ml-3" href="#">C</a>
+                                <span class="interval"></span>
+                                <a href="#">C++</a>
+                                <span class="interval"></span>
+                                <a href="#">Objective-C</a>
+                                <span class="interval"></span>
+                                <a href="#">Swift</a>
+                                <span class="interval"></span>
+                                <a href="#">C#</a>
+                                <span class="interval"></span>
+                                <a href="#">Java</a>
+                                <span class="interval"></span>
+                                <a href="#">Perl</a>
+                                <span class="interval"></span>
+                                <a href="#">Shell</a>
+                                <span class="interval"></span>
+                                <a href="#">Qt</a>
+                                <span class="interval"></span>
+                                <a href="#">Scala</a>
+
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">计算机基础</a>
+                                <a class="ml-3" href="#">计算机组成原理</a>
+                                <span class="interval"></span>
+                                <a href="#">网络工程</a>
+                                <span class="interval"></span>
+                                <a href="#">Word</a>
+                                <span class="interval"></span>
+                                <a href="#">Excel</a>
+                                <span class="interval"></span>
+                                <a href="#">PowerPoint</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#"></a>
+                                <a class="ml-3" href="#">算法基础</a>
+                                <span class="interval"></span>
+                                <a href="#">数据结构</a>
+                                <span class="interval"></span>
+                                <a href="#">设计模式</a>
+                                <span class="interval"></span>
+                                <a href="#">软件工程</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">开发工具</a>
+                                <a class="ml-3" href="#">Git/Github</a>
+                                <span class="interval"></span>
+                                <a href="#">SVN</a>
+                                <span class="interval"></span>
+                                <a href="#">VI</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">开放标准</a>
+                                <a class="ml-3" href="#">OpenCL</a>
+                                <span class="interval"></span>
+                                <a href="#">Open XML</a>
+                                <span class="interval"></span>
+                                <a href="#">OpenGL/GLES</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">计算机等级考试</a>
+                                <a class="ml-3" href="#">一级</a>
+                                <span class="interval"></span>
+                                <a href="#">二级C</a>
+                                <span class="interval"></span>
+                                <a href="#">二级Java</a>
+                                <span class="interval"></span>
+                                <a href="#">二级C++</a>
+                                <span class="interval"></span>
+                                <a href="#">网络工程师</a>
+                                <span class="interval"></span>
+                                <a href="#">数据库工程师</a>
+                                <span class="interval"></span>
+                                <a href="#">信息安全工程师</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">企业认证</a>
+                                <a class="ml-3" href="#">思科认证</a>
+                                <span class="interval"></span>
+                                <a href="#">Oracle认证</a>
+                                <span class="interval"></span>
+                                <a href="#">Linux认证</a>
+                                <span class="interval"></span>
+                                <a href="#">ARM认证</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">运维管理</a>
+                                <a class="ml-3" href="#">Shell</a>
+                                <span class="interval"></span>
+                                <a href="#">自动化运维</a>
+                                <span class="interval"></span>
+                                <a href="#">Nginx</a>
+                                <span class="interval"></span>
+                                <a href="#">Apache</a>
+                                <span class="interval"></span>
+                                <a href="#">运维监控</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">商业智能</a>
+                                <a class="ml-3" href="#">FileMaker</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">操作系统</a>
+                                <a class="ml-3" href="#">Linux</a>
+                                <span class="interval"></span>
+                                <a href="#">Windows</a>
+                                <span class="interval"></span>
+                                <a href="#">Mac OS</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line">
+                                <a href="#">企业服务</a>
+                                <a class="ml-3" href="#">B2C</a>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <div class="list-item-totle2">新知识</div><div class="list-item-title-line2 w-100"></div>
+                        </div>
+                        <div class="ml-3 mt-2 mr-3 mb-2">
+                            <div class="row weshare-href-row-line">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">带你领略JavaScript语言的精妙所在</a>
+                            </div>
+                            <div class="row mt-2 weshare-href-row-line pt-2">
+                                <i class="fa fa-video-camera" style="color: #333;"></i>
+                                <a class="ml-3" href="#">4小时带你玩转PHP服务器配置</a>
+                            </div>
+                        </div>
                     </div>
                     <!--轮播图-->
                     <div id="carouselExampleIndicators" class="carousel slide w-100" data-ride="carousel" style="z-index: 1;position: relative;">
@@ -536,6 +1320,13 @@
 </body>
 <script src="../static/js/vue.js"></script>
 <script>
+
+    $(function () {
+        //请求判断是否已登陆
+        $.get('', function (obj) {
+            
+        });
+    });
 
     //指导页关闭按钮
     $('#closeGuideButton').click(function () {
