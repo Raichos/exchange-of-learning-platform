@@ -42,7 +42,7 @@ public interface ArticleService {
      * @param size
      * @return
      */
-    List<Map<String, Object>> findPagTitle(String userName,int currentPage, int size);
+    List<Map<String, Object>> findArticleByNamePage(String userName,int currentPage, int size);
 
     /**
      * 根据id查找文章

@@ -24,8 +24,9 @@ spring:
     basename: i18n.login
   servlet:
     multipart:
-      max-file-size: 500MB
-      max-request-size: 500MB
+      max-file-size: 500MB #单个文件的最大上限
+      max-request-size: 500MB #单个请求的文件总大小上限
+      enabled: true
 
 
 server:

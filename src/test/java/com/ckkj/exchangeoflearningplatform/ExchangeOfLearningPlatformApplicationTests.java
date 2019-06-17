@@ -781,7 +781,7 @@ public class ExchangeOfLearningPlatformApplicationTests {
 
     @Test
     public void test13(){
-        List<Map<String, Object>> pagTitle = articleService.findPagTitle("aaaaaa",0, 2);
+        List<Map<String, Object>> pagTitle = articleService.findArticleByNamePage("aaaaaa",0, 2);
         System.out.println(pagTitle);
 
     }
@@ -790,6 +790,20 @@ public class ExchangeOfLearningPlatformApplicationTests {
     public void test14(){
         String pathById = articleService.getPathById(18);
         System.out.println(pathById);
+    }
+
+    @Test
+    public void test15(){
+        List<Map<String, Object>> allArticle = articleService.findAllArticle();
+        for (Map<String, Object> stringObjectMap : allArticle) {
+            System.out.println(stringObjectMap);
+        }
+    }
+
+    @Test
+    public void test16(){
+        int aaaaaa = userService.getIntegralByName("aaaaaa");
+        System.out.println(aaaaaa);
     }
 
 }

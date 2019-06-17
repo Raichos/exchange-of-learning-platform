@@ -32,16 +32,17 @@ public class ArticleController {
      */
     @PostMapping("/addArticle")
     @ResponseBody
-    public String addArticle(@RequestParam("userArticle") String userArticle, @RequestParam("title") String title, @RequestParam("artcle") String artcle) {
+    public String addArticle(@RequestParam("userArticle") String userArticle, @RequestParam("title") String title, @RequestParam("artcle") String artcle,@RequestParam("integral") int integral) {
         //public String addArticle(Article article){
 
         String path = Class.class.getClass().getResource("/").getPath();
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
 
         path = path.substring(1, path.indexOf("exchange-of-learning-platform") + "exchange-of-learning-platform".length() + 1) + "src/main/resources/static/article/" + userArticle + "_" + uuid+".html";
-        Article article = new Article().setUserArticle(userArticle).setTitle(title).setAnnounce(new Date()).setArticlePath("/article/" + userArticle + "_" + uuid);
+        Article article = new Article().setUserArticle(userArticle).setTitle(title).setAnnounce(new Date()).setArticlePath("/article/" + userArticle + "_" + uuid).setIntegral(integral);
         ArticleUtils.WriteStringToFile(userArticle, artcle, path);
 
+        //拆分内容简化为简介content
         String content = ArticleUtils.articleIntroduce(artcle);
         if (content.length() > 127){
             content = content.substring(0,127);
@@ -115,7 +116,7 @@ public class ArticleController {
 
         System.out.println("currentPage="+currentPage);
 
-        List<Map<String, Object>> articles = articleService.findPagTitle(userName,currentPage,10);
+        List<Map<String, Object>> articles = articleService.findArticleByNamePage(userName,currentPage,10);
 
         return articles;
     }

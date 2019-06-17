@@ -191,12 +191,14 @@
                             <a class="nav-link" href="#">博语</a>
                         </li>
                         <li class="nav-item" style="margin: 0 5%;">
-                            <a class="nav-link" href="#">积分社区</a>
+                            <a class="nav-link" href="/userCenter">积分社区</a>
                         </li>
                         <li class="nav-item" style="margin: 0 5%;">
-                            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                                联系平台
-                            </button>
+                            <a href="/userindex">
+                                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                    联系平台
+                                </button>
+                            </a>
                         </li>
                         <li class="nav-item" style="margin: 0 5%;">
                             <a class="nav-link" href="/resourceShare">资源分享</a>
@@ -526,7 +528,6 @@
                             <button id="closeGuideButton" type="button" style="background-color:rgba(0,0,0,0);box-shadow: none;border: none;color: white;font-size: 14px"> 关闭 </button>
                         </div>
 
-
                     </div>
                 </div>
             </div>
@@ -636,8 +637,11 @@
         // 'count':1
     });
 
-    $.getJSON("/getWordTitleJson", function (response) {
-        items = response;
+    //$.getJSON("/getWordTitleJson", function (response) {
+    $.getJSON("/getAllArticle", function (response) {
+        //items = response;
+        items = {items:response};
+        //alert("items = "+items);
         new Vue({
             el: '#word-items',
             data: items,

@@ -48,4 +48,12 @@ public interface UserMapper {
      */
     @Update("UPDATE users SET integral_status = 0 WHERE user_name = #{userName}")
     void updateIntegralStuats(String userName);
+
+    /**
+     * 根据用户名获取积分
+     * @param userName
+     * @return
+     */
+    @Select("SELECT integral FROM users WHERE user_name = #{userName}")
+    int getIntegralByName(String userName);
 }

@@ -37,7 +37,7 @@
         <div class="list-block media-list order-check od-pro">
           <ul>
             <li>
-              <input v-model="message" type="text" class="take-money"  placeholder="请输入充值金额" value="20" required/>
+              <!--<input v-model="message" type="text" class="take-money"  placeholder="请输入充值金额" value="20" required/>-->
 <!--              <p>{{ message }}</p>-->
 <!--              <input v-model="message" type="text" class=""  placeholder="请输入充值金额" value="20" required/>-->
 <!--              <p>{{ message }}</p>-->
@@ -119,10 +119,12 @@
         var arr2 = arr[1].split("=");
         //alert(arr1[1]);
         //alert(arr2[1]);
-        $("#reality").attr("value",""+arr2[1]);
+        //$("#reality").attr("value",""+arr2[1]);
         $("#userName").attr("value",""+arr1[1]);
-        $('#reality').val("￥"+arr2[1]);
+        //$('#reality').val("￥"+arr2[1]);
         $("#integral").attr("value",""+arr2[1]);
+
+        document.getElementById("reality").innerText='￥'+arr2[1];
 
       });
     </script>
