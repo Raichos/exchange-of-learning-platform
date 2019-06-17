@@ -25,4 +25,5 @@ public class Article {
     private Date announce;
     private String brief; //简介
     private String count; //访问次数
+    private int integral; //积分
 }

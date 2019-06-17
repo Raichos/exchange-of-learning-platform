@@ -213,7 +213,7 @@
                                 <img src="../static/img/user_img.png" style="width: 45px; height: 45px;border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;WeShare</span>
                             <!--                        </div>-->
                             <div id="user-items-dd" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <a class="dropdown-item" href="#"><i class="fa fa-user"></i>个人中心</a>
+                                <a class="dropdown-item" href="/userCenter"><i class="fa fa-user"></i>个人中心</a>
                                 <a class="dropdown-item" href="#" style="border-top: 1px solid #dee2e6;"><i class="fa fa-stop-circle-o"></i>查看积分</a>
                                 <a class="dropdown-item" href="/login" style="border-top: 1px solid #dee2e6;"><i class="fa fa-sign-in"></i>登陆</a>
                                 <a class="dropdown-item" href="/register" style="border-top: 1px solid #dee2e6;"><i class="fa fa-registered"></i>注册</a>
@@ -535,6 +535,19 @@
 <script src="../static/js/vue.js"></script>
 <script>
 
+    $(function () {
+       //alert("");
+        $.get("/getusername",function (data) {
+            //alert(data.length);
+            if (data.length >=6 && data.length <=32){
+                //alert("已登陆")
+                $('#weshareRegisterGuide').hide(700);
+            } else {
+                //alert("未登陆");
+            }
+        });
+    });
+
     //指导页关闭按钮
     $('#closeGuideButton').click(function () {
         // alert('d');
@@ -635,8 +648,11 @@
         // 'count':1
     });
 
-    $.getJSON("/getWordTitleJson", function (response) {
-        items = response;
+    //$.getJSON("/getWordTitleJson", function (response) {
+    $.getJSON("/getAllArticle", function (response) {
+        //items = response;
+        items = {items:response};
+        //alert("items = "+items);
         new Vue({
             el: '#word-items',
             data: items,

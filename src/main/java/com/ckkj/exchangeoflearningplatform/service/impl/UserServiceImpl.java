@@ -56,4 +56,9 @@ public class UserServiceImpl implements UserService {
     public void updateIntegralStuats(String userName) {
         userMapper.updateIntegralStuats(userName);
     }
+
+    @Override
+    public int getIntegralByName(String userName) {
+        return userMapper.getIntegralByName(userName);
+    }
 }

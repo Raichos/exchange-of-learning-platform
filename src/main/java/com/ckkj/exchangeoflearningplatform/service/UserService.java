@@ -57,4 +57,11 @@ public interface UserService {
      * @param userName
      */
     void updateIntegralStuats(String userName);
+
+    /**
+     * 通过用户名获取积分
+     * @param userName
+     * @return
+     */
+    int getIntegralByName(String userName);
 }

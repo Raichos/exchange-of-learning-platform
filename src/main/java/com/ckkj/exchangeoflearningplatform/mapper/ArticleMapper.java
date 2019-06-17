@@ -22,7 +22,7 @@ public interface ArticleMapper {
      * @param article
      * @return
      */
-    @Insert("INSERT INTO article (user_article,title,article_path,announce,brief) VALUES (#{userArticle},#{title},#{articlePath},#{announce},#{brief})")
+    @Insert("INSERT INTO article (user_article,title,article_path,announce,brief,integral) VALUES (#{userArticle},#{title},#{articlePath},#{announce},#{brief},#{integral})")
     int addArticle(Article article);
 
     /**
@@ -48,7 +48,7 @@ public interface ArticleMapper {
      * @return
      */
     @Select("SELECT id,user_article,title,article_path,announce,brief FROM article WHERE user_article = #{userName} LIMIT #{currentPage},#{size}")
-    List<Map<String ,Object>> findPagTitle(String userName,int currentPage, int size);
+    List<Map<String ,Object>> findArticleByNamePage(String userName,int currentPage, int size);
 
     /**
      * 根据id查找文章
@@ -63,8 +63,8 @@ public interface ArticleMapper {
      * 查询所有文章
      * @return
      */
-    @Select("SELECT id,user_article,title,article_path,announce,brief FROM article WHERE user_article = #{userName} LIMIT #{currentPage},#{size}")
-    //TODO
+    //@Select("SELECT id,user_article,title,article_path,announce,brief FROM article WHERE user_article = #{userName} LIMIT #{currentPage},#{size}")
+    @Select("SELECT id,user_article,title,article_path,announce,brief,integral FROM article")
     List<Map<String, Object>> findAllArticle();
 
     /**

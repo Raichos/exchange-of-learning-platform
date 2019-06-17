@@ -34,15 +34,16 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<String> findAllTitle() {
+
         return articleMapper.findAllTitle();
     }
 
     @Override
-    public List<Map<String, Object>> findPagTitle(String userName,int currentPage, int size) {
+    public List<Map<String, Object>> findArticleByNamePage(String userName,int currentPage, int size) {
 
         currentPage *= 10;
 
-        List<Map<String, Object>> pagTitle = articleMapper.findPagTitle(userName,currentPage, size);
+        List<Map<String, Object>> pagTitle = articleMapper.findArticleByNamePage(userName,currentPage, size);
         for (Map<String, Object> stringObjectMap : pagTitle) {
             Object id = stringObjectMap.get("id");
             Object userArticle = stringObjectMap.get("user_article");
@@ -71,7 +72,26 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<Map<String, Object>> findAllArticle() {
-        return articleMapper.findAllArticle();
+
+        List<Map<String, Object>> allArticle = articleMapper.findAllArticle();
+        for (Map<String, Object> stringObjectMap : allArticle) {
+            Object id = stringObjectMap.get("id");
+            Object userArticle = stringObjectMap.get("user_article");
+            Object announce = stringObjectMap.get("announce");
+            int integral = (int) stringObjectMap.get("integral");
+
+            stringObjectMap.put("link","http://localhost:8080/wordIndex?id="+id+"&integral="+integral);
+            stringObjectMap.put("author",userArticle);
+            stringObjectMap.put("date",announce);
+
+
+            stringObjectMap.remove("id");
+            stringObjectMap.remove("user_article");
+            stringObjectMap.remove("announce");
+
+        }
+
+        return allArticle;
     }
 
     @Override

@@ -389,7 +389,6 @@
                         <script id="editor" type="text/plain" class="ml-3 mr-3"></script>
                     </div>
 
-                    <button onclick="getAllHtml()">获得整个html的内容</button>
                     <!--<div id="btns">
                         <div>
                             <button onclick="getAllHtml()">获得整个html的内容</button>
@@ -460,6 +459,7 @@
                             //alert(UE.getEditor('editor').getAllHtml())
                             var title = $("#exampleInputEmail1").val();
                             var artcleHtml = UE.getEditor('editor').getAllHtml();
+                            var integral = $("#article_integral").val();
 
                             var userName = "";
 
@@ -470,7 +470,8 @@
                                 $.post("/addArticle", {
                                     "userArticle": userName,
                                     "title": title,
-                                    "artcle": artcleHtml
+                                    "artcle": artcleHtml,
+                                    'integral': integral
                                 }, function (data) {
 
                                     alert(data);
@@ -610,9 +611,10 @@
                     </div>
                     <div class="mt-3 ml-3 mr-3 row" id="Article">
                         积分值：
-                        <input type="text" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order"
+                        <input type="text" id="article_integral" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order"
                                value="0"/>
                     </div>
+                    <button onclick="getAllHtml()">发布文章</button>
                     <!--这里放视频上传-->
                     <div class="mt-3 ml-3 row">
                         <h6>是否上传学习视频？</h6>
