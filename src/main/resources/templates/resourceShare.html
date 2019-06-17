@@ -817,15 +817,16 @@
         //     $("label[name=upfileSize]").text('文件大小：' + fileSize);
         //     $("label[name=upfileType]").text('文件类型：' + fileObj.type);
         // }
-        // FormData 对象
-        form = new FormData();
-        form.append('file', fileObj); // 文件对象
+        if (fileObj !== null) {
+            // FormData 对象
+            form = new FormData();
+            form.append('file', fileObj); // 文件对象
+        }
     });
 
 
     //确认提交
     $('#enter-data').click(function () {
-        var uploadTitle = $("input[name = title]")[0].value; // 文章标题
 
         // 需要做提交前的容错，这里先默认为true，点击即提交后台
         var flag = true;
@@ -841,14 +842,14 @@
                     titleId = data.id      // 文章在数据库中唯一id
                 }
             });
-
-            if ($('#IntegralRadiosYes')[0].checked) {
+            var file = fileObj;
+            if ($('#VideoRadiosYes')[0].checked && file !== undefined) {
                 var fileInfo = {
-                    "videoName": fileObj.name,
+                    "videoName": file.name,
                     "titleId": 1,
                     "postTime": new Date(),
-                    "videoSize": getSize(fileObj.size),
-                    "videoType": fileObj.type,
+                    "videoSize": getSize(file.size),
+                    "videoType": file.type,
                     "score": $("#score")[0].value
                 };
                 form.append('videoInfo', JSON.stringify(fileInfo));
@@ -868,6 +869,8 @@
                         alert("错误！");
                     }
                 })
+            } else {
+                alert("亲，你没有上传视频哦~~~~")
             }
         }
     });
