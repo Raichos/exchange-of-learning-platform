@@ -388,7 +388,7 @@
                             </div>
                         </div>
                     </div>
-                    <iframe src="../static/wordhtml/test1.html" frameborder="0" scrolling="no" id="word-iframe" onload="this.height=800"></iframe>
+                    <iframe class="w-100" src="../static/wordhtml/test1.html" frameborder="0" scrolling="no" id="word-iframe" onload="this.height=800"></iframe>
                     <script type="text/javascript">
                         function reinitIframe(){
                             var iframe = document.getElementById("word-iframe");
@@ -685,7 +685,8 @@
                 $('#word-read-count').text(obj.count);  //阅读数
 
                 //框
-                $('#word-iframe').src=obj.articlePath;
+                // $('#word-iframe').href= obj.articlePath;
+                $('#word-iframe').attr('src', obj.articlePath);
                 //alert("obj.articlePath="+obj.articlePath);
                 //$("#word-iframe").innerHTML = "";
             }else{
