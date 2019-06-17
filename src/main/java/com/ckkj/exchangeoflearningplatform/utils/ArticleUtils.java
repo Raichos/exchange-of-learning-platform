@@ -70,31 +70,6 @@ public class ArticleUtils {
             e.printStackTrace();
         }
 
-        /*FileInputStream inputStream = null;
-        Scanner sc = null;
-        try {
-            inputStream = new FileInputStream(path);
-            sc = new Scanner(inputStream, "UTF-8");
-            while (sc.hasNextLine()) {
-                String line = sc.nextLine();
-                 System.out.print(line);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (sc != null) {
-                sc.close();
-            }
-        }*/
-
         return article;
     }
 

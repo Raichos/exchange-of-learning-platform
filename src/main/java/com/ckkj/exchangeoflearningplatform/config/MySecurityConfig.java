@@ -2,6 +2,7 @@ package com.ckkj.exchangeoflearningplatform.config;
 
 
 import com.ckkj.exchangeoflearningplatform.security.CustomUserDetailsService;
+import com.ckkj.exchangeoflearningplatform.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,6 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.Date;
 
 /**
  * @author lzh
@@ -41,6 +44,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 //System.out.println("aaaaffff:::charSequence="+charSequence+",s="+s);
                 //return s.equals(password);
                 //System.out.println("new BCryptPasswordEncoder().matches(charSequence.toString(),s)="+new BCryptPasswordEncoder().matches(charSequence.toString(),s));
+
                 return new BCryptPasswordEncoder().matches(charSequence.toString(),s);
             }
         });

@@ -2,6 +2,8 @@ package com.ckkj.exchangeoflearningplatform.service;
 
 import com.ckkj.exchangeoflearningplatform.model.User;
 
+import java.util.Date;
+
 /**
  * @author lzh
  * create 2019-04-30-22:25
@@ -64,4 +66,5 @@ public interface UserService {
      * @return
      */
     int getIntegralByName(String userName);
+
 }
