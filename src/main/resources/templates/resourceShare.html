@@ -1400,7 +1400,7 @@
                         <input type="text" id="article_integral" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="f_order"
                                value="0"/>
                     </div>
-                    <button onclick="getAllHtml()">发布文章</button>
+<!--                    <button onclick="getAllHtml()">发布文章</button>-->
                     <!--这里放视频上传-->
                     <div class="mt-3 ml-3 row">
                         <h6>是否上传学习视频？</h6>
@@ -1474,6 +1474,53 @@
                 </div>
             </div>
         </div>
+    </div>
+
+
+
+<!--    //以下是模态框-->
+<!--    绿色-->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-success" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">通知</h4>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>文章发表成功!</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" type="button" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+            <!-- /.modal-content-->
+        </div>
+        <!-- /.modal-dialog-->
+    </div>
+
+<!--    红色-->
+    <div class="modal fade" id="dangerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-danger" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">警告</h4>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>文章发表失败!</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" type="button" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+            <!-- /.modal-content-->
+        </div>
+        <!-- /.modal-dialog-->
     </div>
 </div>
 </body>
@@ -1647,6 +1694,36 @@
                 titleId = data.id      // 文章在数据库中唯一id
             }
         });
+
+        //插入提交内容
+        var title = $("#exampleInputEmail1").val();
+        var artcleHtml = UE.getEditor('editor').getAllHtml();
+        var integral = $("#article_integral").val();
+
+        var userName = "";
+
+        $.get("/getusername", function (data) {
+            userName = data;
+            //alert("username="+userName);
+
+            $.post("/addArticle", {
+                "userArticle": userName,
+                "title": title,
+                "artcle": artcleHtml,
+                'integral': integral
+            }, function (data) {
+
+                // alert(data);
+                if(data != null)
+                    $('#successModal').modal('show');
+                else
+                    $('#dangerModal').modal('show');
+            });
+
+
+        });
+
+
         var file = fileObj;
         if ($('#VideoRadiosYes')[0].checked && file !== undefined && !lanjie) {
             var fileInfo = {
