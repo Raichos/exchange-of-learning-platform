@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Rakers">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title>教育信息管理系统</title>
+
+    <link href="../../static/css/style.css" rel="stylesheet">
+    <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+    <script src="../../static/js/jquery-3.4.0.js"></script>
+    <script src="../../static/js/bootstrap.js"></script>
+<!--    <script src="js/main.js"></script>-->
+    <script src="../../static/js/mock.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/font-awesome.css">
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        // Shared ID
+        gtag('config', 'UA-118965717-3');
+        // Bootstrap ID
+        gtag('config', 'UA-118965717-5');
+
+    </script>
+    <style>
+        /*使居中*/
+        #editModal, #addDataModal{
+            top:20%;
+        }
+        #delModal, #successModal, #noChoiceModal{
+            top:30%;
+        }
+    </style>
+</head>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+<header class="app-header navbar">
+
+    <ul class="nav navbar-nav d-md-down-none">
+        <li class="nav-item px-3">
+            <a class="nav-link" href="#">工作台</a>
+        </li>
+        <li class="nav-item px-3">
+            <a class="nav-link" href="#">课程管理</a>
+        </li>
+        <li class="nav-item px-3">
+            <a class="nav-link" href="#">设置</a>
+        </li>
+    </ul>
+    <i class="fa fa-mortar-board" style="font-size: 27px;margin-left: 27%; color:#007bff;">WeShare</i>
+    <ul class="nav navbar-nav ml-auto">
+        <form class="form-inline my-2 my-lg-0" style="margin-right: 20px">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+            </a>
+            <a class="nav-link" href="#">
+                <i class="icon-bell"></i>
+                <span class="badge badge-pill badge-danger">1</span>
+            </a>
+
+        </li>
+    </ul>
+</header>
+<!--删除成功-->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-success" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">通知</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="successModal_info">删除成功!</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" type="button"  data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="app-body">
+    <main class="main" style="margin-left: 0px">
+        <!-- Breadcrumb-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">首页</a></li>
+            <li class="breadcrumb-item">用户管理</li>
+            <!-- Breadcrumb Menu-->
+            <li class="breadcrumb-menu d-md-down-none">
+            </li>
+        </ol>
+        <div class="container-fluid">
+            <div class="animated fadeIn">
+                <!-- /.row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+
+                            <div class="card-body" id="app">
+                                <!-- /.row-->
+                                <br>
+                                <table class="table table-responsive-sm table-hover table-outline mb-0">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th class="text-left">
+                                            <!--<i class="icon-people"></i>-->
+                                            <!--<input id="head_all_choice" type="checkbox" aria-label="全选" value="">全选-->
+                                            <div class="custom-control custom-checkbox">
+                                                <!--动态绑定ip-->
+                                                <input id="head_all_choice" class="custom-control-input" aria-label="全选" type="checkbox" value=""/>
+                                                <label class="custom-control-label" for="head_all_choice">&nbsp;&nbsp;&nbsp;&nbsp;全选</label>
+                                            </div>
+                                        </th>
+                                        <th class="text-left">用户头像</th>
+                                        <th class="text-left">用户名</th>
+                                        <th class="text-left">注册时间</th>
+                                        <th class="text-left">角色</th>
+                                        <th class="text-left">状态</th>
+                                        <th class="text-left">
+                                            操作
+                                            <div class="card-header-actions">
+                                                <button id="add_data" style="background: #0000" data-toggle="modal" data-target="#addDataModal" data-whatever="">
+                                                    <i class="fa fa-plus-square-o"> 新增</i>
+                                                </button>
+                                                <button id="del_data" style="background: #0000" data-toggle="modal" data-target="#delModal" data-whatever="">
+                                                    <i class="fa fa-minus-square-o"> 删除</i>
+                                                </button>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <!--<script src="/js/vue.js"></script>-->
+                                        <tr v-for="(item, index) in items" v-if="index >= pager_start_index && index < pager_start_index+pager_count">
+                                            <td class="text-left">
+                                                <div class="input-group-prepend">
+                                                    <!--<div class="input-group-text">-->
+                                                    <div class="custom-control custom-checkbox">
+                                                        <!--动态绑定ip-->
+                                                        <input class="custom-control-input" :id="forId(index)" name="checkbox" type="checkbox" :value="index"/>
+                                                        <label class="custom-control-label" :for="forId(index)">&nbsp;&nbsp;&nbsp;&nbsp;#{{item.id}}</label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-left">
+                                                <img id="user_img" style="width: 50px;height:50px;border-radius: 50px;" :src="forMd5(index)">
+<!--                                                {{item.md5}}-->
+                                            </td>
+                                            <td class="text-left">
+                                                {{item.name}}
+                                            </td>
+                                            <td class="text-left">
+                                                {{item.date}}
+                                            </td>
+                                            <td class="text-left">
+                                                {{item.rold}}
+                                            </td>
+                                            <td class="text-left">
+                                                <span v-if="item.state == '激活'" class="badge badge-success">{{item.state}}</span>
+                                                <span v-if="item.state == '禁止'" class="badge badge-danger">{{item.state}}</span>
+                                            </td>
+                                            <td class="text-left">
+                                                <button type="button" v-on:click="edit_info(index)" class="btn btn-primary" data-toggle="modal" data-target="#editModal" data-whatever="">编辑</button>
+                                                <button type="button" v-on:click="del_info(index)" class="btn btn-danger" data-toggle="modal" data-target="#delModal" data-whatever="">删除</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!--翻页-->
+                                <nav aria-label="Page navigation example" style="margin-top: 30px">
+                                    <ul class="pagination">
+                                        <li class="page-item">
+                                            <button class="page-link" id="pager_0" aria-label="Previous" style="display:none">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </button>
+                                        </li>
+                                        <li class="page-item"><button id="pager_1" class="page-link" style="display:none">{{pager-1}}</button></li>
+                                        <li class="page-item active">
+                                            <button id="pager_2" class="page-link" >{{pager}}</button>
+                                        </li>
+                                        <li class="page-item"><button id="pager_3" class="page-link">{{pager+1}}</button></li>
+                                        <li class="page-item">
+                                            <button class="page-link" id="pager_4" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <select class="form-control" id="pager_number" style="color: #007bff">
+                                                <option>每页10个</option>
+                                                <option>每页20个</option>
+                                                <option>每页50个</option>
+                                                <option>每页100个</option>
+                                                <option>每页200个</option>
+                                            </select>
+                                        </li>
+                                    </ul>
+
+                                </nav>
+                                <!--用于添加数据对象窗口-->
+                                <div class="modal fade" id="addDataModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-primary" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="example2ModalLabel">添加用户信息</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form name="add_user" id="add_user">
+                                                <div class="modal-body">
+                                                    <div hidden="hidden" id="add_id"></div>
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <!--预览图片-->
+                                                                        <p for="edit_time">用户头像</p>
+                                                                        <img id="add_user_preview" style="width: 50px;height: 50px;border-radius: 50px;background: white;"/>
+                                                                        <input type="file" name="user_img" id = "add_user_img" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="addUserImgPreview(this)">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="add_name">姓名</label>
+                                                                        <input name="name" class="form-control was-invalid" id="add_name" type="text" placeholder="请输入您的名字" required>
+                                                                        <div class="invalid-feedback">
+                                                                            姓名不能为空哦!
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.row-->
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="edit_time">注册时间</label>
+                                                                        <input disabled="disabled" class="form-control" id="add_time" type="text" placeholder="系统时间">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.row-->
+                                                            <div class="row">
+                                                                <div class="form-group col-sm-4">
+                                                                    <label for="edit_rold">角色</label>
+                                                                    <select name="rold" class="form-control" id="add_rold">
+                                                                        <option>学生</option>
+                                                                        <option>教师</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group col-sm-4">
+                                                                    <label for="edit_state">状态</label>
+                                                                    <select name="state" class="form-control" id="add_state">
+                                                                        <option>激活</option>
+                                                                        <option>禁止</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- /.row-->
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                                    <button id="add_enter" type="button" class="btn btn-primary">确认</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--用于编辑对象窗口-->
+                                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-primary" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">编辑信息</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form id="edit_form">
+                                                <div class="modal-body">
+                                                    <div hidden="hidden" id="edit_id"></div>
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <strong id="edit_name1"></strong>
+                                                            <small>的信息</small>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="edit_name2">姓名</label>
+                                                                        <input class="form-control was-invalid" id="edit_name2" type="text" placeholder="请输入您的名字" required>
+                                                                        <div class="invalid-feedback">
+                                                                            姓名不能为空哦!
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.row-->
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="edit_time">注册时间</label>
+                                                                        <input disabled="disabled" class="form-control" id="edit_time" type="text" placeholder="系统时间">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.row-->
+                                                            <div class="row">
+                                                                <div class="form-group col-sm-4">
+                                                                    <label for="edit_rold">角色</label>
+                                                                    <select class="form-control" id="edit_rold">
+                                                                        <option>学生</option>
+                                                                        <option>教师</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group col-sm-4">
+                                                                    <label for="edit_state">状态</label>
+                                                                    <select class="form-control" id="edit_state">
+                                                                        <option>激活</option>
+                                                                        <option>禁止</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.row-->
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                                                    <button id="edit_enter" type="button" class="btn btn-primary">确认</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--用于删除-->
+                                <div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+                                    <div class="modal-dialog modal-danger" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">警告</h4>
+                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p id="del_id">您确定删除所选数据？</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button id="enter_data" class="btn btn-danger" type="button">确定</button>
+                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">取消</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--提示没选择-->
+                                <div class="modal fade" id="noChoiceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-warning" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">警告</h4>
+                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>您未选择哦，请选择后重新尝试!</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-warning" type="button" data-dismiss="modal">确定</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content-->
+                                    </div>
+                                    <!-- /.modal-dialog-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-->
+                </div>
+                <!-- /.row-->
+            </div>
+        </div>
+    </main>
+
+</div>
+<footer class="app-footer" style="margin-left: 0px">
+    <div>
+        <a href="https://coreui.io">CoreUI</a>
+        <span>&copy; 2018 creativeLabs.</span>
+    </div>
+    <div class="ml-auto">
+        <span>Powered by</span>
+        <a href="https://coreui.io">CoreUI</a>
+    </div>
+</footer>
+<!-- Plugins and scripts required by this view-->
+
+<script src="../../static/js/vue.js"></script>
+<script>
+    //时间格式化
+    Date.prototype.format = function(format){
+        var o = {
+            "M+" : this.getMonth()+1, //month
+            "d+" : this.getDate(),    //day
+            "h+" : this.getHours(),   //hour
+            "m+" : this.getMinutes(), //minute
+            "s+" : this.getSeconds(), //second
+            "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+            "S" : this.getMilliseconds() //millisecond
+        }
+        if(/(y+)/.test(format)){
+            format=format.replace(RegExp.$1,(this.getFullYear()+"").substr(4 - RegExp.$1.length));
+        }
+
+        for(var k in o){
+            if(new RegExp("("+ k +")").test(format)){
+                format=format.replace(RegExp.$1,RegExp.$1.length==1?o[k]:("00"+o[k]).substr((""+o[k]).length));
+            }
+        }
+        return format;
+    }
+</script>
+<script>
+    //写自动生成数据
+    // var it = Mock.mock("/rakers", {
+    //     'items|120-240': [{
+    //         'name': '@cname',
+    //         'date': '@date(\'yyyy-MM-dd HH:mm:ss\')',
+    //         'rold|1': ['学生', '教师'],
+    //         'state|1': ['激活', '禁止']
+    //
+    //     }],
+    //     'pager_start_index':0,
+    //     'pager_count':10,
+    //     'pager':1
+    // });
+    var items;
+    var del_index;
+        //测试
+    // var its = [];
+    $.getJSON("/getUsersJSON", function (response) {
+        items = {items:response,
+            'pager_start_index':0,
+            'pager_count':10,
+            'pager':1};
+
+        new Vue({
+            el: '#app',
+            data: items,
+            methods: {
+                del_info: function (index) {
+                    del_index = index;
+                    $('#del_id').text('您确定删除编号为: ' + items.items[index].id + ' 的同学？');
+                },
+                edit_info: function (index) {
+                    this.index = index;
+                    $('#edit_id').text(index);
+                    $('#edit_name1').text(items.items[index].name);
+                    $('#edit_name2').val(items.items[index].name);
+                    //设置默认选择的
+                    $('#edit_rold').val(items.items[index].rold);
+                    $('#edit_state').val(items.items[index].state);
+                    $('#edit_time').val(items.items[index].date);
+                    checkEditIsNone();
+                },
+                //动态绑定id
+                forId:function(index){
+                    return "checkbox_" +index;
+                },
+
+                //得到md5
+                forMd5:function (index) {
+                    return "/getUserImg?md5="+items.items[index].md5;
+                }
+
+            }
+        });
+
+
+        //更新页脚信息
+        updatePager();
+        function updatePager(){
+            sumPager = items.items.length%items.pager_count === 0?items.items.length/items.pager_count:items.items.length/items.pager_count+1;
+            if(items.pager <= 1){
+                $('#pager_0').hide();
+                $('#pager_1').hide();
+            }else{
+                $('#pager_0').show();
+                $('#pager_1').show();
+            }
+            if(sumPager - 1>items.pager){
+                $('#pager_3').show();
+                $('#pager_4').show();
+            }else{
+                $('#pager_3').hide();
+                $('#pager_4').hide();
+            }
+        }
+
+        $('#enter_data').click(function () {
+            $('#delModal').modal('hide');
+            var index = /\d+/g.exec($('#del_id').text());
+            var ids = [];
+            var id;
+            if(index == null){
+                //删除选择的
+                var isNull = true;  //判断是否没选择
+                for(var i = items.pager_start_index+items.pager_count-1; i >= items.pager_start_index;i--)
+                    if(document.getElementById("checkbox_"+i).checked) {
+                        isNull = false;
+                    }
+                if(isNull)
+                {
+                    $('#noChoiceModal').modal('show');
+                    return;
+                }else{
+                    var k = 0;
+                    for(var i = items.pager_start_index+items.pager_count-1; i >= items.pager_start_index;i--)
+                        if(document.getElementById("checkbox_"+i).checked) {
+                            id = items.items[i].id;
+                            ids[k++] = id;
+                            items.items.splice(i, 1);
+                        }
+                    //传个数组过去
+                    console.log({'ids':ids});
+                    $.post("/delUser", {'ids':ids}, function (obj) {
+                        if(obj === true){
+                            $('#successModal_info').text('信息成功删除！');
+                            $('#successModal').modal('show');
+                        }else{
+                        //删除失败
+                        }
+                    });
+                }
+            }else{
+                //删除单按数据
+                ids = [];
+                id = items.items[del_index].id;
+                ids[0] = id;
+                console.log({'ids':ids});
+                $.post("/delUser", {'ids':ids}, function (obj) {
+                    if(obj === true){
+                        items.items.splice(del_index, 1);
+                        $('#successModal_info').text('信息成功删除！');
+                        $('#successModal').modal('show');
+                    }else{
+
+                    }
+                });
+                $('#del_id').text('您确定删除所选数据？');
+            }
+
+            // alert(index);
+            updatePager();
+
+            //取消全选状态
+            $('#head_all_choice').prop("checked",false);
+            $("[name='checkbox']").prop("checked",false);
+        });
+
+        function checkEditIsNone()
+        {
+            if($('#edit_name2').val() === "") {
+                // $('#edit_name2').attr('class', 'form-control is-validated');
+
+                $('#edit_name2').removeClass("was-invalid");
+                $('#edit_name2').addClass('is-invalid');
+                return true;
+            }else {
+                $('#edit_name2').removeClass("is-invalid");
+                $('#edit_name2').addClass('was-invalid');
+                return false;
+            }
+        }
+
+        function checkAddIsNone()
+        {
+            if($('#add_name').val() === "") {
+                // $('#edit_name2').attr('class', 'form-control is-validated');
+
+                $('#add_name').removeClass("was-invalid");
+                $('#add_name').addClass('is-invalid');
+                return true;
+            }else {
+                $('#add_name').removeClass("is-invalid");
+                $('#add_name').addClass('was-invalid');
+                return false;
+            }
+        }
+
+        //失去焦点事件
+        $('#edit_name2').blur(function () {
+            checkEditIsNone();
+        });
+
+        //失去焦点事件
+        $('#add_name').blur(function () {
+            checkAddIsNone();
+        });
+
+        $('#edit_enter').click(function () {
+
+            //检测是否为空
+            if(checkEditIsNone())
+                return;
+
+            var index = $('#edit_id').text();
+            var id = items.items[index].id;
+            var name = $('#edit_name2').val();
+            var rold = $('#edit_rold').val();
+            var state = $('#edit_state').val();
+            $('#editModal').modal('hide');
+            //发送请求修改数据
+            $.post("/editUser", {'id':id, 'name':name, 'rold':rold, 'state':state}, function (obj) {
+                if(obj === true){
+                    //更新数据
+                    items.items[index].name = name;
+                    items.items[index].rold = rold;
+                    items.items[index].state = state;
+                    $('#successModal_info').text('信息已经成功更新!');
+                    $('#successModal').modal('show');
+                }else{
+
+                }
+            })
+            
+
+
+
+
+        });
+        var sumPager = items.items.length%items.pager_count === 0?items.items.length/items.pager_count:items.items.length/items.pager_count+1;   //总页数
+        $('#pager_number').change(function () {
+            var number = /\d+/g.exec($('#pager_number').val());
+            //归零
+            items.pager_start_index = 0;
+            items.pager = 1;
+
+            items.pager_count = parseInt(number);
+            updatePager();
+        });
+
+        //换页
+        $('#pager_0').click(function () {
+            items.pager = items.pager -1;
+            items.pager_start_index = (items.pager-1) * items.pager_count;
+            if(items.pager <= 1){
+                $('#pager_0').hide();
+                $('#pager_1').hide();
+            }
+            if(sumPager-1>items.pager){
+                $('#pager_3').show();
+                $('#pager_4').show();
+            }
+        });
+        $('#pager_1').click(function () {
+            items.pager = items.pager -1;
+            items.pager_start_index = (items.pager-1) * items.pager_count;
+            if(items.pager <= 1){
+                $('#pager_0').hide();
+                $('#pager_1').hide();
+            }
+            if(sumPager-1>items.pager){
+                $('#pager_3').show();
+                $('#pager_4').show();
+            }
+        });
+
+        $('#pager_2').click(function () {
+            //不采取操作
+        });
+        $('#pager_3').click(function () {
+            items.pager_start_index = items.pager * items.pager_count;
+            items.pager = items.pager +1;
+            if(items.pager > 1) {
+                $('#pager_0').show();
+                $('#pager_1').show();
+            }
+            if(sumPager-1<=items.pager){
+                $('#pager_3').hide();
+                $('#pager_4').hide();
+            }
+        });
+        $('#pager_4').click(function () {
+            items.pager_start_index = items.pager * items.pager_count;
+            items.pager = items.pager +1;
+            if(items.pager > 1) {
+                $('#pager_0').show();
+                $('#pager_1').show();
+            }
+            if(sumPager-1<=items.pager){
+                $('#pager_3').hide();
+                $('#pager_4').hide();
+            }
+        });
+
+        //全选择事件
+        $('#head_all_choice').change(function () {
+            if($('#head_all_choice').prop('checked'))
+                $("[name='checkbox']").prop("checked",true);  //全选
+            else
+                $("[name='checkbox']").prop("checked",false);   //取消全选
+        });
+
+        //为添加数据的窗口显示当前时间
+        $('#add_data').click(function () {
+            $('#add_time').val(new Date().format("yyyy-MM-dd hh:mm:ss"));
+            //事实刷新时间
+            $('#add_name').val("");
+            setInterval(function () {
+                $('#add_time').val(new Date().format("yyyy-MM-dd hh:mm:ss"));
+            }, 1000);   //每秒刷新一次
+        });
+
+
+        //添加数据
+        $('#add_enter').click(function () {
+
+            //检测是否为空
+            if(checkAddIsNone())
+                return;
+
+            var name = $('#add_name').val();
+            var myDate = new Date();
+            var rold = $('#add_rold').val();
+            var state = $('#add_state').val();
+            var params={'name':name, 'rold':rold, 'state':state};   //采用服务器时间防止修改注册时间
+
+
+            //将数据提交到服务器
+            //直接拿表单提交
+            var formData = new FormData($('#add_user')[0]);
+            // formData.append('user_img', $('#add_user_img').files[0]);
+            // formData.append('name', name);
+            // // formData.append('date', myDate.format("yyyy-MM-dd hh:mm:ss"));
+            // formData.append('rold', rold);
+            // formData.append('state', state);
+            // formData.append("user", new Blob([JSON.stringify(this.editItem)], {
+            //     type: "application/json"
+            // }));
+            $.ajax({
+                url:'/addUser',
+                data:formData,  //提交表单
+                dataType: 'JSON',
+                type:'post',
+                async: true,        //异步
+                processData: false,  //很重要，告诉jquery不要对form进行处理
+                contentType: false,  //很重要，指定为false才能形成正确的Content-Type
+                success:function (obj) {
+                        if(obj != null) {
+                            items.items.push({
+                                'id':obj.id,
+                                'name': obj.name,
+                                'date': myDate.format("yyyy-MM-dd hh:mm:ss"),
+                                'rold': obj.rold,
+                                'state': obj.state,
+                                'md5':obj.md5
+                            });
+                            $('#addDataModal').modal('hide');
+                            $('#successModal_info').text('成功新增数据！');
+                            $('#successModal').modal('show');
+                            updatePager();
+                        }else
+                            alert('提交失败');
+                },
+                error:function (obj) {
+                    alert('提交失败');
+                }
+            });
+
+            // $('#add_user_img').c
+
+
+            // $.post("/addUser",params,function(obj){
+            //     if(obj === true) {
+            //         items.items.push({
+            //             'name': name,
+            //             'date': myDate.format("yyyy-MM-dd hh:mm:ss"),
+            //             'rold': rold,
+            //             'state': state
+            //         });
+            //         $('#addDataModal').modal('hide');
+            //         $('#successModal_info').text('成功新增数据！');
+            //         $('#successModal').modal('show');
+            //         updatePager();
+            //     }else
+            //         alert('提交失败');
+            // });
+
+
+        });
+
+        //利用modck模拟数据库数据
+        function mockData()
+        {
+            //保存mock，插入数据库用于测试
+            var it = Mock.mock({
+                'items|1200000-2400000': [{
+                    'name': '@cname',
+                    'date': '@date(\'yyyy-MM-dd HH:mm:ss\')',
+                    'rold|1': ['学生', '教师'],
+                    'state|1': ['激活', '禁止']
+
+                }],
+            });
+            for(var i = 0; i < it.items.length; i++)
+            {
+                var params={'name':it.items[i].name, 'rold':it.items[i].rold, 'state':it.items[i].state};
+                $.post("/addUser",params);
+            }
+        }
+         // mockData();
+    });
+
+
+
+</script>
+<script>
+    //选择图片时更新显示的视图
+    function addUserImgPreview(fileInput)
+    {
+        //获取文件
+        var file = fileInput.files[0];
+        var img = document.getElementById("add_user_preview");
+        if(typeof(file) == "undefined"){
+            img.removeAttribute("src");
+            $('#add_user_preview').hide(1000);  //动画效果
+            return;
+        }
+        // alert(file);
+        var imageType = /^image\//;
+        //是否是图片
+        if(!imageType.test(file.type)) {
+            alert("请选择图片！");
+            img.removeAttribute("src");
+            $('#add_user_preview').hide(1000);
+            return;
+        }
+
+        var url = window.URL.createObjectURL(file);
+        img.src = url;
+        $('#add_user_preview').show(1000);
+
+
+
+    }
+
+
+    // $('#delModal').on('show.bs.modal', function (event) {
+    //     var button = $(event.relatedTarget); // 得到按钮
+    //     recipient = document.getElementById("_id").innerText;//button.data('whatever'); // 全局变量
+    //     // $('#del_id').text('您确定删除编号为: ' + button.value + ' 的同学？');
+    // });
+
+
+    // function del(index) {
+    //     $('#del_id').text('您确定删除编号为: ' + index + ' 的同学？');
+    // }
+</script>
+</body>
+</html>

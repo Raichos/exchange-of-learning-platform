@@ -78,6 +78,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers("/css/**", "/js/**", "/static/**",
                 "/lose/**","/register","ueditor/**","/login/**","/","/index","/phoneLogin",
                 "/phone","/qrlogin","/getImg","/phoneUser","/recharge","/useOrAddIntegral",
-                "/getAllArticle");
+                "/getAllArticle", "/phoneLoginSuccess");
     }
 }
