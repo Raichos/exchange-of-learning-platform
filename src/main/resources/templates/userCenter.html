@@ -229,37 +229,35 @@
 <div id="bg">
     <div class="top-nav "  style="width: 100%">
         <nav class="navbar navbar-dark bg-secondary" id="vshop-nav" >
-            <!--<img src="/static/img/brand.png" width="50" height="50">-->
-            <div class="col-md-1">
 
-            </div>
-            <div class="col-md-2">
-                <img src="/static/img/brand.png" width="50" height="50">
-                <span style="color: white;font-size: 18px;">学习平台</span>
+            <div class="col-md-1 offset-md-1">
+                <img src="../static/img/weshare-icon.png" style="width: 48%"/>
+                <!--                    <span style="color: white;font-size: 18px;">学习平台</span>-->
             </div>
             <!--                <div class="col-md-1"></div>-->
-            <div class="col-md-6">
-                <ul class="navbar-nav mr-auto vshop-nav-items">
-                    <li class="nav-item" style="margin: 0 5%;">
-                        <a class="nav-link" href="/">首页<span class="sr-only">(current)</span></a>
+            <div class="col-md-8">
+                <ul class="navbar-nav mr-auto vshop-nav-items float-right">
+                    <li class="nav-item ml-5">
+                        <a class="nav-link" href="/index">首页</a>
                     </li>
-                    <li class="nav-item" style="margin: 0 5%;">
-                        <a class="nav-link" href="#">博语</a>
+                    <li class="nav-item ml-5">
+                        <a class="nav-link" href="/userindex">博语</a>
                     </li>
-                    <li class="nav-item" style="margin: 0 5%;">
-                        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                        积分社区
-                        </button>
+                    <li class="nav-item ml-5">
+                        <a class="nav-link" href="/userCenter" style="color: white">积分社区</a>
                     </li>
-                    <li class="nav-item" style="margin: 0 5%;">
-                        <a class="nav-link" href="/userindex">联系平台</a>
+                    <li class="nav-item ml-5 " style="margin-right: 10rem!important;">
+                        <a class="nav-link" href="/resourceShare">资源分享</a>
                     </li>
-                    <li class="nav-item" style="margin: 0 5%;">
-                        <a class="nav-link" href="/resourcetwo">资源分享</a>
+                    <li class="nav-item ml-5 mr-5">
+                        <form class="form-inline my-2 my-lg-0" style="margin-right: 20px">
+                            <input class="form-control mr-sm-2" type="search" placeholder="搜索">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+                        </form>
                     </li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <!--//头像-->
                 <div>
 
@@ -312,6 +310,12 @@
                     <div class="tab-pane fade show active" id="nav-div1" role="tabpanel" aria-labelledby="nav-a1-tab">
                         <div class="tab-content" style="border-radius: 8px">
                             <form class="m-3">
+                                <div class="form-group">
+                                    <!--预览图片-->
+                                    <p for="edit_time">用户头像</p>
+                                    <img id="add_user_preview" style="width: 50px;height: 50px;border-radius: 50px;background: white;">
+                                    <input type="file" name="user_img" id="add_user_img" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="addUserImgPreview(this)">
+                                </div>
                                 <div class="form-group row">
                                     <label for="inputEmail3" class="col-form-label">用户名</label>
                                     <div class="col-4">
@@ -379,7 +383,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--<button class="btn btn-success mt-2 mr-2 row" id="alipay-button" type="button">提交</button>-->
+                                <button class="btn btn-success mt-2 mr-2 row" id="alipay-button" type="button">提交</button>
                                 <!--<input onclick="">-->
                                 <span class="w-100 weshare-top-line row"></span>
                                 <span class="row m-2 text-left text-secondary" style="font-size:14px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前支付方式为支付宝支付，请输入您要充值的金额后，点击提交，会出现二维码，您只需打开支付宝扫一扫支付即可实现支付，若支付过程中出现问题，请联系我们。我们将为您解决。——WeShare</span>
